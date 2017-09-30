@@ -1,1 +1,4 @@
-sceneSetups: []
+sceneSetups:
+- path: Assets/Angelo/TestingScenes/CharacterControllerTestingScene.unity
+  isLoaded: 1
+  isActive: 1
