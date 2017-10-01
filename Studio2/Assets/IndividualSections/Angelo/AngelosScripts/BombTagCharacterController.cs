@@ -31,7 +31,12 @@ public class BombTagCharacterController : MonoBehaviour
 
     private void MovementExecution(Vector3 inputForMovement)
     {
-
+        Vector3 test = gameObject.transform.forward * inputForMovement.z + gameObject.transform.right * inputForMovement.x;
+        test.x = test.x * desiredMovementSpeed;
+        test.z = test.z * desiredMovementSpeed;
+        test.y = 0f;
+        myRigidBody.AddForce(test, ForceMode.Force);
+        Debug.DrawRay(gameObject.transform.position, test);
     }
 
     #endregion
