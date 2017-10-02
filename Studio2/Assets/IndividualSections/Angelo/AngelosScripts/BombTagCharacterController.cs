@@ -9,7 +9,6 @@ public class BombTagCharacterController : MonoBehaviour
     #region PrivateVariables
 
     private Rigidbody myRigidBody;
-    private Collider myCollider;
 
     #endregion
 
@@ -34,26 +33,34 @@ public class BombTagCharacterController : MonoBehaviour
 
     private void MovementExecution(Vector3 vectorForMovement)
     {
-        Vector3 movementVector = vectorForMovement;
-        movementVector.x = movementVector.x * desiredMovementSpeed;
-        movementVector.z = movementVector.z * desiredMovementSpeed;
-        movementVector.y = 0f;
-        myRigidBody.AddForce(movementVector, ForceMode.Impulse);
+        vectorForMovement.x = vectorForMovement.x * desiredMovementSpeed;
+        vectorForMovement.z = vectorForMovement.z * desiredMovementSpeed;
+        vectorForMovement.y = 0f;
+        myRigidBody.AddForce(vectorForMovement, ForceMode.Impulse);
     }
 
-    private void RotationExecution(Vector3 inputForRotation)
+    private void RotationExecution(Vector3 vectorForStorage, Vector3 vectorForRotation)
     {
-        Vector3 test2 = gameObject.transform.up * inputForRotation.x;
-        test2.x = test2.x * desiredTurningSpeed;
-        myRigidBody.AddTorque(test2, ForceMode.VelocityChange);
-    }
-
-    private void JumpExecution()
-    {
-        if (myRigidBody.velocity.y == 0)
+        if(Vector3.Dot(transform.forward, vectorForStorage) != 1 && vectorForStorage != Vector3.zero)
         {
-            Debug.Log("LL");
+            vectorForRotation.x = vectorForRotation.x * desiredTurningSpeed;
+            vectorForRotation.z = vectorForRotation.z * desiredTurningSpeed;
+            myRigidBody.AddTorque(vectorForRotation, ForceMode.Acceleration);
+            Debug.Log("gotta turn!");
         }
+
+        else if(Vector3.Dot(transform.forward,vectorForStorage) == 1)
+        {
+            myRigidBody.angularVelocity = Vector3.zero;
+            Debug.Log("I can't stop help me");
+        }
+        
+        else if(vectorForStorage == Vector3.zero)
+        {
+            myRigidBody.angularVelocity = Vector3.zero;
+        }
+
+        Debug.Log(Vector3.Dot(transform.forward, vectorForStorage));
     }
 
     #endregion
@@ -63,14 +70,15 @@ public class BombTagCharacterController : MonoBehaviour
     private void Awake()
     {
         myRigidBody = GetComponent<Rigidbody>();
-        myCollider = GetComponent<Collider>();
     }
 
     private void FixedUpdate()
     {
         Vector3 storageVector = MovementInput();
-        Vector3 movementStorageVector = CalculateMovementVector(storageVector);
-        MovementExecution(movementStorageVector);
+        //Vector3 movementStorageVector = CalculateMovementVector(storageVector);
+        Vector3 rotationStorageVector = CalculateRotationVector(storageVector);
+        MovementExecution(storageVector);
+        RotationExecution(storageVector, rotationStorageVector);
         DebugUtility(storageVector);
     }
 
@@ -78,17 +86,25 @@ public class BombTagCharacterController : MonoBehaviour
 
     #region UtilityFunctions
 
-    private void DebugUtility(Vector3 inputForMovement)
+    private void DebugUtility(Vector3 input)
     {
-        Vector3 movementVector = CalculateMovementVector(inputForMovement);
-        Debug.DrawRay(gameObject.transform.position, movementVector);
-        Debug.DrawRay(gameObject.transform.position, gameObject.transform.forward);
+        //Vector3 movementVector = CalculateMovementVector(input);
+        Debug.DrawRay(gameObject.transform.position, input * 3, Color.blue);
+        //Debug.DrawRay(gameObject.transform.position, movementVector * 2, Color.green);
+        Debug.DrawRay(gameObject.transform.position, gameObject.transform.forward, Color.white);
+        //Debug.Log(myRigidBody.angularVelocity);
     }
 
-    private Vector3 CalculateMovementVector(Vector3 input)
+    //private Vector3 CalculateMovementVector(Vector3 input)
+    //{
+    //    Vector3 vectorForMovement = gameObject.transform.forward * input.z + gameObject.transform.right * input.x;
+    //    return vectorForMovement;
+    //}
+
+    private Vector3 CalculateRotationVector(Vector3 input)
     {
-        Vector3 vectorForMovement = gameObject.transform.forward * input.z + gameObject.transform.right * input.x;
-        return vectorForMovement;
+        Vector3 vectorForRotation = gameObject.transform.up * input.z + gameObject.transform.up * input.x;
+        return vectorForRotation;
     }
     #endregion
 }
