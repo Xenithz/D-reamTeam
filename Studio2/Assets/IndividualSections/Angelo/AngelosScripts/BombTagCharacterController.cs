@@ -18,6 +18,7 @@ public class BombTagCharacterController : MonoBehaviour
     public float desiredMovementSpeed;
     public float desiredTurningSpeed;
     public float desiredJumpForce;
+
     #endregion
 
     #region MyFunctions
@@ -31,13 +32,13 @@ public class BombTagCharacterController : MonoBehaviour
         return inputToReturn;
     }
 
-    private void MovementExecution(Vector3 inputForMovement)
+    private void MovementExecution(Vector3 vectorForMovement)
     {
-        Vector3 test = gameObject.transform.forward * inputForMovement.z + gameObject.transform.right * inputForMovement.x;
-        test.x = test.x * desiredMovementSpeed;
-        test.z = test.z * desiredMovementSpeed;
-        test.y = 0f;
-        myRigidBody.AddForce(test, ForceMode.Impulse);
+        Vector3 movementVector = vectorForMovement;
+        movementVector.x = movementVector.x * desiredMovementSpeed;
+        movementVector.z = movementVector.z * desiredMovementSpeed;
+        movementVector.y = 0f;
+        myRigidBody.AddForce(movementVector, ForceMode.Impulse);
     }
 
     private void RotationExecution(Vector3 inputForRotation)
@@ -49,17 +50,10 @@ public class BombTagCharacterController : MonoBehaviour
 
     private void JumpExecution()
     {
-        if(myRigidBody.velocity.y == 0)
+        if (myRigidBody.velocity.y == 0)
         {
             Debug.Log("LL");
         }
-    }
-
-    private void DebugUtility(Vector3 inputForMovement)
-    {
-        Vector3 test = gameObject.transform.forward * inputForMovement.z + gameObject.transform.right * inputForMovement.x;
-        Debug.DrawRay(gameObject.transform.position, test);
-        Debug.DrawRay(gameObject.transform.position, gameObject.transform.forward);
     }
 
     #endregion
@@ -72,18 +66,29 @@ public class BombTagCharacterController : MonoBehaviour
         myCollider = GetComponent<Collider>();
     }
 
-    private void Update()
-    {
-        
-    }
-
     private void FixedUpdate()
     {
         Vector3 storageVector = MovementInput();
-        MovementExecution(storageVector);
-        RotationExecution(storageVector);
+        Vector3 movementStorageVector = CalculateMovementVector(storageVector);
+        MovementExecution(movementStorageVector);
         DebugUtility(storageVector);
     }
 
+    #endregion
+
+    #region UtilityFunctions
+
+    private void DebugUtility(Vector3 inputForMovement)
+    {
+        Vector3 movementVector = CalculateMovementVector(inputForMovement);
+        Debug.DrawRay(gameObject.transform.position, movementVector);
+        Debug.DrawRay(gameObject.transform.position, gameObject.transform.forward);
+    }
+
+    private Vector3 CalculateMovementVector(Vector3 input)
+    {
+        Vector3 vectorForMovement = gameObject.transform.forward * input.z + gameObject.transform.right * input.x;
+        return vectorForMovement;
+    }
     #endregion
 }
