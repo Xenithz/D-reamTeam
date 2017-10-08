@@ -41,7 +41,7 @@ public class BombTagCharacterController : MonoBehaviour
 
     private void RotationExecution(Vector3 vectorForStorage, Vector3 vectorForRotation)
     {
-        if(Vector3.Dot(transform.forward, vectorForStorage) != 1 && vectorForStorage != Vector3.zero)
+        if(Vector3.Dot(transform.forward, vectorForStorage) <= 0.99f && vectorForStorage != Vector3.zero)
         {
             vectorForRotation.x = vectorForRotation.x * desiredTurningSpeed;
             vectorForRotation.z = vectorForRotation.z * desiredTurningSpeed;
@@ -49,7 +49,7 @@ public class BombTagCharacterController : MonoBehaviour
             Debug.Log("gotta turn!");
         }
 
-        else if(Vector3.Dot(transform.forward,vectorForStorage) == 1)
+        else if(Vector3.Dot(transform.forward,vectorForStorage) >= 0.99f)
         {
             myRigidBody.angularVelocity = Vector3.zero;
             Debug.Log("I can't stop help me");
