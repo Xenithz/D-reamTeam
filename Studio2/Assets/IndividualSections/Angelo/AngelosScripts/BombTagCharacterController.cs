@@ -9,6 +9,7 @@ public class BombTagCharacterController : MonoBehaviour
     #region PrivateVariables
 
     private Rigidbody myRigidBody;
+    private CapsuleCollider myCollider;
 
     #endregion
 
@@ -49,6 +50,13 @@ public class BombTagCharacterController : MonoBehaviour
             Debug.Log("gotta turn!");
         }
 
+        //else if (Vector3.Dot(transform.forward, vectorForStorage) >= 1 && vectorForStorage != Vector3.zero && vectorForStorage.x)
+        //{
+        //    vectorForRotation.x = vectorForRotation.x * desiredTurningSpeed;
+        //    vectorForRotation.z = vectorForRotation.z * desiredTurningSpeed;
+        //    myRigidBody.AddTorque(vectorForRotation, ForceMode.Acceleration);
+        //}
+
         else if(Vector3.Dot(transform.forward,vectorForStorage) >= 0.99f)
         {
             myRigidBody.angularVelocity = Vector3.zero;
@@ -61,6 +69,15 @@ public class BombTagCharacterController : MonoBehaviour
         }
 
         Debug.Log(Vector3.Dot(transform.forward, vectorForStorage));
+        //Debug.Log(vectorForStorage);
+    }
+
+    private void JumpExecution()
+    {
+        if(Input.GetKeyDown(KeyCode.Space) && CheckJump())
+        {
+            myRigidBody.AddForce(new Vector3(0f, desiredJumpForce, 0f), ForceMode.Impulse);
+        }
     }
 
     #endregion
@@ -70,6 +87,7 @@ public class BombTagCharacterController : MonoBehaviour
     private void Awake()
     {
         myRigidBody = GetComponent<Rigidbody>();
+        myCollider = GetComponent<CapsuleCollider>();
     }
 
     private void FixedUpdate()
@@ -105,6 +123,13 @@ public class BombTagCharacterController : MonoBehaviour
     {
         Vector3 vectorForRotation = gameObject.transform.up * input.z + gameObject.transform.up * input.x;
         return vectorForRotation;
+    }
+
+    private bool CheckJump()
+    {
+        float distanceToGround;
+        distanceToGround = myCollider.bounds.extents.y;
+        return Physics.Raycast(transform.position, -Vector3.up, distanceToGround + 0.1f);
     }
     #endregion
 }
