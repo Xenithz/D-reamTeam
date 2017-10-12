@@ -97,6 +97,7 @@ public class BombTagCharacterController : MonoBehaviour
         Vector3 rotationStorageVector = CalculateRotationVector(storageVector);
         MovementExecution(storageVector);
         RotationExecution(storageVector, rotationStorageVector);
+        JumpExecution();
         DebugUtility(storageVector);
     }
 
