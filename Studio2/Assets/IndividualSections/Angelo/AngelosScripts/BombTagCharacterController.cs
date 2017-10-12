@@ -77,6 +77,7 @@ public class BombTagCharacterController : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Space) && CheckJump())
         {
             myRigidBody.AddForce(new Vector3(0f, desiredJumpForce, 0f), ForceMode.Impulse);
+            Debug.Log("Jump");
         }
     }
 

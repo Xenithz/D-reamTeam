@@ -6,10 +6,12 @@ using UnityEngine.UI;
 
 
 public class UIManager : MonoBehaviour {
-    public Transform helpCanvas;
-    
-	// Use this for initialization
-	void Start () {
+    public Transform sumoBallHelpCanvas;
+    public Transform bombTagHelpCanvas;
+    public Transform laserJumpHelpCanvas;
+
+    // Use this for initialization
+    void Start () {
 		
 	}
 	
@@ -34,16 +36,16 @@ public class UIManager : MonoBehaviour {
 
     public void OnClickHelp()
     {
-        if (!helpCanvas.gameObject.activeInHierarchy)
+        if (!sumoBallHelpCanvas.gameObject.activeInHierarchy)
         {
-            helpCanvas.gameObject.SetActive(true);
+            sumoBallHelpCanvas.gameObject.SetActive(true);
            
 
 
         }
         else
         {
-            helpCanvas.gameObject.SetActive(false);
+            sumoBallHelpCanvas.gameObject.SetActive(false);
             
 
 
