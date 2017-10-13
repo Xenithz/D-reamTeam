@@ -50,26 +50,43 @@ public class BombTagCharacterController : MonoBehaviour
             Debug.Log("gotta turn!");
         }
 
-        //else if (Vector3.Dot(transform.forward, vectorForStorage) >= 1 && vectorForStorage != Vector3.zero && vectorForStorage.x)
-        //{
-        //    vectorForRotation.x = vectorForRotation.x * desiredTurningSpeed;
-        //    vectorForRotation.z = vectorForRotation.z * desiredTurningSpeed;
-        //    myRigidBody.AddTorque(vectorForRotation, ForceMode.Acceleration);
-        //}
-
         else if(Vector3.Dot(transform.forward,vectorForStorage) >= 0.99f)
         {
             myRigidBody.angularVelocity = Vector3.zero;
             Debug.Log("I can't stop help me");
         }
-        
+
+        else if(Vector3.Dot(transform.forward, vectorForStorage) >= 1 && vectorForStorage == new Vector3(-1, 0, -1) ||
+            Vector3.Dot(transform.forward, vectorForStorage) >= 1 && vectorForStorage == new Vector3(1, 0, -1))
+        {
+            vectorForRotation.x = vectorForRotation.x * desiredTurningSpeed;
+            vectorForRotation.z = vectorForRotation.z * desiredTurningSpeed;
+            myRigidBody.AddTorque(vectorForRotation, ForceMode.Acceleration);
+        }
+
+        else if (Vector3.Dot(transform.forward, vectorForStorage) >= 1 && vectorForStorage == new Vector3(-1, 0, 1) ||
+            Vector3.Dot(transform.forward, vectorForStorage) >= 1 && vectorForStorage == new Vector3(1, 0, 1))
+        {
+            vectorForRotation.x = vectorForRotation.x * desiredTurningSpeed;
+            vectorForRotation.z = vectorForRotation.z * desiredTurningSpeed;
+            myRigidBody.AddTorque(vectorForRotation, ForceMode.Acceleration);
+        }
+
         else if(vectorForStorage == Vector3.zero)
         {
             myRigidBody.angularVelocity = Vector3.zero;
         }
 
-        Debug.Log(Vector3.Dot(transform.forward, vectorForStorage));
+        //Debug.Log(Vector3.Dot(transform.forward, vectorForStorage));
         //Debug.Log(vectorForStorage);
+    }
+
+    private void ClampVelocityMagnitude()
+    {
+        if(myRigidBody.velocity.magnitude > 10f)
+        {
+            myRigidBody.velocity = Vector3.ClampMagnitude(myRigidBody.velocity, 10f);
+        }
     }
 
     private void JumpExecution()
@@ -99,6 +116,7 @@ public class BombTagCharacterController : MonoBehaviour
         MovementExecution(storageVector);
         RotationExecution(storageVector, rotationStorageVector);
         JumpExecution();
+        ClampVelocityMagnitude();
         DebugUtility(storageVector);
     }
 
