@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class BTBomb : MonoBehaviour
 {
-    public int timeTillExplosion = 30;
+    public float timeTillExplosion = 30;
+    public float currentTimeTillExplosion; 
 
     public GameObject bombOwner;
     public BTPlayer bombOwnerPlayer;
@@ -12,6 +13,12 @@ public class BTBomb : MonoBehaviour
     private void Awake()
     {
         bombOwnerPlayer = bombOwner.GetComponent<BTPlayer>();
+        currentTimeTillExplosion = timeTillExplosion;
+    }
+
+    private void Update()
+    {
+        
     }
 
     public void SetBombOwner(GameObject newBombOwner)
@@ -21,5 +28,25 @@ public class BTBomb : MonoBehaviour
         bombOwnerPlayer = bombOwner.GetComponent<BTPlayer>();
         bombOwnerPlayer.currentPlayerState = BTPlayerState.hasBomb;
         bombOwnerPlayer.myBomb = this;
+    }
+
+    public void DestroyOwner(GameObject bombOwner)
+    {
+        GameObject.Destroy(bombOwner);
+    }
+
+    public void TimeTickDown()
+    {
+        currentTimeTillExplosion -= Time.deltaTime;
+        
+        if(currentTimeTillExplosion <= 0)
+        {
+            Explosion();
+        }
+    }
+
+    public void Explosion()
+    {
+
     }
 }
