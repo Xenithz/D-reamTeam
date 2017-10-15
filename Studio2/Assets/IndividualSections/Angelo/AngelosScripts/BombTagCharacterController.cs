@@ -6,6 +6,12 @@ using UnityEngine;
 [RequireComponent(typeof(BoxCollider))]
 public class BombTagCharacterController : MonoBehaviour
 {
+    /* TODO:
+     * -Compress the addforce section of rotation into a single function to avoid repeated code.
+     * -Clean up unused functions and debugs. 
+     * -Add further protective code.
+    */
+
     #region PrivateVariables
 
     private Rigidbody myRigidBody;

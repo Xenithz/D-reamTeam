@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/IndividualSections/Angelo/TestingScenes/CharacterControllerTestingScene.unity
+- path: Assets/IndividualSections/Leon/Scenes/Bomb Tag tutorial Level.unity
   isLoaded: 1
   isActive: 1
