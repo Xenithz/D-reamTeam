@@ -4,16 +4,17 @@ using UnityEngine;
 
 public class BTBombAssigner : MonoBehaviour
 {
-    public List<BTPlayer> playerList = new List<BTPlayer>();
+    public List<GameObject> playerList = new List<GameObject>();
     public BTBomb myBomb;
 
     private void Awake()
     {
-        GameObject[] tempArray = GameObject.FindGameObjectsWithTag("Player");
+        GameObject[] tempArray = GameObject.FindGameObjectsWithTag("PlayerP");
 
-        for (int i = 0; i <= 4; i++)
+        for (int i = 0; i < 4; i++)
         {
-            playerList.Add(tempArray[i].GetComponent<BTPlayer>());
+            playerList.Add(tempArray[i]);
+            Debug.Log(playerList.Count);
         }
     }
 
@@ -22,10 +23,10 @@ public class BTBombAssigner : MonoBehaviour
 
     }
 
-    private void RandomizeAndAssign()
+    public void RandomizeAndAssign()
     {
         int randomGen = Random.Range(0, playerList.Count);
-        myBomb.SetBombOwner(playerList[randomGen].gameObject);
-        playerList[randomGen].currentPlayerState = BTPlayerState.hasBomb;
+        myBomb.SetBombOwner(playerList[randomGen]);
+        playerList[randomGen].GetComponent<BTPlayer>().currentPlayerState = BTPlayerState.hasBomb;
     }
 }
