@@ -18,7 +18,7 @@ public class BTBomb : MonoBehaviour
 
     private void Update()
     {
-        
+        TimeTickDown();
     }
 
     public void SetBombOwner(GameObject newBombOwner)
@@ -30,9 +30,10 @@ public class BTBomb : MonoBehaviour
         bombOwnerPlayer.myBomb = this;
     }
 
-    public void DestroyOwner(GameObject bombOwner)
+    public void DestroyOwner(GameObject owner)
     {
-        GameObject.Destroy(bombOwner);
+        GameObject.Destroy(owner);
+        this.bombOwner = null;
     }
 
     public void TimeTickDown()
@@ -41,12 +42,7 @@ public class BTBomb : MonoBehaviour
         
         if(currentTimeTillExplosion <= 0)
         {
-            Explosion();
+            DestroyOwner(bombOwner);
         }
-    }
-
-    public void Explosion()
-    {
-
     }
 }

@@ -43,6 +43,8 @@ public class BombTagCharacterController : MonoBehaviour
         vectorForMovement.x = vectorForMovement.x * desiredMovementSpeed;
         vectorForMovement.z = vectorForMovement.z * desiredMovementSpeed;
         vectorForMovement.y = 0f;
+        vectorForMovement = Vector3.ClampMagnitude(vectorForMovement, 0.2f);
+        Debug.Log(vectorForMovement.magnitude);
         myRigidBody.AddForce(vectorForMovement, ForceMode.Impulse);
     }
 
@@ -53,13 +55,13 @@ public class BombTagCharacterController : MonoBehaviour
             vectorForRotation.x = vectorForRotation.x * desiredTurningSpeed;
             vectorForRotation.z = vectorForRotation.z * desiredTurningSpeed;
             myRigidBody.AddTorque(vectorForRotation, ForceMode.Acceleration);
-            Debug.Log("gotta turn!");
+            //Debug.Log("gotta turn!");
         }
 
         else if(Vector3.Dot(transform.forward,vectorForStorage) >= 0.99f)
         {
             myRigidBody.angularVelocity = Vector3.zero;
-            Debug.Log("I can't stop help me");
+            //Debug.Log("I can't stop help me");
         }
 
         else if(Vector3.Dot(transform.forward, vectorForStorage) >= 1 && vectorForStorage == new Vector3(-1, 0, -1) ||
@@ -89,9 +91,10 @@ public class BombTagCharacterController : MonoBehaviour
 
     private void ClampVelocityMagnitude()
     {
-        if(myRigidBody.velocity.magnitude > 10f)
+        if(myRigidBody.velocity.magnitude > 30f)
         {
-            myRigidBody.velocity = Vector3.ClampMagnitude(myRigidBody.velocity, 10f);
+            myRigidBody.velocity = Vector3.ClampMagnitude(myRigidBody.velocity, 35f);
+            Debug.Log("HIT MAX");
         }
     }
 
