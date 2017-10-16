@@ -24,11 +24,14 @@ public class BombTagCharacterController : MonoBehaviour
     public float desiredMovementSpeed;
     public float desiredTurningSpeed;
     public float desiredJumpForce;
+    public float desiredClampValueForMovementMagnitude;
+    public float desiredClampValueForRBVelocityMagnitude;
 
     #endregion
 
     #region MyFunctions
 
+    //Tracks movement input and stores the input into a vector
     private Vector3 MovementInput()
     {
         Vector3 inputToReturn;
@@ -38,6 +41,7 @@ public class BombTagCharacterController : MonoBehaviour
         return inputToReturn;
     }
 
+    //Takes in proccessed input and uses it to move the character via AddForce
     private void MovementExecution(Vector3 vectorForMovement)
     {
         vectorForMovement.x = vectorForMovement.x * desiredMovementSpeed;
@@ -48,6 +52,7 @@ public class BombTagCharacterController : MonoBehaviour
         myRigidBody.AddForce(vectorForMovement, ForceMode.Impulse);
     }
 
+    //Takes in the direction that the character is moving towards, and adds torque to rotate the character towards the direction of the vector
     private void RotationExecution(Vector3 vectorForStorage, Vector3 vectorForRotation)
     {
         if(Vector3.Dot(transform.forward, vectorForStorage) <= 0.99f && vectorForStorage != Vector3.zero)
@@ -89,6 +94,7 @@ public class BombTagCharacterController : MonoBehaviour
         //Debug.Log(vectorForStorage);
     }
 
+    //Clamps the magnitude of the velocity vector of the rigid body attached to the player
     private void ClampVelocityMagnitude()
     {
         if(myRigidBody.velocity.magnitude > 30f)
@@ -98,6 +104,7 @@ public class BombTagCharacterController : MonoBehaviour
         }
     }
 
+    //Adds force to the player in the upwards direction after checking if they are grounded or not
     private void JumpExecution()
     {
         if(Input.GetKeyDown(KeyCode.Space) && CheckJump())
