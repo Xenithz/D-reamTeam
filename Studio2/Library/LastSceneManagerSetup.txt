@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/IndividualSections/Angelo/TestingScenes/BTTestingScene.unity
+- path: Assets/IndividualSections/Leon/Scenes/Bomb Tag  Level Design.unity
   isLoaded: 1
   isActive: 1
