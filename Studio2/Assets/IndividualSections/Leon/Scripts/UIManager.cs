@@ -6,9 +6,7 @@ using UnityEngine.UI;
 
 
 public class UIManager : MonoBehaviour {
-    public Transform sumoBallHelpCanvas;
-    public Transform bombTagHelpCanvas;
-    public Transform laserJumpHelpCanvas;
+    
 
     // Use this for initialization
     void Start () {
@@ -22,7 +20,7 @@ public class UIManager : MonoBehaviour {
 
     public void OnClickPlay()
     {
-        SceneManager.LoadScene("Game Pick Scene");
+        SceneManager.LoadScene("Login Scene");
     }
     public void OnClickBombtag()
     {
@@ -34,24 +32,7 @@ public class UIManager : MonoBehaviour {
         SceneManager.LoadScene("Main Menu Scene");
     }
 
-    public void OnClickHelp()
-    {
-        if (!sumoBallHelpCanvas.gameObject.activeInHierarchy)
-        {
-            sumoBallHelpCanvas.gameObject.SetActive(true);
-           
-
-
-        }
-        else
-        {
-            sumoBallHelpCanvas.gameObject.SetActive(false);
-            
-
-
-        }
-        
-    }
+    
     public void OnClickQuit()
     {
         Application.Quit();
