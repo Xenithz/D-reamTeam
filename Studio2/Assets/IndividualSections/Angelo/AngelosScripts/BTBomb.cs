@@ -40,6 +40,7 @@ public class BTBomb : MonoBehaviour
     {
         if(bombIsAbleToSwitch == true)
         {
+            bombIsAbleToSwitch = false;
             if (bombOwnerPlayer != null)
             {
                 bombOwnerPlayer.myBomb = null;
@@ -51,7 +52,6 @@ public class BTBomb : MonoBehaviour
             bombOwnerPlayer.myBomb = this;
             this.gameObject.transform.SetParent(bombOwner.transform);
             this.gameObject.transform.position = new Vector3(bombOwner.transform.position.x, bombOwner.transform.position.y + offSet, bombOwner.transform.position.z);
-            bombIsAbleToSwitch = false;
             currentTimeTillCanSwitch = 1;
             Debug.Log("ACCESSED");
         }
