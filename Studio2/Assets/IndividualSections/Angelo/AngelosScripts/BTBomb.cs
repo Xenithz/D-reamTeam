@@ -5,16 +5,22 @@ using UnityEngine;
 public class BTBomb : MonoBehaviour
 {
     public float timeTillExplosion = 5;
-    public float currentTimeTillExplosion; 
+    public float timeTillSwitch = 1;
+    public float currentTimeTillExplosion;
+    public float currentTimeTillCanSwitch;
 
     public GameObject bombOwner;
     public BTPlayer bombOwnerPlayer;
 
     public int offSet = 5;
 
+    public bool bombIsAbleToSwitch;
+
     private void Awake()
     {
         currentTimeTillExplosion = timeTillExplosion;
+        currentTimeTillCanSwitch = timeTillSwitch;
+        bombIsAbleToSwitch = true;
     }
 
     private void Update()
@@ -23,21 +29,32 @@ public class BTBomb : MonoBehaviour
         {
             TimeTickDown();
         }
+
+        if(bombIsAbleToSwitch == false)
+        {
+            SwitchCooldown();
+        }
     }
 
     public void SetBombOwner(GameObject newBombOwner)
     {
-        if(bombOwnerPlayer != null)
+        if(bombIsAbleToSwitch == true)
         {
-            bombOwnerPlayer.myBomb = null;
-        }
+            if (bombOwnerPlayer != null)
+            {
+                bombOwnerPlayer.myBomb = null;
+            }
 
-        bombOwner = newBombOwner;
-        bombOwnerPlayer = bombOwner.GetComponent<BTPlayer>();
-        bombOwnerPlayer.currentPlayerState = BTPlayerState.hasBomb;
-        bombOwnerPlayer.myBomb = this;
-        this.gameObject.transform.SetParent(bombOwner.transform);
-        this.gameObject.transform.position = new Vector3(bombOwner.transform.position.x, bombOwner.transform.position.y + offSet, bombOwner.transform.position.z);
+            bombOwner = newBombOwner;
+            bombOwnerPlayer = bombOwner.GetComponent<BTPlayer>();
+            bombOwnerPlayer.currentPlayerState = BTPlayerState.hasBomb;
+            bombOwnerPlayer.myBomb = this;
+            this.gameObject.transform.SetParent(bombOwner.transform);
+            this.gameObject.transform.position = new Vector3(bombOwner.transform.position.x, bombOwner.transform.position.y + offSet, bombOwner.transform.position.z);
+            bombIsAbleToSwitch = false;
+            currentTimeTillCanSwitch = 1;
+            Debug.Log("ACCESSED");
+        }
     }
 
     public void DestroyOwner(GameObject owner)
@@ -55,6 +72,15 @@ public class BTBomb : MonoBehaviour
         {
             Debug.Log("destroy");
             DestroyOwner(bombOwner);
+        }
+    }
+
+    public void SwitchCooldown()
+    {
+        currentTimeTillCanSwitch -= Time.deltaTime;
+        if(currentTimeTillCanSwitch <= 0)
+        {
+            bombIsAbleToSwitch = true;
         }
     }
 }
