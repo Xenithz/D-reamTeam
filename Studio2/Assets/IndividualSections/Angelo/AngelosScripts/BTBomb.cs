@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class BTBomb : MonoBehaviour
 {
+    #region PublicVariables
+
     public float timeTillExplosion = 5;
     public float timeTillSwitch = 1;
     public float currentTimeTillExplosion;
@@ -16,29 +18,13 @@ public class BTBomb : MonoBehaviour
 
     public bool bombIsAbleToSwitch;
 
-    private void Awake()
-    {
-        currentTimeTillExplosion = timeTillExplosion;
-        currentTimeTillCanSwitch = timeTillSwitch;
-        bombIsAbleToSwitch = true;
-    }
+    #endregion
 
-    private void Update()
-    {
-        if(bombOwner != null)
-        {
-            TimeTickDown();
-        }
-
-        if(bombIsAbleToSwitch == false)
-        {
-            SwitchCooldown();
-        }
-    }
+    #region MyFunctions
 
     public void SetBombOwner(GameObject newBombOwner)
     {
-        if(bombIsAbleToSwitch == true)
+        if (bombIsAbleToSwitch == true)
         {
             bombIsAbleToSwitch = false;
             if (bombOwnerPlayer != null)
@@ -68,7 +54,7 @@ public class BTBomb : MonoBehaviour
     public void TimeTickDown()
     {
         currentTimeTillExplosion -= Time.deltaTime;
-        if(currentTimeTillExplosion <= 0)
+        if (currentTimeTillExplosion <= 0)
         {
             Debug.Log("destroy");
             DestroyOwner(bombOwner);
@@ -78,9 +64,35 @@ public class BTBomb : MonoBehaviour
     public void SwitchCooldown()
     {
         currentTimeTillCanSwitch -= Time.deltaTime;
-        if(currentTimeTillCanSwitch <= 0)
+        if (currentTimeTillCanSwitch <= 0)
         {
             bombIsAbleToSwitch = true;
         }
     }
+
+    #endregion
+
+    #region UnityFunctions
+
+    private void Awake()
+    {
+        currentTimeTillExplosion = timeTillExplosion;
+        currentTimeTillCanSwitch = timeTillSwitch;
+        bombIsAbleToSwitch = true;
+    }
+
+    private void Update()
+    {
+        if (bombOwner != null)
+        {
+            TimeTickDown();
+        }
+
+        if (bombIsAbleToSwitch == false)
+        {
+            SwitchCooldown();
+        }
+    }
+
+    #endregion
 }

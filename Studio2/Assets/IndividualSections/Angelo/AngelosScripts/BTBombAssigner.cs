@@ -18,9 +18,18 @@ public class BTBombAssigner : MonoBehaviour
         }
     }
 
-    private void RemovePlayer()
+    private void RemovePlayer(GameObject gameObjecToCheckFor)
     {
-
+        if (playerList.Contains(gameObjecToCheckFor))
+        {
+            for(int i = 0; i < playerList.Count; i++)
+            {
+                if(playerList[i] == gameObjecToCheckFor)
+                {
+                    playerList.Remove(playerList[i]);
+                }
+            }
+        }
     }
 
     public void RandomizeAndAssign()
