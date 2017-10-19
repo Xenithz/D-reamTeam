@@ -27,11 +27,11 @@ public class BTPlayer : MonoBehaviour
 
             Debug.Log(currentPlayerState + " " + collidedBT.currentPlayerState);
 
-            if(collidedBT.currentPlayerState == BTPlayerState.noBomb && currentPlayerState == BTPlayerState.hasBomb)
+            if(collidedBT.currentPlayerState == BTPlayerState.noBomb && currentPlayerState == BTPlayerState.hasBomb && myBomb.bombIsAbleToSwitch == true)
             {
                 Debug.Log("check 2");
                 myBomb.SetBombOwner(collision.gameObject);
-                currentPlayerState = BTPlayerState.noBomb;
+                this.currentPlayerState = BTPlayerState.noBomb;
             }
         }
 

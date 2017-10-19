@@ -1,4 +1,8 @@
 sceneSetups:
+<<<<<<< HEAD
 - path: Assets/IndividualSections/Leon/Scenes/Sumo Ball Scene.unity
+=======
+- path: Assets/IndividualSections/Angelo/TestingScenes/BTTestingScene.unity
+>>>>>>> fc28bd9143d5b12489f6803a2556955d2ad097ac
   isLoaded: 1
   isActive: 1
