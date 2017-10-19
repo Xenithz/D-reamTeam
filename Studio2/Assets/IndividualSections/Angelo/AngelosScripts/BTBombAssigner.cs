@@ -27,6 +27,6 @@ public class BTBombAssigner : MonoBehaviour
     {
         int randomGen = Random.Range(0, playerList.Count);
         myBomb.SetBombOwner(playerList[randomGen]);
-        playerList[randomGen].GetComponent<BTPlayer>().currentPlayerState = BTPlayerState.hasBomb;
+        //playerList[randomGen].GetComponent<BTPlayer>().currentPlayerState = BTPlayerState.hasBomb;
     }
 }

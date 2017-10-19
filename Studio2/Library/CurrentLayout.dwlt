@@ -416,7 +416,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: dc250000
     m_LastClickedID: 9692
-    m_ExpandedIDs: dcfbffff00000000c2250000f8250000
+    m_ExpandedIDs: dcfbffff00000000c2250000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -545,7 +545,7 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_AssetTreeState:
-    scrollPos: {x: 0, y: 4}
+    scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
     m_ExpandedIDs: 00000000cc24000000250000142500001e250000302500003c25000052250000742500008825000090250000
