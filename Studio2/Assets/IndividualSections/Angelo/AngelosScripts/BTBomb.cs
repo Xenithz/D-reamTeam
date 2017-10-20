@@ -22,6 +22,7 @@ public class BTBomb : MonoBehaviour
 
     #region MyFunctions
 
+    //Function checks if bomb can switch first, then transfers complete ownership of the bomb to the next player
     public void SetBombOwner(GameObject newBombOwner)
     {
         if (bombIsAbleToSwitch == true)
@@ -44,6 +45,7 @@ public class BTBomb : MonoBehaviour
         }
     }
 
+    //Function destroys the current owner
     public void DestroyOwner(GameObject owner)
     {
         gameObject.transform.parent = null;
@@ -52,6 +54,7 @@ public class BTBomb : MonoBehaviour
         currentTimeTillExplosion = timeTillExplosion;
     }
 
+    //Function ticks down time for explosion
     public void TimeTickDown()
     {
         currentTimeTillExplosion -= Time.deltaTime;
@@ -62,6 +65,7 @@ public class BTBomb : MonoBehaviour
         }
     }
 
+    //Function ticks down time for switching cooldown
     public void SwitchCooldown()
     {
         currentTimeTillCanSwitch -= Time.deltaTime;

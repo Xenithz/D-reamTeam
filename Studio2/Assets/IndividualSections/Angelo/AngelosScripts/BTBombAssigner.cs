@@ -18,6 +18,7 @@ public class BTBombAssigner : MonoBehaviour
         }
     }
 
+    //Function removes a player from the list
     private void RemovePlayer(GameObject gameObjecToCheckFor)
     {
         if (playerList.Contains(gameObjecToCheckFor))
@@ -32,6 +33,7 @@ public class BTBombAssigner : MonoBehaviour
         }
     }
 
+    //Function randomly chooses a player from the list and assigns the bomb to them
     public void RandomizeAndAssign()
     {
         int randomGen = Random.Range(0, playerList.Count);
