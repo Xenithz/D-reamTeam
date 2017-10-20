@@ -27,6 +27,7 @@ public class BTBomb : MonoBehaviour
         if (bombIsAbleToSwitch == true)
         {
             bombIsAbleToSwitch = false;
+
             if (bombOwnerPlayer != null)
             {
                 bombOwnerPlayer.myBomb = null;
