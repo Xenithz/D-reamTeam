@@ -9,6 +9,12 @@ public class BTUIManager : MonoBehaviour
     public Text mySwitchCooldown;
     public BTBomb myBomb;
 
+    private void Update()
+    {
+        UpdateMyCountDown();
+        //UpdateSwitchCooldown();
+    }
+
     private void UpdateMyCountDown()
     {
         myCountDown.text = myBomb.timeTillExplosion.ToString();
