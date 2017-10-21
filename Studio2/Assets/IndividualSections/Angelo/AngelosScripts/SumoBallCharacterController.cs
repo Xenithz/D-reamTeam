@@ -15,18 +15,20 @@ public class SumoBallCharacterController : MonoBehaviour
 
     #region PrivateVariables
 
-    private Rigidbody myRigidBody;
-    private CapsuleCollider myCollider;
+    private SphereCollider myCollider;
 
     #endregion
 
     #region PublicVariables
 
+    public Rigidbody myRigidBody;
     public float desiredMovementSpeed;
     public float desiredTurningSpeed;
     public float desiredJumpForce;
     public float desiredClampValueForMovementMagnitude;
     public float desiredClampValueForRBVelocityMagnitude;
+
+    public Vector3 myHeading;
 
     #endregion
 
@@ -114,7 +116,7 @@ public class SumoBallCharacterController : MonoBehaviour
     private void Awake()
     {
         myRigidBody = GetComponent<Rigidbody>();
-        myCollider = GetComponent<CapsuleCollider>();
+        myCollider = GetComponent<SphereCollider>();
     }
 
     private void FixedUpdate()
@@ -126,6 +128,7 @@ public class SumoBallCharacterController : MonoBehaviour
         RotationExecution(storageVector, rotationStorageVector);
         ClampVelocityMagnitude();
         DebugUtility(storageVector);
+        myHeading = storageVector;
     }
 
     #endregion
