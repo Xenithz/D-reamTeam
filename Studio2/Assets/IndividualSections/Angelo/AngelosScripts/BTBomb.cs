@@ -13,6 +13,7 @@ public class BTBomb : MonoBehaviour
 
     public GameObject bombOwner;
     public BTPlayer bombOwnerPlayer;
+    public BTBombAssigner myAssigner;
 
     public int offSet = 5;
 
@@ -48,10 +49,12 @@ public class BTBomb : MonoBehaviour
     //Function destroys the current owner
     public void DestroyOwner(GameObject owner)
     {
+        myAssigner.RemovePlayer(owner);
         gameObject.transform.parent = null;
         GameObject.Destroy(owner);
         this.bombOwner = null;
         currentTimeTillExplosion = timeTillExplosion;
+        myAssigner.RandomizeAndAssign();
     }
 
     //Function ticks down time for explosion

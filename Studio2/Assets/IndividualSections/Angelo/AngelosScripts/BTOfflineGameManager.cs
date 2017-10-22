@@ -5,6 +5,7 @@ using UnityEngine;
 public class BTOfflineGameManager : GameManager
 {
     public BTBombAssigner myAssigner;
+    public BTBomb myBomb;
 
     private void Start()
     {
@@ -13,6 +14,6 @@ public class BTOfflineGameManager : GameManager
 
     private void Update()
     {
-        
+
     }
 }

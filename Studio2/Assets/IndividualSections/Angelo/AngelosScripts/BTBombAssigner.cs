@@ -19,7 +19,7 @@ public class BTBombAssigner : MonoBehaviour
     }
 
     //Function removes a player from the list
-    private void RemovePlayer(GameObject gameObjecToCheckFor)
+    public void RemovePlayer(GameObject gameObjecToCheckFor)
     {
         if (playerList.Contains(gameObjecToCheckFor))
         {
