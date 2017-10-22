@@ -2,19 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerBomb : MonoBehaviour {
-
-    public Player player;
+public class LaserMove : MonoBehaviour {
+    public float speed;
 	// Use this for initialization
 	void Start () {
-        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
-    }
+		
+	}
 	
 	// Update is called once per frame
 	void Update () {
-        
-       
-	}
-   
-
+        transform.Translate(0, 0, -speed * Time.deltaTime, Space.World);
+    }
 }
