@@ -18,15 +18,26 @@ public class BTBombAssigner : MonoBehaviour
         }
     }
 
-    private void RemovePlayer()
+    //Function removes a player from the list
+    private void RemovePlayer(GameObject gameObjecToCheckFor)
     {
-
+        if (playerList.Contains(gameObjecToCheckFor))
+        {
+            for(int i = 0; i < playerList.Count; i++)
+            {
+                if(playerList[i] == gameObjecToCheckFor)
+                {
+                    playerList.Remove(playerList[i]);
+                }
+            }
+        }
     }
 
+    //Function randomly chooses a player from the list and assigns the bomb to them
     public void RandomizeAndAssign()
     {
         int randomGen = Random.Range(0, playerList.Count);
         myBomb.SetBombOwner(playerList[randomGen]);
-        playerList[randomGen].GetComponent<BTPlayer>().currentPlayerState = BTPlayerState.hasBomb;
+        //playerList[randomGen].GetComponent<BTPlayer>().currentPlayerState = BTPlayerState.hasBomb;
     }
 }

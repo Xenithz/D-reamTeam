@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class BTBomb : MonoBehaviour
 {
+    #region PublicVariables
+
     public float timeTillExplosion = 5;
     public float timeTillSwitch = 1;
     public float currentTimeTillExplosion;
@@ -16,31 +18,17 @@ public class BTBomb : MonoBehaviour
 
     public bool bombIsAbleToSwitch;
 
-    private void Awake()
-    {
-        currentTimeTillExplosion = timeTillExplosion;
-        currentTimeTillCanSwitch = timeTillSwitch;
-        bombIsAbleToSwitch = true;
-    }
+    #endregion
 
-    private void Update()
-    {
-        if(bombOwner != null)
-        {
-            TimeTickDown();
-        }
+    #region MyFunctions
 
-        if(bombIsAbleToSwitch == false)
-        {
-            SwitchCooldown();
-        }
-    }
-
+    //Function checks if bomb can switch first, then transfers complete ownership of the bomb to the next player
     public void SetBombOwner(GameObject newBombOwner)
     {
-        if(bombIsAbleToSwitch == true)
+        if (bombIsAbleToSwitch == true)
         {
             bombIsAbleToSwitch = false;
+
             if (bombOwnerPlayer != null)
             {
                 bombOwnerPlayer.myBomb = null;
@@ -57,6 +45,7 @@ public class BTBomb : MonoBehaviour
         }
     }
 
+    //Function destroys the current owner
     public void DestroyOwner(GameObject owner)
     {
         gameObject.transform.parent = null;
@@ -65,22 +54,50 @@ public class BTBomb : MonoBehaviour
         currentTimeTillExplosion = timeTillExplosion;
     }
 
+    //Function ticks down time for explosion
     public void TimeTickDown()
     {
         currentTimeTillExplosion -= Time.deltaTime;
-        if(currentTimeTillExplosion <= 0)
+        if (currentTimeTillExplosion <= 0)
         {
             Debug.Log("destroy");
             DestroyOwner(bombOwner);
         }
     }
 
+    //Function ticks down time for switching cooldown
     public void SwitchCooldown()
     {
         currentTimeTillCanSwitch -= Time.deltaTime;
-        if(currentTimeTillCanSwitch <= 0)
+        if (currentTimeTillCanSwitch <= 0)
         {
             bombIsAbleToSwitch = true;
         }
     }
+
+    #endregion
+
+    #region UnityFunctions
+
+    private void Awake()
+    {
+        currentTimeTillExplosion = timeTillExplosion;
+        currentTimeTillCanSwitch = timeTillSwitch;
+        bombIsAbleToSwitch = true;
+    }
+
+    private void Update()
+    {
+        if (bombOwner != null)
+        {
+            TimeTickDown();
+        }
+
+        if (bombIsAbleToSwitch == false)
+        {
+            SwitchCooldown();
+        }
+    }
+
+    #endregion
 }

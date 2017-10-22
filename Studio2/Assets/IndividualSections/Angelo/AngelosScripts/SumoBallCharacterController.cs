@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
-[RequireComponent(typeof(CapsuleCollider))]
-public class BombTagCharacterController : MonoBehaviour
+[RequireComponent(typeof(SphereCollider))]
+public class SumoBallCharacterController : MonoBehaviour
 {
+
     /* TODO:
      * -Compress the addforce section of rotation into a single function to avoid repeated code.
      * -Clean up unused functions and debugs. 
@@ -14,18 +15,20 @@ public class BombTagCharacterController : MonoBehaviour
 
     #region PrivateVariables
 
-    private Rigidbody myRigidBody;
-    private CapsuleCollider myCollider;
+    private SphereCollider myCollider;
 
     #endregion
 
     #region PublicVariables
 
+    public Rigidbody myRigidBody;
     public float desiredMovementSpeed;
     public float desiredTurningSpeed;
     public float desiredJumpForce;
     public float desiredClampValueForMovementMagnitude;
     public float desiredClampValueForRBVelocityMagnitude;
+
+    public Vector3 myHeading;
 
     #endregion
 
@@ -49,14 +52,14 @@ public class BombTagCharacterController : MonoBehaviour
         vectorForMovement.z = vectorForMovement.z * desiredMovementSpeed;
         vectorForMovement.y = 0f;
         vectorForMovement = Vector3.ClampMagnitude(vectorForMovement, desiredClampValueForMovementMagnitude);
-        //Debug.Log(vectorForMovement.magnitude);
+        Debug.Log(vectorForMovement.magnitude);
         myRigidBody.AddForce(vectorForMovement, ForceMode.Impulse);
     }
 
     //Takes in the direction that the character is moving towards, and adds torque to rotate the character towards the direction of the vector
     private void RotationExecution(Vector3 vectorForStorage, Vector3 vectorForRotation)
     {
-        if(Vector3.Dot(transform.forward, vectorForStorage) <= 0.99f && vectorForStorage != Vector3.zero)
+        if (Vector3.Dot(transform.forward, vectorForStorage) <= 0.99f && vectorForStorage != Vector3.zero)
         {
             vectorForRotation.x = vectorForRotation.x * desiredTurningSpeed;
             vectorForRotation.z = vectorForRotation.z * desiredTurningSpeed;
@@ -64,13 +67,13 @@ public class BombTagCharacterController : MonoBehaviour
             //Debug.Log("gotta turn!");
         }
 
-        else if(Vector3.Dot(transform.forward,vectorForStorage) >= 0.99f)
+        else if (Vector3.Dot(transform.forward, vectorForStorage) >= 0.99f)
         {
             myRigidBody.angularVelocity = Vector3.zero;
             //Debug.Log("I can't stop help me");
         }
 
-        else if(Vector3.Dot(transform.forward, vectorForStorage) >= 1 && vectorForStorage == new Vector3(-1, 0, -1) ||
+        else if (Vector3.Dot(transform.forward, vectorForStorage) >= 1 && vectorForStorage == new Vector3(-1, 0, -1) ||
             Vector3.Dot(transform.forward, vectorForStorage) >= 1 && vectorForStorage == new Vector3(1, 0, -1))
         {
             vectorForRotation.x = vectorForRotation.x * desiredTurningSpeed;
@@ -86,7 +89,7 @@ public class BombTagCharacterController : MonoBehaviour
             myRigidBody.AddTorque(vectorForRotation, ForceMode.Acceleration);
         }
 
-        else if(vectorForStorage == Vector3.zero)
+        else if (vectorForStorage == Vector3.zero)
         {
             myRigidBody.angularVelocity = Vector3.zero;
         }
@@ -99,20 +102,10 @@ public class BombTagCharacterController : MonoBehaviour
     //Clamp was set to 35f originally
     private void ClampVelocityMagnitude()
     {
-        if(myRigidBody.velocity.magnitude > desiredClampValueForRBVelocityMagnitude)
+        if (myRigidBody.velocity.magnitude > desiredClampValueForRBVelocityMagnitude)
         {
             myRigidBody.velocity = Vector3.ClampMagnitude(myRigidBody.velocity, desiredClampValueForRBVelocityMagnitude);
             Debug.Log("HIT MAX");
-        }
-    }
-
-    //Adds force to the player in the upwards direction after checking if they are grounded or not
-    private void JumpExecution()
-    {
-        if(Input.GetKeyDown(KeyCode.Space) && CheckJump())
-        {
-            myRigidBody.AddForce(new Vector3(0f, desiredJumpForce, 0f), ForceMode.Impulse);
-            Debug.Log("Jump");
         }
     }
 
@@ -123,7 +116,7 @@ public class BombTagCharacterController : MonoBehaviour
     private void Awake()
     {
         myRigidBody = GetComponent<Rigidbody>();
-        myCollider = GetComponent<CapsuleCollider>();
+        myCollider = GetComponent<SphereCollider>();
     }
 
     private void FixedUpdate()
@@ -133,9 +126,9 @@ public class BombTagCharacterController : MonoBehaviour
         Vector3 rotationStorageVector = CalculateRotationVector(storageVector);
         MovementExecution(storageVector);
         RotationExecution(storageVector, rotationStorageVector);
-        JumpExecution();
         ClampVelocityMagnitude();
         DebugUtility(storageVector);
+        myHeading = storageVector;
     }
 
     #endregion
@@ -163,11 +156,5 @@ public class BombTagCharacterController : MonoBehaviour
         return vectorForRotation;
     }
 
-    private bool CheckJump()
-    {
-        float distanceToGround;
-        distanceToGround = myCollider.bounds.extents.y;
-        return Physics.Raycast(transform.position, -Vector3.up, distanceToGround + 0.1f);
-    }
     #endregion
 }
