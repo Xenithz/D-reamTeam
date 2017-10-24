@@ -125,7 +125,7 @@ public class SumoBallCharacterController : MonoBehaviour
         //Vector3 movementStorageVector = CalculateMovementVector(storageVector);
         Vector3 rotationStorageVector = CalculateRotationVector(storageVector);
         MovementExecution(storageVector);
-        RotationExecution(storageVector, rotationStorageVector);
+        //RotationExecution(storageVector, rotationStorageVector);
         ClampVelocityMagnitude();
         DebugUtility(storageVector);
         myHeading = storageVector;

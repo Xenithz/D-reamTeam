@@ -8,7 +8,7 @@ public class SBPlayer : MonoBehaviour
 
     private void Awake()
     {
-        
+        myController = GetComponent<SumoBallCharacterController>();
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -19,12 +19,12 @@ public class SBPlayer : MonoBehaviour
 
             if(collidedController.myRigidBody.velocity.magnitude > myController.myRigidBody.velocity.magnitude)
             {
-
+                myController.myRigidBody.AddForce(collidedController.myRigidBody.velocity - myController.myRigidBody.velocity, ForceMode.Impulse);
             }
 
             else if (collidedController.myRigidBody.velocity.magnitude < myController.myRigidBody.velocity.magnitude)
             {
-
+                collidedController.myRigidBody.AddForce(myController.myRigidBody.velocity - collidedController.myRigidBody.velocity, ForceMode.Impulse);
             }
 
             else if (collidedController.myRigidBody.velocity.magnitude == myController.myRigidBody.velocity.magnitude)
@@ -33,12 +33,12 @@ public class SBPlayer : MonoBehaviour
 
                 if(myRandom == 1)
                 {
-
+                    collidedController.myRigidBody.AddForce(myController.myRigidBody.velocity - collidedController.myRigidBody.velocity, ForceMode.Impulse);
                 }
 
                 else if(myRandom == 2)
                 {
-
+                    myController.myRigidBody.AddForce(collidedController.myRigidBody.velocity - myController.myRigidBody.velocity, ForceMode.Impulse);
                 }
             }
         }
