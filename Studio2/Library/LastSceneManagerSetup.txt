@@ -1,4 +1,8 @@
 sceneSetups:
+<<<<<<< HEAD
 - path: Assets/IndividualSections/Leon/Scenes/Login Scene.unity
+=======
+- path: Assets/IndividualSections/Angelo/TestingScenes/SBTestingScene.unity
+>>>>>>> 3ef9314e34478f7e52a9ebe3eebe5864cfed4854
   isLoaded: 1
   isActive: 1
