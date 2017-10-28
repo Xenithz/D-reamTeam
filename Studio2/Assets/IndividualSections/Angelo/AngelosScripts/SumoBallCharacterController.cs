@@ -53,7 +53,7 @@ public class SumoBallCharacterController : MonoBehaviour
         vectorForMovement.y = 0f;
         vectorForMovement = Vector3.ClampMagnitude(vectorForMovement, desiredClampValueForMovementMagnitude);
         Debug.Log(vectorForMovement.magnitude);
-        myRigidBody.AddForce(vectorForMovement, ForceMode.Impulse);
+        myRigidBody.AddForce(vectorForMovement, ForceMode.Force);
     }
 
     //Takes in the direction that the character is moving towards, and adds torque to rotate the character towards the direction of the vector
