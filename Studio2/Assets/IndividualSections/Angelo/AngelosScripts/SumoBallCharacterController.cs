@@ -52,7 +52,7 @@ public class SumoBallCharacterController : MonoBehaviour
         vectorForMovement.z = vectorForMovement.z * desiredMovementSpeed;
         vectorForMovement.y = 0f;
         vectorForMovement = Vector3.ClampMagnitude(vectorForMovement, desiredClampValueForMovementMagnitude);
-        Debug.Log(vectorForMovement.magnitude);
+        //Debug.Log(vectorForMovement.magnitude);
         myRigidBody.AddForce(vectorForMovement, ForceMode.Force);
     }
 
@@ -105,7 +105,7 @@ public class SumoBallCharacterController : MonoBehaviour
         if (myRigidBody.velocity.magnitude > desiredClampValueForRBVelocityMagnitude)
         {
             myRigidBody.velocity = Vector3.ClampMagnitude(myRigidBody.velocity, desiredClampValueForRBVelocityMagnitude);
-            Debug.Log("HIT MAX");
+            //Debug.Log("HIT MAX");
         }
     }
 

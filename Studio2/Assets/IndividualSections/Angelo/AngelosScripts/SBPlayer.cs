@@ -13,32 +13,70 @@ public class SBPlayer : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.GetComponent<SumoBallCharacterController>() != null)
+        //if(collision.gameObject.GetComponent<SumoBallCharacterController>() != null)
+        //{
+        //    SumoBallCharacterController collidedController = collision.gameObject.GetComponent<SumoBallCharacterController>();
+
+        //    if(collidedController.myRigidBody.velocity.magnitude > myController.myRigidBody.velocity.magnitude)
+        //    {
+        //        myController.myRigidBody.AddForce(collidedController.myRigidBody.velocity - myController.myRigidBody.velocity, ForceMode.Impulse);
+        //    }
+
+        //    else if (collidedController.myRigidBody.velocity.magnitude < myController.myRigidBody.velocity.magnitude)
+        //    {
+        //        collidedController.myRigidBody.AddForce(myController.myRigidBody.velocity - collidedController.myRigidBody.velocity, ForceMode.Impulse);
+        //    }
+
+        //    else if (collidedController.myRigidBody.velocity.magnitude == myController.myRigidBody.velocity.magnitude)
+        //    {
+        //        int myRandom = Random.Range(1, 2);
+
+        //        if(myRandom == 1)
+        //        {
+        //            collidedController.myRigidBody.AddForce(myController.myRigidBody.velocity - collidedController.myRigidBody.velocity, ForceMode.Impulse);
+        //        }
+
+        //        else if(myRandom == 2)
+        //        {
+        //            myController.myRigidBody.AddForce(collidedController.myRigidBody.velocity - myController.myRigidBody.velocity, ForceMode.Impulse);
+        //        }
+        //    }
+        //}
+
+        if(collision.gameObject.GetComponent<Rigidbody>() != null)
         {
-            SumoBallCharacterController collidedController = collision.gameObject.GetComponent<SumoBallCharacterController>();
+            Rigidbody collidedRigidBody = collision.gameObject.GetComponent<Rigidbody>();
 
-            if(collidedController.myRigidBody.velocity.magnitude > myController.myRigidBody.velocity.magnitude)
+            if(collidedRigidBody.velocity.magnitude > myController.myRigidBody.velocity.magnitude)
             {
-                myController.myRigidBody.AddForce(collidedController.myRigidBody.velocity - myController.myRigidBody.velocity, ForceMode.Impulse);
+                myController.myRigidBody.AddForce((collidedRigidBody.velocity - myController.myRigidBody.velocity) * 5, ForceMode.Impulse);
+                Debug.Log(myController.myRigidBody.velocity.magnitude + " " + collidedRigidBody.velocity.magnitude);
+                Debug.Log("they win");
             }
 
-            else if (collidedController.myRigidBody.velocity.magnitude < myController.myRigidBody.velocity.magnitude)
+            if (collidedRigidBody.velocity.magnitude < myController.myRigidBody.velocity.magnitude)
             {
-                collidedController.myRigidBody.AddForce(myController.myRigidBody.velocity - collidedController.myRigidBody.velocity, ForceMode.Impulse);
+               collidedRigidBody.AddForce((myController.myRigidBody.velocity  - collidedRigidBody.velocity) * 5, ForceMode.Impulse);
+                Debug.Log(myController.myRigidBody.velocity.magnitude + " " + collidedRigidBody.velocity.magnitude);
+                Debug.Log("I win");
             }
 
-            else if (collidedController.myRigidBody.velocity.magnitude == myController.myRigidBody.velocity.magnitude)
+            if (collidedRigidBody.velocity.magnitude == myController.myRigidBody.velocity.magnitude)
             {
                 int myRandom = Random.Range(1, 2);
 
                 if(myRandom == 1)
                 {
-                    collidedController.myRigidBody.AddForce(myController.myRigidBody.velocity - collidedController.myRigidBody.velocity, ForceMode.Impulse);
+                    myController.myRigidBody.AddForce((collidedRigidBody.velocity - myController.myRigidBody.velocity) * 5, ForceMode.Impulse);
+                    Debug.Log(myController.myRigidBody.velocity.magnitude + " " + collidedRigidBody.velocity.magnitude);
+                    Debug.Log("they win");
                 }
 
-                else if(myRandom == 2)
+                if (myRandom == 2)
                 {
-                    myController.myRigidBody.AddForce(collidedController.myRigidBody.velocity - myController.myRigidBody.velocity, ForceMode.Impulse);
+                    collidedRigidBody.AddForce((myController.myRigidBody.velocity - collidedRigidBody.velocity) * 5, ForceMode.Impulse);
+                    Debug.Log(myController.myRigidBody.velocity.magnitude + " " + collidedRigidBody.velocity.magnitude);
+                    Debug.Log("I win");
                 }
             }
         }
