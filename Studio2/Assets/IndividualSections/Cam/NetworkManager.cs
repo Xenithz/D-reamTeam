@@ -11,7 +11,7 @@ public enum GameStates
     InProgress,
     GameOver
 }
-public class NetworkManager : PunBehaviour {
+public class NetworkManager : Photon.MonoBehaviour {
     public static NetworkManager Instance; 
     [SerializeField]private Text connectionText;
     [SerializeField]private GameObject player;
@@ -38,8 +38,7 @@ public class NetworkManager : PunBehaviour {
 
     public virtual void OnJoinedRoom()
     {
-        playerInRoom++; 
-        PhotonNetwork.Instantiate(player.name,spawnpoints[playerInRoom-1].transform.position, Quaternion.identity,0);
+        PhotonNetwork.Instantiate(player.name,spawnpoints[PhotonNetwork.player.ID-1].transform.position, Quaternion.identity,0);
     }
 	// Update is called once per frame
 	void Update () {
