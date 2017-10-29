@@ -12,10 +12,11 @@ public enum GameStates
     GameOver
 }
 public class NetworkManager : Photon.MonoBehaviour {
-    public static NetworkManager Instance; 
+   // public static NetworkManager Instance; 
     [SerializeField]private Text connectionText;
     [SerializeField]private GameObject player;
     [SerializeField]private GameObject[] spawnpoints;
+    public List<GameObject> allPlayers = new List<GameObject> ();
     private int playerInRoom = 0; 
  
 
@@ -38,7 +39,11 @@ public class NetworkManager : Photon.MonoBehaviour {
 
     public virtual void OnJoinedRoom()
     {
-        PhotonNetwork.Instantiate(player.name,spawnpoints[PhotonNetwork.player.ID-1].transform.position, Quaternion.identity,0);
+      GameObject localPlayer =  PhotonNetwork.Instantiate(player.name,spawnpoints[PhotonNetwork.player.ID-1].transform.position, Quaternion.identity,0);
+      allPlayers.Add(localPlayer);
+    
+
+        
     }
 	// Update is called once per frame
 	void Update () {

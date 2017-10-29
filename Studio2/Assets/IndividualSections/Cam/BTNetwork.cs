@@ -4,13 +4,15 @@ using Photon;
 using UnityEngine;
 
 public class BTNetwork : Photon.MonoBehaviour {
-    BombTagCharacterController controlScript;
 
+
+    BombTagCharacterController controlScript;
+    public NetworkManager Instance;
 
 
     void Awake()
     {
-
+        Instance = GetComponent<NetworkManager>();
         controlScript = GetComponent<BombTagCharacterController>();
         if (photonView.isMine)
         {
@@ -20,9 +22,9 @@ public class BTNetwork : Photon.MonoBehaviour {
         else
         {
 
-            controlScript.enabled = true;
+            controlScript.enabled = false;
         }
-        gameObject.name = gameObject.name + photonView.viewID;
+            gameObject.name = gameObject.name + photonView.viewID;
 
     }
 
@@ -30,25 +32,19 @@ public class BTNetwork : Photon.MonoBehaviour {
     {
         if (stream.isWriting)
         {
-            //We own this player: send the others our data
-            //stream.SendNext((int)controllerScript._characterState);
+
             stream.SendNext(transform.position);
             stream.SendNext(transform.rotation);
         }
+
         else
         {
-            //Network player, receive data
-            //controllerScript._characterState = (CharacterState)(int)stream.ReceiveNext();
-            //correctPlayerPos = (Vector3)stream.ReceiveNext();
-            //correctPlayerRot = (Quaternion)stream.ReceiveNext();
 
-            // avoids lerping the character from "center" to the "current" position when this client joins
-            // if (firstTake)
-            //{
-            // firstTake = false;
-            // this.transform.position = correctPlayerPos;
-            // transform.rotation = correctPlayerRot;
-        //}
+            foreach(GameObject player in Instance.allPlayers )
+            {
+                player.transform.position = (Vector3) stream.ReceiveNext();
+                player.transform.rotation = (Quaternion)stream.ReceiveNext();
+            }
 
         }
     }
