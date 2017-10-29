@@ -1,1 +1,4 @@
-sceneSetups: []
+sceneSetups:
+- path: Assets/IndividualSections/Cameron/AnotherTest.unity
+  isLoaded: 1
+  isActive: 1
