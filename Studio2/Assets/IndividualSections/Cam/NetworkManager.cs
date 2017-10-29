@@ -7,6 +7,7 @@ using UnityEngine;
 
 public enum GameStates
 {
+    SetUp,
     Starting,
     InProgress,
     GameOver
@@ -18,7 +19,8 @@ public class NetworkManager : Photon.MonoBehaviour, IPunObservable{
     [SerializeField]private GameObject[] spawnpoints;
     public List<GameObject> allPlayers = new List<GameObject> ();
     private int playerInRoom = 0;
-    static public GameStates currentGameState = GameStates.Starting;
+    public GameStates currentGameState = GameStates.SetUp;
+    //public GameObject myInstance; 
 
 
     //[SerializeField]private GameObject lobbyCamera;
@@ -41,21 +43,36 @@ public class NetworkManager : Photon.MonoBehaviour, IPunObservable{
         PhotonNetwork.JoinOrCreateRoom("New", null, null);
     }
 
+    public virtual void OnDisconnectedFromPhoton()
+    {
+        for(int i = 0; i < allPlayers.Count; i++)
+        {
+            if(allPlayers[i] == null)
+            {
+                allPlayers.Remove(allPlayers[i]);
+            } 
+          
+        }
+    }
+
     public virtual void OnJoinedRoom()
     {
       GameObject localPlayer =  PhotonNetwork.Instantiate(player.name,spawnpoints[PhotonNetwork.player.ID-1].transform.position, Quaternion.identity,0);
-        this.photonView.RPC("AddToList", PhotonTargets.All, localPlayer.name);
-        this.photonView.RPC("CheckPlayerList", PhotonTargets.All);
+       // myInstance = localPlayer; 
+        this.photonView.RPC("AddToList", PhotonTargets.AllBufferedViaServer, localPlayer.name);
+        this.photonView.RPC("CheckPlayerList", PhotonTargets.AllBuffered);
     
 
         
     }
+
+
     [PunRPC]
     public void CheckPlayerList()
     {
         if (PhotonNetwork.playerList.Length > 1)
         {
-            currentGameState = GameStates.InProgress;
+            currentGameState = GameStates.Starting;
         }
 
     }

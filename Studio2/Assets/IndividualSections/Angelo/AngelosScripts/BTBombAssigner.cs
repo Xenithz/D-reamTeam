@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BTBombAssigner : NetworkManager
+public class BTBombAssigner : Photon.MonoBehaviour, IPunObservable
 {
     public List<GameObject> playerList = new List<GameObject>();
     public BTBomb myBomb;
@@ -13,16 +13,33 @@ public class BTBombAssigner : NetworkManager
         
     }
 
-    public void AddPlayers()
+    void FixedUpdate ()
     {
-        GameObject[] tempArray = GameObject.FindGameObjectsWithTag("PlayerP");
-
-        for (int i = 0; i < 4; i++)
+        if (NetworkManager.Instance.currentGameState == GameStates.Starting)
         {
-            playerList.Add(tempArray[i]);
-            Debug.Log(playerList.Count);
+            NetworkManager.Instance.photonView.RPC("AddPlayers", PhotonTargets.All);
         }
     }
+
+    [PunRPC]
+    public void AddPlayers()
+    {
+        // GameObject[] tempArray = GameObject.FindGameObjectsWithTag("PlayerP");
+        playerList = new List<GameObject>(NetworkManager.Instance.allPlayers);
+        NetworkManager.Instance.currentGameState = GameStates.InProgress;
+
+       /* for (int i = 0; i < NetworkManager.Instance.allPlayers.Count; i++)
+        {
+            playerList.Add(NetworkManager.Instance.allPlayers[i]);
+            Debug.Log(playerList.Count);
+        }*/
+    }
+
+    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    {
+
+    }
+
 
     //Function removes a player from the list
     public void RemovePlayer(GameObject gameObjecToCheckFor)
