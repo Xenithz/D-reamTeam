@@ -3,16 +3,16 @@ using System.Collections.Generic;
 using Photon;
 using UnityEngine;
 
-public class BTNetwork : Photon.MonoBehaviour {
+public class BTNetwork : Photon.MonoBehaviour, IPunObservable {
 
 
     BombTagCharacterController controlScript;
-    public NetworkManager Instance;
+    //public NetworkManager Instance;
 
 
     void Awake()
     {
-        Instance = GetComponent<NetworkManager>();
+       // Instance = GameObject.FindGameObjectWithTag("NM").GetComponent<NetworkManager>();
         controlScript = GetComponent<BombTagCharacterController>();
         if (photonView.isMine)
         {
@@ -28,26 +28,11 @@ public class BTNetwork : Photon.MonoBehaviour {
 
     }
 
-    void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+   public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
-        if (stream.isWriting)
-        {
-
-            stream.SendNext(transform.position);
-            stream.SendNext(transform.rotation);
-        }
-
-        else
-        {
-
-            foreach(GameObject player in Instance.allPlayers )
-            {
-                player.transform.position = (Vector3) stream.ReceiveNext();
-                player.transform.rotation = (Quaternion)stream.ReceiveNext();
-            }
-
-        }
+        
     }
+
 
     // Use this for initialization
     void Start () {

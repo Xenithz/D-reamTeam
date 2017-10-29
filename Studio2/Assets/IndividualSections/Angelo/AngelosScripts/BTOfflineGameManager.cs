@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class BTOfflineGameManager : GameManager
 {
+
+    public NetworkManager myNetwork;
     public BTBombAssigner myAssigner;
     public BTBomb myBomb;
 

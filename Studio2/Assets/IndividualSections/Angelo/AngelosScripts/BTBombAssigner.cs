@@ -2,12 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BTBombAssigner : MonoBehaviour
+public class BTBombAssigner : NetworkManager
 {
     public List<GameObject> playerList = new List<GameObject>();
     public BTBomb myBomb;
 
     private void Awake()
+    {
+
+        
+    }
+
+    public void AddPlayers()
     {
         GameObject[] tempArray = GameObject.FindGameObjectsWithTag("PlayerP");
 
