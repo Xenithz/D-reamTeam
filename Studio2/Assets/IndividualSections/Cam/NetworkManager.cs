@@ -9,6 +9,7 @@ public enum GameStates
 {
     SetUp,
     Starting,
+    Assigning,
     InProgress,
     GameOver
 }
