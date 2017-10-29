@@ -12,6 +12,8 @@ public class GameManager : MonoBehaviour
     }
 
     public static GameManager gameManagerInstance;
+    public GameObject playerPrefab;
+    public GameObject localPlayer;
 
     private void Awake()
     {

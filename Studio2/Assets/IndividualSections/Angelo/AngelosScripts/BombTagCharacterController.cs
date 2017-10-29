@@ -102,7 +102,7 @@ public class BombTagCharacterController : MonoBehaviour
         if(myRigidBody.velocity.magnitude > desiredClampValueForRBVelocityMagnitude)
         {
             myRigidBody.velocity = Vector3.ClampMagnitude(myRigidBody.velocity, desiredClampValueForRBVelocityMagnitude);
-            Debug.Log("HIT MAX");
+            //Debug.Log("HIT MAX");
         }
     }
 
@@ -112,7 +112,7 @@ public class BombTagCharacterController : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Space) && CheckJump())
         {
             myRigidBody.AddForce(new Vector3(0f, desiredJumpForce, 0f), ForceMode.Impulse);
-            Debug.Log("Jump");
+            //Debug.Log("Jump");
         }
     }
 
