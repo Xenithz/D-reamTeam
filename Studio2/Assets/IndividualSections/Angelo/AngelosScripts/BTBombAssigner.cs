@@ -20,9 +20,9 @@ public class BTBombAssigner : Photon.MonoBehaviour, IPunObservable
             NetworkManager.Instance.photonView.RPC("AddPlayers", PhotonTargets.All);
         }
 
-        if(NetworkManager.Instance.currentGameState == GameStates.Assigning)
+        if(PhotonNetwork.player == PhotonNetwork.masterClient && NetworkManager.Instance.currentGameState == GameStates.Assigning)
         {
-            NetworkManager.Instance.photonView.RPC("RandomizeAndAssign", PhotonTargets.All);
+            NetworkManager.Instance.photonView.RPC("RandomizeAndAssign", PhotonTargets.MasterClient);
         }
     }
 
@@ -48,14 +48,17 @@ public class BTBombAssigner : Photon.MonoBehaviour, IPunObservable
     [PunRPC]
     public void SetBomb(string randomInt)
     {
-        myBomb.SetBombOwner(playerList[int.Parse(randomInt)]);
+        //myBomb.SetBombOwner(playerList[int.Parse(randomInt)].name);
+        NetworkManager.Instance.photonView.RPC("SetBombOwner", PhotonTargets.All, playerList[int.Parse(randomInt)].name);
         NetworkManager.Instance.currentGameState = GameStates.InProgress;
 
     }
 
     //Function removes a player from the list
-    public void RemovePlayer(GameObject gameObjecToCheckFor)
+    [PunRPC]
+    public void RemovePlayer(string gameObjectToCheckForName)
     {
+        GameObject gameObjecToCheckFor = GameObject.Find(gameObjectToCheckForName);
         if (playerList.Contains(gameObjecToCheckFor))
         {
             for(int i = 0; i < playerList.Count; i++)
@@ -73,12 +76,10 @@ public class BTBombAssigner : Photon.MonoBehaviour, IPunObservable
     public void RandomizeAndAssign()
     {
         int randomGen = Random.Range(0, playerList.Count);
-        if (PhotonNetwork.isMasterClient)
-        {
-            NetworkManager.Instance.photonView.RPC("SetBomb", PhotonTargets.All, randomGen.ToString());
-            Debug.Log(randomGen);
+        NetworkManager.Instance.photonView.RPC("SetBomb", PhotonTargets.All, randomGen.ToString());
+        Debug.Log(randomGen);
             
-        }
+   
         //playerList[randomGen].GetComponent<BTPlayer>().currentPlayerState = BTPlayerState.hasBomb;
     }
 }

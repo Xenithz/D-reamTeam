@@ -16,7 +16,7 @@ public enum GameStates
 public class NetworkManager : Photon.MonoBehaviour, IPunObservable{ 
     static public NetworkManager Instance; 
     [SerializeField]private Text connectionText;
-    [SerializeField]private GameObject player;
+    [SerializeField]public GameObject player;
     [SerializeField]private GameObject[] spawnpoints;
     public List<GameObject> allPlayers = new List<GameObject> ();
     private int playerInRoom = 0;
@@ -71,7 +71,7 @@ public class NetworkManager : Photon.MonoBehaviour, IPunObservable{
     [PunRPC]
     public void CheckPlayerList()
     {
-        if (PhotonNetwork.playerList.Length > 1)
+        if (PhotonNetwork.playerList.Length > 2)
         {
             currentGameState = GameStates.Starting;
         }

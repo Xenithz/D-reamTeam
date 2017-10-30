@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BTBomb : MonoBehaviour
+public class BTBomb : Photon.MonoBehaviour, IPunObservable
 {
     #region PublicVariables
 
@@ -12,6 +12,7 @@ public class BTBomb : MonoBehaviour
     public float currentTimeTillCanSwitch;
 
     public GameObject bombOwner;
+    public GameObject bomb;
     public BTPlayer bombOwnerPlayer;
     public BTBombAssigner myAssigner;
 
@@ -24,8 +25,10 @@ public class BTBomb : MonoBehaviour
     #region MyFunctions
 
     //Function checks if bomb can switch first, then transfers complete ownership of the bomb to the next player
-    public void SetBombOwner(GameObject newBombOwner)
+    [PunRPC]
+    public void SetBombOwner(string newBombOwnerName)
     {
+        GameObject newBombOwner = GameObject.Find(newBombOwnerName);
         if (bombIsAbleToSwitch == true)
         {
             bombIsAbleToSwitch = false;
@@ -39,23 +42,26 @@ public class BTBomb : MonoBehaviour
             bombOwnerPlayer = bombOwner.GetComponent<BTPlayer>();
             bombOwnerPlayer.currentPlayerState = BTPlayerState.hasBomb;
             bombOwnerPlayer.myBomb = this;
-            this.gameObject.transform.SetParent(bombOwner.transform);
-            this.gameObject.transform.position = new Vector3(bombOwner.transform.position.x, bombOwner.transform.position.y + offSet, bombOwner.transform.position.z);
+            bomb.transform.SetParent(bombOwner.transform);
+            bomb.transform.position = new Vector3(bombOwner.transform.position.x, bombOwner.transform.position.y + offSet, bombOwner.transform.position.z);
             currentTimeTillCanSwitch = 1;
             Debug.Log("ACCESSED");
         }
     }
 
     //Function destroys the current owner
-    public void DestroyOwner(GameObject owner)
+    [PunRPC]
+    public void DestroyOwner(string ownerName)
     {
-        myAssigner.RemovePlayer(owner);
+        GameObject owner = GameObject.Find(ownerName);
+        NetworkManager.Instance.photonView.RPC("RemovePlayer", PhotonTargets.All, ownerName);
         gameObject.transform.parent = null;
         GameObject.Destroy(owner);
         this.bombOwner = null;
         currentTimeTillExplosion = timeTillExplosion;
-        myAssigner.RandomizeAndAssign();
+        NetworkManager.Instance.photonView.RPC("RandomizeAndAssign", PhotonTargets.MasterClient);
     }
+
 
     //Function ticks down time for explosion
     public void TimeTickDown()
@@ -64,8 +70,13 @@ public class BTBomb : MonoBehaviour
         if (currentTimeTillExplosion <= 0)
         {
             Debug.Log("destroy");
-            DestroyOwner(bombOwner);
+            NetworkManager.Instance.photonView.RPC("DestroyOwner", PhotonTargets.All, bombOwner.name);
         }
+    }
+
+    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    {
+
     }
 
     //Function ticks down time for switching cooldown

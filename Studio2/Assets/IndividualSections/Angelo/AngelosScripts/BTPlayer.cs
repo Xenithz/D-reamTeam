@@ -8,7 +8,7 @@ public enum BTPlayerState
     noBomb
 }
 
-public class BTPlayer : MonoBehaviour
+public class BTPlayer : Photon.MonoBehaviour, IPunObservable
 {
     public BTPlayerState currentPlayerState;
     public BTBomb myBomb;
@@ -30,8 +30,10 @@ public class BTPlayer : MonoBehaviour
             if(collidedBT.currentPlayerState == BTPlayerState.noBomb && currentPlayerState == BTPlayerState.hasBomb && myBomb.bombIsAbleToSwitch == true)
             {
                 Debug.Log("check 2");
-                myBomb.SetBombOwner(collision.gameObject);
-                this.currentPlayerState = BTPlayerState.noBomb;
+                //myBomb.SetBombOwner(collision.gameObject);
+                NetworkManager.Instance.photonView.RPC("SetBombOwner", PhotonTargets.All, collision.gameObject.name);
+                // this.currentPlayerState = BTPlayerState.noBomb;
+                photonView.RPC("SetState", PhotonTargets.All);
             }
         }
 
@@ -39,5 +41,16 @@ public class BTPlayer : MonoBehaviour
         {
             Debug.Log("hdgfhkfakj");
         }
+    }
+
+    [PunRPC]
+    public void SetState ()
+    {
+        currentPlayerState = BTPlayerState.noBomb;
+    }
+
+    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    {
+
     }
 }
