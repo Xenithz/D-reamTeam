@@ -6,11 +6,11 @@ using UnityEngine.UI;
 
 
 public class UIManager : MonoBehaviour {
-    
 
+    
     // Use this for initialization
     void Start () {
-		
+        
 	}
 	
 	// Update is called once per frame
@@ -24,7 +24,19 @@ public class UIManager : MonoBehaviour {
     }
     public void OnClickBombtag()
     {
-        SceneManager.LoadScene("Bomb Tag");
+        SceneManager.LoadScene("Bomb Tag Network");
+    }
+
+    public void OnClickSumoBall()
+    {
+        SceneManager.LoadScene("Sumo Ball Scene");
+
+        
+    }
+
+    public void OnClickLaserJump()
+    {
+        SceneManager.LoadScene("Laser Jump Scene");
     }
 
     public void OnClickBackToMain()
