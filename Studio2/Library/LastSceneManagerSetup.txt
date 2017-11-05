@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/IndividualSections/Leon/Scenes/Laser Jump Scene.unity
+- path: Assets/IndividualSections/Leon/Scenes/Sumo Ball Controls Scene.unity
   isLoaded: 1
   isActive: 1
