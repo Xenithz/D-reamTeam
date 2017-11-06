@@ -1,0 +1,424 @@
+fileFormatVersion: 2
+guid: af2416cc02dd508498f45b7b2e09375c
+timeCreated: 1509983767
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Ast_Rock_004
+    100002: Ast_Rock_005
+    100004: Ast_Rock_006
+    100006: Ast_Rock_007
+    100008: Ast_Rock_008
+    100010: Ast_Rock_009
+    100012: Ast_Rock_010
+    100014: Ast_Rock_1
+    100016: Ast_Rock_2
+    100018: Ast_Rock_3
+    100020: Asteroid_Group2
+    100022: Box010
+    100024: Box011
+    100026: Box012
+    100028: Box013
+    100030: Ceiling
+    100032: Column
+    100034: Column001
+    100036: Delete_Me
+    100038: Floor
+    100040: Glass
+    100042: Glass001
+    100044: Glass002
+    100046: Glass003
+    100048: Glass004
+    100050: Glass005
+    100052: Glass006
+    100054: Glass007
+    100056: //RootNode
+    100058: Track_004
+    100060: Track_1
+    100062: Track_2
+    100064: Track_3
+    100066: Tube001
+    100068: Window_Wall
+    100070: Window_Wall 1
+    100072: Window_Wall001
+    100074: Window_Wall002
+    100076: Window_Wall003
+    100078: Window_Wall004
+    100080: Window_Wall005
+    100082: Window_Wall006
+    100084: Window_Wall007
+    100086: Window_Wall008
+    100088: Window_Wall009
+    100090: Window_Wall010
+    100092: Window_Wall011
+    100094: Window_Wall012
+    100096: Window_Wall013
+    100098: Window_Wall014
+    400000: Ast_Rock_004
+    400002: Ast_Rock_005
+    400004: Ast_Rock_006
+    400006: Ast_Rock_007
+    400008: Ast_Rock_008
+    400010: Ast_Rock_009
+    400012: Ast_Rock_010
+    400014: Ast_Rock_1
+    400016: Ast_Rock_2
+    400018: Ast_Rock_3
+    400020: Asteroid_Group2
+    400022: Box010
+    400024: Box011
+    400026: Box012
+    400028: Box013
+    400030: Ceiling
+    400032: Column
+    400034: Column001
+    400036: Delete_Me
+    400038: Floor
+    400040: Glass
+    400042: Glass001
+    400044: Glass002
+    400046: Glass003
+    400048: Glass004
+    400050: Glass005
+    400052: Glass006
+    400054: Glass007
+    400056: //RootNode
+    400058: Track_004
+    400060: Track_1
+    400062: Track_2
+    400064: Track_3
+    400066: Tube001
+    400068: Window_Wall
+    400070: Window_Wall 1
+    400072: Window_Wall001
+    400074: Window_Wall002
+    400076: Window_Wall003
+    400078: Window_Wall004
+    400080: Window_Wall005
+    400082: Window_Wall006
+    400084: Window_Wall007
+    400086: Window_Wall008
+    400088: Window_Wall009
+    400090: Window_Wall010
+    400092: Window_Wall011
+    400094: Window_Wall012
+    400096: Window_Wall013
+    400098: Window_Wall014
+    2300000: Ast_Rock_004
+    2300002: Ast_Rock_005
+    2300004: Ast_Rock_006
+    2300006: Ast_Rock_007
+    2300008: Ast_Rock_008
+    2300010: Ast_Rock_009
+    2300012: Ast_Rock_010
+    2300014: Ast_Rock_1
+    2300016: Ast_Rock_2
+    2300018: Ast_Rock_3
+    2300020: Box010
+    2300022: Box011
+    2300024: Box012
+    2300026: Box013
+    2300028: Ceiling
+    2300030: Column
+    2300032: Column001
+    2300034: Delete_Me
+    2300036: Floor
+    2300038: Glass
+    2300040: Glass001
+    2300042: Glass002
+    2300044: Glass003
+    2300046: Glass004
+    2300048: Glass005
+    2300050: Glass006
+    2300052: Glass007
+    2300054: Track_004
+    2300056: Track_1
+    2300058: Track_2
+    2300060: Track_3
+    2300062: Window_Wall 1
+    2300064: Window_Wall002
+    2300066: Window_Wall004
+    2300068: Window_Wall006
+    2300070: Window_Wall007
+    2300072: Window_Wall009
+    2300074: Window_Wall012
+    2300076: Window_Wall014
+    3300000: Ast_Rock_004
+    3300002: Ast_Rock_005
+    3300004: Ast_Rock_006
+    3300006: Ast_Rock_007
+    3300008: Ast_Rock_008
+    3300010: Ast_Rock_009
+    3300012: Ast_Rock_010
+    3300014: Ast_Rock_1
+    3300016: Ast_Rock_2
+    3300018: Ast_Rock_3
+    3300020: Box010
+    3300022: Box011
+    3300024: Box012
+    3300026: Box013
+    3300028: Ceiling
+    3300030: Column
+    3300032: Column001
+    3300034: Delete_Me
+    3300036: Floor
+    3300038: Glass
+    3300040: Glass001
+    3300042: Glass002
+    3300044: Glass003
+    3300046: Glass004
+    3300048: Glass005
+    3300050: Glass006
+    3300052: Glass007
+    3300054: Track_004
+    3300056: Track_1
+    3300058: Track_2
+    3300060: Track_3
+    3300062: Window_Wall 1
+    3300064: Window_Wall002
+    3300066: Window_Wall004
+    3300068: Window_Wall006
+    3300070: Window_Wall007
+    3300072: Window_Wall009
+    3300074: Window_Wall012
+    3300076: Window_Wall014
+    4300000: Track_1
+    4300002: Floor
+    4300004: Box010
+    4300006: Box011
+    4300008: Box012
+    4300010: Box013
+    4300012: Delete_Me
+    4300014: Track_2
+    4300016: Track_3
+    4300018: Track_004
+    4300020: Column
+    4300022: Glass
+    4300024: Window_Wall
+    4300026: Glass001
+    4300028: Window_Wall002
+    4300030: Glass002
+    4300032: Window_Wall004
+    4300034: Glass003
+    4300036: Window_Wall006
+    4300038: Column001
+    4300040: Window_Wall007
+    4300042: Glass004
+    4300044: Window_Wall009
+    4300046: Glass005
+    4300048: Glass006
+    4300050: Window_Wall012
+    4300052: Glass007
+    4300054: Window_Wall014
+    4300056: Ceiling
+    4300058: Ast_Rock_005
+    4300060: Ast_Rock_009
+    4300062: Ast_Rock_006
+    4300064: Ast_Rock_008
+    4300066: Ast_Rock_010
+    4300068: Ast_Rock_007
+    4300070: Ast_Rock_3
+    4300072: Ast_Rock_004
+    4300074: Ast_Rock_2
+    4300076: Ast_Rock_1
+    7400000: Take 001
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Take 001
+      takeName: Take 001
+      firstFrame: 0
+      lastFrame: 1200
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Asteroid_Group2
+        weight: 1
+      - path: Asteroid_Group2/Ast_Rock_1
+        weight: 1
+      - path: Asteroid_Group2/Ast_Rock_2
+        weight: 1
+      - path: Asteroid_Group2/Ast_Rock_3
+        weight: 1
+      - path: Asteroid_Group2/Ast_Rock_004
+        weight: 1
+      - path: Asteroid_Group2/Ast_Rock_005
+        weight: 1
+      - path: Asteroid_Group2/Ast_Rock_006
+        weight: 1
+      - path: Asteroid_Group2/Ast_Rock_007
+        weight: 1
+      - path: Asteroid_Group2/Ast_Rock_008
+        weight: 1
+      - path: Asteroid_Group2/Ast_Rock_009
+        weight: 1
+      - path: Asteroid_Group2/Ast_Rock_010
+        weight: 1
+      - path: Box010
+        weight: 1
+      - path: Box011
+        weight: 1
+      - path: Box012
+        weight: 1
+      - path: Box013
+        weight: 1
+      - path: Ceiling
+        weight: 1
+      - path: Column
+        weight: 1
+      - path: Column001
+        weight: 1
+      - path: Delete_Me
+        weight: 1
+      - path: Floor
+        weight: 1
+      - path: Track_1
+        weight: 1
+      - path: Track_2
+        weight: 1
+      - path: Track_3
+        weight: 1
+      - path: Track_004
+        weight: 1
+      - path: Tube001
+        weight: 1
+      - path: Window_Wall
+        weight: 1
+      - path: Window_Wall/Glass
+        weight: 1
+      - path: Window_Wall/Window_Wall 1
+        weight: 1
+      - path: Window_Wall001
+        weight: 1
+      - path: Window_Wall001/Glass001
+        weight: 1
+      - path: Window_Wall001/Window_Wall002
+        weight: 1
+      - path: Window_Wall003
+        weight: 1
+      - path: Window_Wall003/Glass002
+        weight: 1
+      - path: Window_Wall003/Window_Wall004
+        weight: 1
+      - path: Window_Wall005
+        weight: 1
+      - path: Window_Wall005/Glass003
+        weight: 1
+      - path: Window_Wall005/Window_Wall006
+        weight: 1
+      - path: Window_Wall008
+        weight: 1
+      - path: Window_Wall008/Glass004
+        weight: 1
+      - path: Window_Wall008/Window_Wall007
+        weight: 1
+      - path: Window_Wall010
+        weight: 1
+      - path: Window_Wall010/Glass005
+        weight: 1
+      - path: Window_Wall010/Window_Wall009
+        weight: 1
+      - path: Window_Wall011
+        weight: 1
+      - path: Window_Wall011/Glass006
+        weight: 1
+      - path: Window_Wall011/Window_Wall012
+        weight: 1
+      - path: Window_Wall013
+        weight: 1
+      - path: Window_Wall013/Glass007
+        weight: 1
+      - path: Window_Wall013/Window_Wall014
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
