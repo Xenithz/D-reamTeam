@@ -1,0 +1,203 @@
+fileFormatVersion: 2
+guid: a3415bcf43bdfa84cb5f83d9e3435a25
+timeCreated: 1509959766
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Ast_Rock_004
+    100002: Ast_Rock_005
+    100004: Ast_Rock_006
+    100006: Ast_Rock_007
+    100008: Ast_Rock_008
+    100010: Ast_Rock_009
+    100012: Ast_Rock_010
+    100014: Ast_Rock_1
+    100016: Ast_Rock_2
+    100018: Ast_Rock_3
+    100020: Asteroid_Group
+    100022: PlatformRing_1
+    100024: //RootNode
+    100026: Tube001
+    100028: Tube002
+    400000: Ast_Rock_004
+    400002: Ast_Rock_005
+    400004: Ast_Rock_006
+    400006: Ast_Rock_007
+    400008: Ast_Rock_008
+    400010: Ast_Rock_009
+    400012: Ast_Rock_010
+    400014: Ast_Rock_1
+    400016: Ast_Rock_2
+    400018: Ast_Rock_3
+    400020: Asteroid_Group
+    400022: PlatformRing_1
+    400024: //RootNode
+    400026: Tube001
+    400028: Tube002
+    2300000: Ast_Rock_004
+    2300002: Ast_Rock_005
+    2300004: Ast_Rock_006
+    2300006: Ast_Rock_007
+    2300008: Ast_Rock_008
+    2300010: Ast_Rock_009
+    2300012: Ast_Rock_010
+    2300014: Ast_Rock_1
+    2300016: Ast_Rock_2
+    2300018: Ast_Rock_3
+    2300020: PlatformRing_1
+    2300022: Tube002
+    3300000: Ast_Rock_004
+    3300002: Ast_Rock_005
+    3300004: Ast_Rock_006
+    3300006: Ast_Rock_007
+    3300008: Ast_Rock_008
+    3300010: Ast_Rock_009
+    3300012: Ast_Rock_010
+    3300014: Ast_Rock_1
+    3300016: Ast_Rock_2
+    3300018: Ast_Rock_3
+    3300020: PlatformRing_1
+    3300022: Tube002
+    4300000: PlatformRing_1
+    4300002: Tube002
+    4300004: Ast_Rock_1
+    4300006: Ast_Rock_009
+    4300008: Ast_Rock_005
+    4300010: Ast_Rock_010
+    4300012: Ast_Rock_004
+    4300014: Ast_Rock_2
+    4300016: Ast_Rock_3
+    4300018: Ast_Rock_006
+    4300020: Ast_Rock_007
+    4300022: Ast_Rock_008
+    7400000: Take 001
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Take 001
+      takeName: Take 001
+      firstFrame: 0
+      lastFrame: 600
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Asteroid_Group
+        weight: 1
+      - path: Asteroid_Group/Ast_Rock_1
+        weight: 1
+      - path: Asteroid_Group/Ast_Rock_2
+        weight: 1
+      - path: Asteroid_Group/Ast_Rock_3
+        weight: 1
+      - path: Asteroid_Group/Ast_Rock_004
+        weight: 1
+      - path: Asteroid_Group/Ast_Rock_005
+        weight: 1
+      - path: Asteroid_Group/Ast_Rock_006
+        weight: 1
+      - path: Asteroid_Group/Ast_Rock_007
+        weight: 1
+      - path: Asteroid_Group/Ast_Rock_008
+        weight: 1
+      - path: Asteroid_Group/Ast_Rock_009
+        weight: 1
+      - path: Asteroid_Group/Ast_Rock_010
+        weight: 1
+      - path: Asteroid_Group/Tube001
+        weight: 1
+      - path: PlatformRing_1
+        weight: 1
+      - path: Tube002
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
