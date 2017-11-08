@@ -76,7 +76,7 @@ public class BTBombAssigner : Photon.MonoBehaviour, IPunObservable
     public void RandomizeAndAssign()
     {
         int randomGen = Random.Range(0, playerList.Count);
-        NetworkManager.Instance.photonView.RPC("SetBomb", PhotonTargets.All, randomGen.ToString());
+        NetworkManager.Instance.photonView.RPC("SetBomb", PhotonTargets.AllViaServer, randomGen.ToString());
         Debug.Log(randomGen);
             
    

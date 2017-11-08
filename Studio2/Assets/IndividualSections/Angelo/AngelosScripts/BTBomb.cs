@@ -20,6 +20,8 @@ public class BTBomb : Photon.MonoBehaviour, IPunObservable
 
     public bool bombIsAbleToSwitch;
 
+    public bool goNow;
+
     #endregion
 
     #region MyFunctions
@@ -45,6 +47,7 @@ public class BTBomb : Photon.MonoBehaviour, IPunObservable
             bomb.transform.SetParent(bombOwner.transform);
             bomb.transform.position = new Vector3(bombOwner.transform.position.x, bombOwner.transform.position.y + offSet, bombOwner.transform.position.z);
             currentTimeTillCanSwitch = 1;
+            goNow = true;
             Debug.Log("ACCESSED");
         }
     }
@@ -53,15 +56,23 @@ public class BTBomb : Photon.MonoBehaviour, IPunObservable
     [PunRPC]
     public void DestroyOwner(string ownerName)
     {
-        GameObject owner = GameObject.Find(ownerName);
-        NetworkManager.Instance.photonView.RPC("RemovePlayer", PhotonTargets.All, ownerName);
-        gameObject.transform.parent = null;
-        GameObject.Destroy(owner);
-        this.bombOwner = null;
-        currentTimeTillExplosion = timeTillExplosion;
-        NetworkManager.Instance.photonView.RPC("RandomizeAndAssign", PhotonTargets.MasterClient);
+        if (goNow == true)
+        {
+            GameObject owner = GameObject.Find(ownerName);
+            NetworkManager.Instance.photonView.RPC("RemovePlayer", PhotonTargets.All, ownerName);
+            //gameObject.transform.parent = null;
+            //GameObject.Destroy(owner);
+            owner.SetActive(false);
+            //this.bombOwner = null;
+            currentTimeTillExplosion = timeTillExplosion;
+            NetworkManager.Instance.photonView.RPC("RandomizeAndAssign", PhotonTargets.MasterClient);
+            goNow = false;
+        }
+        else
+        {
+            Debug.Log("Nice try");
+        }
     }
-
 
     //Function ticks down time for explosion
     public void TimeTickDown()
@@ -98,6 +109,7 @@ public class BTBomb : Photon.MonoBehaviour, IPunObservable
         currentTimeTillExplosion = timeTillExplosion;
         currentTimeTillCanSwitch = timeTillSwitch;
         bombIsAbleToSwitch = true;
+        goNow = true;
     }
 
     private void Update()
