@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine.UI;
 using Photon;
+using UnityEngine.SceneManagement;
 using UnityEngine;
+
 
 
 
@@ -11,7 +13,8 @@ public class LoginSystem : PunBehaviour {
     public string inputUsername;
     public string inputPassword;
     public Text userField;
-    public Text passwordField; 
+    public Text passwordField;
+    public GameObject userHandler;
     public string loginUrl= "https://localhost/game/Login.php"; 
 
 	IEnumerator Login (string username, string password)
@@ -23,17 +26,23 @@ public class LoginSystem : PunBehaviour {
         WWW www = new WWW(loginUrl, form);
         yield return www;
 
-        Debug.Log(www.text);
+        if (www.text == "login successful")
+        {
+            Debug.Log(www.text);
+            LogInPlayer();
+        }
+
+        else if (www.text == "login failed")
+        {
+            Debug.Log(www.text);
+        }
         
     }
 
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.L))
-        {
-            StartCoroutine(Login(inputUsername, inputPassword));
-        }
+       
         
 
         
@@ -42,6 +51,19 @@ public class LoginSystem : PunBehaviour {
     public void OnLogin()
     {
         StartCoroutine(Login(inputUsername, inputPassword));
+        //SceneManager.LoadScene("Lobby");
+
+        //userHandler.GetComponent<LocalPlayerInfo>().localPlayerName = inputUsername;
+        
+        
+
+    }
+
+    public void LogInPlayer()
+    {
+        SceneManager.LoadScene("Lobby");
+
+        userHandler.GetComponent<LocalPlayerInfo>().localPlayerName = inputUsername;
     }
 
     public void GetUsername()

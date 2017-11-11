@@ -18,8 +18,12 @@ public class NetworkManager : Photon.MonoBehaviour, IPunObservable{
     [SerializeField]private Text connectionText;
     [SerializeField]public GameObject player;
     [SerializeField]private GameObject[] spawnpoints;
+    public List<GameObject> playersAlive;
+    BTBombAssigner BTBA; 
     public List<GameObject> allPlayers = new List<GameObject> ();
     private int playerInRoom = 0;
+    public GameObject resultPanel;
+    public Text resultText;
     public GameStates currentGameState = GameStates.SetUp;
     //public GameObject myInstance; 
 
@@ -33,7 +37,11 @@ public class NetworkManager : Photon.MonoBehaviour, IPunObservable{
     }
     void Start () {
 
+        resultPanel.SetActive(false);
         PhotonNetwork.ConnectUsingSettings("0.1");
+        BTBA = GetComponent<BTBombAssigner>();
+        resultText = resultPanel.GetComponentInChildren<Text>();
+
 		
 	}
 	
@@ -58,13 +66,17 @@ public class NetworkManager : Photon.MonoBehaviour, IPunObservable{
 
     public virtual void OnJoinedRoom()
     {
+
       GameObject localPlayer =  PhotonNetwork.Instantiate(player.name,spawnpoints[PhotonNetwork.player.ID-1].transform.position, Quaternion.identity,0);
-       // myInstance = localPlayer; 
+        // myInstance = localPlayer; 
+
         this.photonView.RPC("AddToList", PhotonTargets.AllBufferedViaServer, localPlayer.name);
         this.photonView.RPC("CheckPlayerList", PhotonTargets.AllBuffered);
-    
 
-        
+
+
+
+
     }
 
 
@@ -93,9 +105,31 @@ public class NetworkManager : Photon.MonoBehaviour, IPunObservable{
 
     }
     // Update is called once per frame
-    void Update () {
 
+
+
+    [PunRPC] //Displays winner and changes game state to Game Over
+    public void DisplayResults()
+    {
+        currentGameState = GameStates.GameOver;
+        resultPanel.SetActive(true);
+        resultText.text = BTBA.playerList[0].name + " wins!"; 
+        
+    }
+    
+    void Update () {
+        //creates reference to playerlist 
+        //playersAlive = BTBA.playerList;
         connectionText.text = PhotonNetwork.connectionStateDetailed.ToString();
+        //checks if there is one player left and displays the winner
+        if (BTBA.playerList.Count <= 1 && currentGameState == GameStates.InProgress)
+        {
+            //display results here.
+            this.photonView.RPC("DisplayResults", PhotonTargets.AllViaServer);
+
+           // DisplayResults();
+            
+        }
         Debug.Log(currentGameState);
 		
 	}
