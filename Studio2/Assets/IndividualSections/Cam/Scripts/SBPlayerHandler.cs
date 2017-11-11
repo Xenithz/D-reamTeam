@@ -26,8 +26,8 @@ public class SBPlayerHandler : Photon.MonoBehaviour, IPunObservable {
     public void AddPlayers()
     {
         // GameObject[] tempArray = GameObject.FindGameObjectsWithTag("PlayerP");
-        playerList = new List<GameObject>(NetworkManager.Instance.allPlayers);
-        NetworkManager.Instance.currentGameState = GameStates.Assigning;
+        playerList = new List<GameObject>(SumoNetworkManager.Instance.allPlayers);
+       // SumoNetworkManager.Instance.currentGameState = GameStates.Assigning;
 
         /* for (int i = 0; i < NetworkManager.Instance.allPlayers.Count; i++)
          {

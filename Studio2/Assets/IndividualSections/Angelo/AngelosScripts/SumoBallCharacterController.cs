@@ -1,10 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Photon; 
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
 [RequireComponent(typeof(SphereCollider))]
-public class SumoBallCharacterController : MonoBehaviour
+public class SumoBallCharacterController : Photon.MonoBehaviour, IPunObservable
 {
 
     /* TODO:
@@ -98,6 +99,11 @@ public class SumoBallCharacterController : MonoBehaviour
         //Debug.Log(vectorForStorage);
     }
 
+    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    {
+
+    }
+
     //Clamps the magnitude of the velocity vector of the rigid body attached to the player
     //Clamp was set to 35f originally
     private void ClampVelocityMagnitude()
@@ -121,14 +127,22 @@ public class SumoBallCharacterController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Vector3 storageVector = MovementInput();
-        //Vector3 movementStorageVector = CalculateMovementVector(storageVector);
-        Vector3 rotationStorageVector = CalculateRotationVector(storageVector);
-        MovementExecution(storageVector);
-        //RotationExecution(storageVector, rotationStorageVector);
-        ClampVelocityMagnitude();
-        DebugUtility(storageVector);
-        myHeading = storageVector;
+      if (SumoNetworkManager.Instance.currentGameState != GameStates.InProgress)
+        {
+            myRigidBody.Sleep();
+        }
+      if (SumoNetworkManager.Instance.currentGameState == GameStates.InProgress)
+        {
+            myRigidBody.WakeUp();
+            Vector3 storageVector = MovementInput();
+            //Vector3 movementStorageVector = CalculateMovementVector(storageVector);
+            Vector3 rotationStorageVector = CalculateRotationVector(storageVector);
+            MovementExecution(storageVector);
+            //RotationExecution(storageVector, rotationStorageVector);
+            ClampVelocityMagnitude();
+            DebugUtility(storageVector);
+            myHeading = storageVector;
+        }
     }
 
     #endregion

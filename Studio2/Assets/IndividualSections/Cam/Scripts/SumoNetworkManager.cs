@@ -83,7 +83,7 @@ public class SumoNetworkManager : Photon.MonoBehaviour, IPunObservable
     {
         if (PhotonNetwork.playerList.Length > 2)
         {
-            currentGameState = GameStates.Starting;
+            currentGameState = GameStates.InProgress;
         }
 
     }

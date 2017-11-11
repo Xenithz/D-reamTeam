@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Photon;
 using UnityEngine;
 
-public class SBNetwork : Photon.MonoBehaviour {
+public class SBNetwork : Photon.MonoBehaviour, IPunObservable {
 
     SumoBallCharacterController controlScript;
     //public NetworkManager Instance;
