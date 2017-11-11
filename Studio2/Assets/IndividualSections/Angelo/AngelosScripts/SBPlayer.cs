@@ -10,7 +10,7 @@ public class SBPlayer : MonoBehaviour
     private void Awake()
     {
         myController = GetComponent<SumoBallCharacterController>();
-        pushBackValue = 10;
+        pushBackValue = 15;
     }
 
     private void OnCollisionEnter(Collision collision)
