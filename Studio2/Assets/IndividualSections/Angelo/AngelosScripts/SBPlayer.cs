@@ -10,9 +10,11 @@ public class SBPlayer : Photon.MonoBehaviour, IPunObservable
     public float currentTimeTillKnockback;
     public float timeTillKnockback;
     public bool goNow;
+    public SBPlayerHandler SBPH;
 
     private void Awake()
     {
+        SBPH = GameObject.Find("Main Camera").GetComponent<SBPlayerHandler>();
         myController = GetComponent<SumoBallCharacterController>();
         pushBackValue = 15;
         currentTimeTillKnockback = timeTillKnockback;
@@ -21,6 +23,13 @@ public class SBPlayer : Photon.MonoBehaviour, IPunObservable
 
     private void OnCollisionEnter(Collision collision)
     {
+
+        if(collision.gameObject.tag == "floor")
+        {
+            SBPH.photonView.RPC("RemovePlayer", PhotonTargets.All, this.gameObject.name);
+            this.gameObject.SetActive(false);
+        }
+
         if(collision.gameObject.GetComponent<Rigidbody>() != null)
         {
             if(goNow == true)
@@ -48,7 +57,7 @@ public class SBPlayer : Photon.MonoBehaviour, IPunObservable
     [PunRPC]
     public void KnockBack(string name)
     {
-        Debug.Log("colliding lol");
+        //Debug.Log("colliding lol");
         GameObject collidedGameObject = GameObject.Find(name);
 
         Rigidbody collidedRigidBody = collidedGameObject.GetComponent<Rigidbody>();
@@ -57,7 +66,7 @@ public class SBPlayer : Photon.MonoBehaviour, IPunObservable
         if (collidedRigidBody.velocity.magnitude > myController.myRigidBody.velocity.magnitude)
         {
             myController.myRigidBody.AddForce(myController.transform.forward * -pushBackValue, ForceMode.Impulse);
-            Debug.Log(myController.myRigidBody.velocity.magnitude + " " + collidedRigidBody.velocity.magnitude);
+           // Debug.Log(myController.myRigidBody.velocity.magnitude + " " + collidedRigidBody.velocity.magnitude);
             goNow = false;
             Debug.Log("they win");
         }
@@ -65,7 +74,7 @@ public class SBPlayer : Photon.MonoBehaviour, IPunObservable
         if (collidedRigidBody.velocity.magnitude < myController.myRigidBody.velocity.magnitude)
         {
             collidedRigidBody.AddForce(collidedRigidBody.transform.forward * -pushBackValue, ForceMode.Impulse);
-            Debug.Log(myController.myRigidBody.velocity.magnitude + " " + collidedRigidBody.velocity.magnitude);
+            //Debug.Log(myController.myRigidBody.velocity.magnitude + " " + collidedRigidBody.velocity.magnitude);
             goNow = false;
             Debug.Log("I win");
         }
@@ -77,7 +86,7 @@ public class SBPlayer : Photon.MonoBehaviour, IPunObservable
             if (myRandom == 1)
             {
                 myController.myRigidBody.AddForce(myController.transform.forward * -pushBackValue, ForceMode.Impulse);
-                Debug.Log(myController.myRigidBody.velocity.magnitude + " " + collidedRigidBody.velocity.magnitude);
+                //Debug.Log(myController.myRigidBody.velocity.magnitude + " " + collidedRigidBody.velocity.magnitude);
                 goNow = false;
                 Debug.Log("they win");
             }
@@ -85,7 +94,7 @@ public class SBPlayer : Photon.MonoBehaviour, IPunObservable
             if (myRandom == 2)
             {
                 collidedRigidBody.AddForce(collidedRigidBody.transform.forward * -pushBackValue, ForceMode.Impulse);
-                Debug.Log(myController.myRigidBody.velocity.magnitude + " " + collidedRigidBody.velocity.magnitude);
+               // Debug.Log(myController.myRigidBody.velocity.magnitude + " " + collidedRigidBody.velocity.magnitude);
                 goNow = false;
                 Debug.Log("I win");
             }
@@ -103,6 +112,9 @@ public class SBPlayer : Photon.MonoBehaviour, IPunObservable
             currentTimeTillKnockback = timeTillKnockback;
         }
     }
+
+
+  
 
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {

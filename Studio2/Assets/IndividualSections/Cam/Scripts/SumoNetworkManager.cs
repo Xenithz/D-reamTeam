@@ -84,6 +84,7 @@ public class SumoNetworkManager : Photon.MonoBehaviour, IPunObservable
         if (PhotonNetwork.playerList.Length > 2)
         {
             currentGameState = GameStates.InProgress;
+            this.photonView.RPC("AddPlayers", PhotonTargets.All);
         }
 
     }
@@ -115,20 +116,25 @@ public class SumoNetworkManager : Photon.MonoBehaviour, IPunObservable
 
     }
 
+    public void StartShrink()
+    {
+
+    }
     void Update()
     {
         //creates reference to playerlist 
        
         connectionText.text = PhotonNetwork.connectionStateDetailed.ToString();
         //checks if there is one player left and displays the winner
-     /*  if (SBPH.playerList.Count <= 1 && currentGameState == GameStates.InProgress)
+       if (SBPH.playerList.Count <= 1 && currentGameState == GameStates.InProgress)
         {
             //display results here.
             this.photonView.RPC("DisplayResults", PhotonTargets.AllViaServer);
+           
 
             // DisplayResults();
 
-        }*/
+        }
         //Debug.Log(currentGameState);
 
     }
