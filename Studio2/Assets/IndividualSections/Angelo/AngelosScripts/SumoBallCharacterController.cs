@@ -127,11 +127,11 @@ public class SumoBallCharacterController : Photon.MonoBehaviour, IPunObservable
 
     private void FixedUpdate()
     {
-      if (SumoNetworkManager.Instance.currentGameState != GameStates.InProgress)
+        if (SumoNetworkManager.Instance.currentGameState != GameStates.InProgress)
         {
             myRigidBody.Sleep();
         }
-      if (SumoNetworkManager.Instance.currentGameState == GameStates.InProgress)
+        if (SumoNetworkManager.Instance.currentGameState == GameStates.InProgress)
         {
             myRigidBody.WakeUp();
             Vector3 storageVector = MovementInput();
@@ -142,8 +142,8 @@ public class SumoBallCharacterController : Photon.MonoBehaviour, IPunObservable
             ClampVelocityMagnitude();
             DebugUtility(storageVector);
             myHeading = storageVector;
-        }
     }
+}
 
     #endregion
 
