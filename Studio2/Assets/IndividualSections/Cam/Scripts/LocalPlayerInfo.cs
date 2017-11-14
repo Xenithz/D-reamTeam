@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LocalPlayerInfo : MonoBehaviour {
 
@@ -10,7 +11,8 @@ public class LocalPlayerInfo : MonoBehaviour {
     //will also store score and carry over score from different game modes.
     public string localPlayerName; 
     public int localPlayerScore; 
-
+    List<Scene>
+    
 
     void Awake()
     {
