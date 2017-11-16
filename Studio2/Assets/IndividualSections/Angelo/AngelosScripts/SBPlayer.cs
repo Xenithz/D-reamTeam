@@ -16,7 +16,7 @@ public class SBPlayer : Photon.MonoBehaviour, IPunObservable
     {
         SBPH = GameObject.Find("Main Camera").GetComponent<SBPlayerHandler>();
         myController = GetComponent<SumoBallCharacterController>();
-        pushBackValue = 15;
+        pushBackValue = 5;
         currentTimeTillKnockback = timeTillKnockback;
         goNow = true;
     }
@@ -63,42 +63,56 @@ public class SBPlayer : Photon.MonoBehaviour, IPunObservable
         Rigidbody collidedRigidBody = collidedGameObject.GetComponent<Rigidbody>();
 
 
-        if (collidedRigidBody.velocity.magnitude > myController.myRigidBody.velocity.magnitude)
-        {
-            myController.myRigidBody.AddForce(myController.transform.forward * -pushBackValue, ForceMode.Impulse);
-           // Debug.Log(myController.myRigidBody.velocity.magnitude + " " + collidedRigidBody.velocity.magnitude);
-            goNow = false;
-            Debug.Log("they win");
-        }
+        //if (collidedRigidBody.velocity.magnitude > myController.myRigidBody.velocity.magnitude)
+        //{
+        //    myController.myRigidBody.AddForce(myController.transform.forward * -pushBackValue, ForceMode.Impulse);
+        //   // Debug.Log(myController.myRigidBody.velocity.magnitude + " " + collidedRigidBody.velocity.magnitude);
+        //    goNow = false;
+        //    Debug.Log("they win");
+        //}
 
         if (collidedRigidBody.velocity.magnitude < myController.myRigidBody.velocity.magnitude)
         {
-            collidedRigidBody.AddForce(collidedRigidBody.transform.forward * -pushBackValue, ForceMode.Impulse);
-            //Debug.Log(myController.myRigidBody.velocity.magnitude + " " + collidedRigidBody.velocity.magnitude);
-            goNow = false;
-            Debug.Log("I win");
-        }
+            //collidedRigidBody.AddForce(collidedRigidBody.transform.forward * -pushBackValue, ForceMode.Impulse);
+     
+            Vector3 direction = collidedRigidBody.GetComponent<SumoBallCharacterController>().myHeading;
+            Vector3 myDirection = GetComponent<SumoBallCharacterController>().myHeading;
 
-        if (collidedRigidBody.velocity.magnitude == myController.myRigidBody.velocity.magnitude)
-        {
-            int myRandom = Random.Range(1, 2);
-
-            if (myRandom == 1)
+            if(direction != Vector3.zero)
             {
-                myController.myRigidBody.AddForce(myController.transform.forward * -pushBackValue, ForceMode.Impulse);
-                //Debug.Log(myController.myRigidBody.velocity.magnitude + " " + collidedRigidBody.velocity.magnitude);
+                collidedRigidBody.AddForce(direction.normalized * -pushBackValue, ForceMode.Impulse);
                 goNow = false;
-                Debug.Log("they win");
+                Debug.Log("I win");
             }
 
-            if (myRandom == 2)
+            else if(direction == Vector3.zero)
             {
-                collidedRigidBody.AddForce(collidedRigidBody.transform.forward * -pushBackValue, ForceMode.Impulse);
-               // Debug.Log(myController.myRigidBody.velocity.magnitude + " " + collidedRigidBody.velocity.magnitude);
+                collidedRigidBody.AddForce((collidedRigidBody.transform.position + myDirection).normalized * pushBackValue, ForceMode.Impulse);
                 goNow = false;
                 Debug.Log("I win");
             }
         }
+
+        //if (collidedRigidBody.velocity.magnitude == myController.myRigidBody.velocity.magnitude)
+        //{
+        //    int myRandom = Random.Range(1, 2);
+
+        //    if (myRandom == 1)
+        //    {
+        //        myController.myRigidBody.AddForce(myController.transform.forward * -pushBackValue, ForceMode.Impulse);
+        //        //Debug.Log(myController.myRigidBody.velocity.magnitude + " " + collidedRigidBody.velocity.magnitude);
+        //        goNow = false;
+        //        Debug.Log("they win");
+        //    }
+
+        //    if (myRandom == 2)
+        //    {
+        //        collidedRigidBody.AddForce(collidedRigidBody.transform.forward * -pushBackValue, ForceMode.Impulse);
+        //       // Debug.Log(myController.myRigidBody.velocity.magnitude + " " + collidedRigidBody.velocity.magnitude);
+        //        goNow = false;
+        //        Debug.Log("I win");
+        //    }
+        //}
 
 
     }
