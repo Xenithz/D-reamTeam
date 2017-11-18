@@ -120,7 +120,7 @@ public class NetworkManager : Photon.MonoBehaviour, IPunObservable{
     void Update () {
         //creates reference to playerlist 
         //playersAlive = BTBA.playerList;
-        connectionText.text = PhotonNetwork.connectionStateDetailed.ToString();
+        //connectionText.text = PhotonNetwork.connectionStateDetailed.ToString();
         //checks if there is one player left and displays the winner
         if (BTBA.playerList.Count <= 1 && currentGameState == GameStates.InProgress)
         {
