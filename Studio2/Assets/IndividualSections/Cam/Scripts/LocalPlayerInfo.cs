@@ -11,7 +11,7 @@ public class LocalPlayerInfo : MonoBehaviour {
     //will also store score and carry over score from different game modes.
     public string localPlayerName; 
     public int localPlayerScore; 
-    
+   
     
 
     void Awake()
