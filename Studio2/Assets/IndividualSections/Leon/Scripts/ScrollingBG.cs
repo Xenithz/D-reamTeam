@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ScrollingBG : MonoBehaviour {
+
     Vector3 pos;
     public float speed;
     // Use this for initialization
@@ -15,9 +16,9 @@ public class ScrollingBG : MonoBehaviour {
         pos = transform.position;
         transform.Translate(Vector3.right * speed * Time.deltaTime);
 
-        if (pos.z <= -27.7)
+        if (pos.z <= -28)
         {
-            pos.z = 7.7f;
+            pos.z = 8f;
             transform.position = pos;
         }
     }
