@@ -16,9 +16,9 @@ public class ScrollingBG : MonoBehaviour {
         pos = transform.position;
         transform.Translate(Vector3.right * speed * Time.deltaTime);
 
-        if (pos.z <= -28)
+        if (pos.z <= -26)
         {
-            pos.z = 8f;
+            pos.z = 9f;
             transform.position = pos;
         }
     }
