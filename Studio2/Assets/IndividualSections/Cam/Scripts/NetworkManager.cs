@@ -89,7 +89,7 @@ public class NetworkManager : Photon.MonoBehaviour, IPunObservable{
     [PunRPC]
     public void CheckPlayerList()
     {
-        if (PhotonNetwork.playerList.Length > 1)
+        if (PhotonNetwork.playerList.Length > 2)
         {
             currentGameState = GameStates.Starting;
         }
