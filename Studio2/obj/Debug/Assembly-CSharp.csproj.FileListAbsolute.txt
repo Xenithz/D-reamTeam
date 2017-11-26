@@ -32,3 +32,4 @@ C:\Unity Projects\D-reamTeam\Studio2\Temp\bin\Debug\Photon3Unity3D.xml
 C:\Unity Projects\D-reamTeam\Studio2\obj\Debug\Assembly-CSharp.csprojResolveAssemblyReference.cache
 C:\Unity Projects\D-reamTeam\Studio2\obj\Debug\Assembly-CSharp.dll
 C:\Unity Projects\D-reamTeam\Studio2\obj\Debug\Assembly-CSharp.pdb
+C:\Unity Projects\D-reamTeam\Studio2\Temp\bin\Debug\Assembly-CSharp-firstpass.pdb

@@ -3,44 +3,47 @@ using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
 
-public class CreateRoom : MonoBehaviour {
+public class RoomCreator : MonoBehaviour {
 
-
-    [SerializeField]
+    public GameObject[] roomPanel;
+    //public Text roomName;
     private Text roomName;
-    private Text _roomName;
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    public Text InputRoomName;
+    int numOfRooms;
 
 
-    public void ClickCreateRoom()
+
+    void Start()
     {
-        if (PhotonNetwork.CreateRoom(_roomName.text))
-        {
-            print("create room sent");
-        }
+        
+    }
 
-        else
+    
+
+    public virtual void OnReceivedRoomListUpdate ()
+    {
+        Debug.Log("checking existing rooms");
+        
+        if (PhotonNetwork.GetRoomList().Length > 0)
         {
-            print("create room did not send");
+            RoomInfo[] rooms = PhotonNetwork.GetRoomList();
+            foreach (RoomInfo room in rooms)
+            {
+                roomPanel[PhotonNetwork.GetRoomList().Length-1].SetActive(true);
+                roomPanel[PhotonNetwork.GetRoomList().Length-1].GetComponent<Text>().text = room.Name; 
+            }
         }
     }
 
-    void OnPhotonCreateRoomFaileed(object[] code)
+    
+
+
+
+    void OnPhotonCreateRoomFailed(object[] code)
     {
         print("Error Connecting to Room: " + code[1]);
     }
     
-    void OnCreateRoom ()
-    {
-
-    }
+ 
 
 }

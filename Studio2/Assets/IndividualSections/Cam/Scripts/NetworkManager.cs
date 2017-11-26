@@ -42,8 +42,14 @@ public class NetworkManager : Photon.MonoBehaviour, IPunObservable{
         BTBA = GetComponent<BTBombAssigner>();
         resultText = resultPanel.GetComponentInChildren<Text>();
 
-		
-	}
+        GameObject localPlayer = PhotonNetwork.Instantiate(player.name, spawnpoints[PhotonNetwork.player.ID - 1].transform.position, Quaternion.identity, 0);
+        // myInstance = localPlayer; 
+
+        this.photonView.RPC("AddToList", PhotonTargets.AllBufferedViaServer, localPlayer.name);
+        this.photonView.RPC("CheckPlayerList", PhotonTargets.AllBuffered);
+
+
+    }
 	
 
     public virtual void OnJoinedLobby()
@@ -67,11 +73,11 @@ public class NetworkManager : Photon.MonoBehaviour, IPunObservable{
     public virtual void OnJoinedRoom()
     {
 
-      GameObject localPlayer =  PhotonNetwork.Instantiate(player.name,spawnpoints[PhotonNetwork.player.ID-1].transform.position, Quaternion.identity,0);
+     // GameObject localPlayer =  PhotonNetwork.Instantiate(player.name,spawnpoints[PhotonNetwork.player.ID-1].transform.position, Quaternion.identity,0);
         // myInstance = localPlayer; 
 
-        this.photonView.RPC("AddToList", PhotonTargets.AllBufferedViaServer, localPlayer.name);
-        this.photonView.RPC("CheckPlayerList", PhotonTargets.AllBuffered);
+        //this.photonView.RPC("AddToList", PhotonTargets.AllBufferedViaServer, localPlayer.name);
+       // this.photonView.RPC("CheckPlayerList", PhotonTargets.AllBuffered);
 
 
 
@@ -83,7 +89,7 @@ public class NetworkManager : Photon.MonoBehaviour, IPunObservable{
     [PunRPC]
     public void CheckPlayerList()
     {
-        if (PhotonNetwork.playerList.Length > 2)
+        if (PhotonNetwork.playerList.Length > 1)
         {
             currentGameState = GameStates.Starting;
         }

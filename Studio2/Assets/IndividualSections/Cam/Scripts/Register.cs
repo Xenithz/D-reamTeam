@@ -8,7 +8,7 @@ using UnityEngine;
 public class Register : PunBehaviour {
 
 
-    public string userUrl = "http://localhost/game/register.php";
+    public string userUrl = "https://cosmicchaos.000webhostapp.com/network/register.php";
     public string inputUserName;
     public string inputPassword;
     public string inputEmail;
