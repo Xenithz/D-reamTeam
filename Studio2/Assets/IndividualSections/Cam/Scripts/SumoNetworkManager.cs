@@ -116,10 +116,6 @@ public class SumoNetworkManager : Photon.MonoBehaviour, IPunObservable
 
     }
 
-    public void StartShrink()
-    {
-
-    }
     void Update()
     {
         //creates reference to playerlist 
