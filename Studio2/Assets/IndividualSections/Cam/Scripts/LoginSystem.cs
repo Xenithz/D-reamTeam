@@ -15,17 +15,19 @@ public class LoginSystem : PunBehaviour {
     public Text userField;
     public Text passwordField;
     public GameObject userHandler;
-    public string loginUrl= "https://localhost/game/Login.php"; 
+    public string loginUrl = "https://cosmicchaos.000webhostapp.com/network/Login.php"; 
 
 	IEnumerator Login (string username, string password)
     {
+        Debug.Log("enter");
         WWWForm form = new WWWForm();
         form.AddField("usernamePost", username);
         form.AddField("passwordPost", password);
 
         WWW www = new WWW(loginUrl, form);
         yield return www;
-
+        Debug.Log(www.text);
+        Debug.Log("returned");
         if (www.text == "login successful")
         {
             Debug.Log(www.text);
@@ -40,21 +42,14 @@ public class LoginSystem : PunBehaviour {
     }
 
 
-    void Update()
+    void Awake()
     {
-       
-        
-
-        
+        loginUrl = "https://cosmicchaos.000webhostapp.com/network/Login.php";
     }
 
-    public void OnLogin()
+public void OnLogin()
     {
         StartCoroutine(Login(inputUsername, inputPassword));
-        //SceneManager.LoadScene("Lobby");
-
-        //userHandler.GetComponent<LocalPlayerInfo>().localPlayerName = inputUsername;
-        
         
 
     }
@@ -62,8 +57,8 @@ public class LoginSystem : PunBehaviour {
     public void LogInPlayer()
     {
         SceneManager.LoadScene("Lobby");
-
         userHandler.GetComponent<LocalPlayerInfo>().localPlayerName = inputUsername;
+
     }
 
     public void GetUsername()
