@@ -31,7 +31,6 @@ public class LTNetworkManager : Photon.MonoBehaviour, IPunObservable
 
         resultPanel.SetActive(false);
         PhotonNetwork.ConnectUsingSettings("0.1");
-        //SBPH = GetComponent<SBPlayerHandler>();
         resultText = resultPanel.GetComponentInChildren<Text>();
 
 
@@ -40,7 +39,7 @@ public class LTNetworkManager : Photon.MonoBehaviour, IPunObservable
     public virtual void OnJoinedLobby()
     {
         Debug.Log("connected to master");
-        PhotonNetwork.JoinOrCreateRoom("New2", null, null);
+        PhotonNetwork.JoinOrCreateRoom("New3", null, null);
     }
 
     public virtual void OnDisconnectedFromPhoton()
@@ -77,7 +76,7 @@ public class LTNetworkManager : Photon.MonoBehaviour, IPunObservable
         if (PhotonNetwork.playerList.Length > 2)
         {
             currentGameState = GameStates.InProgress;
-            this.photonView.RPC("AddPlayers", PhotonTargets.All);
+            //this.photonView.RPC("AddPlayers", PhotonTargets.All);
         }
 
     }
