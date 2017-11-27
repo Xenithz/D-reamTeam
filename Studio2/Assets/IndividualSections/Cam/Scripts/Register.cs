@@ -24,6 +24,9 @@ public class Register : PunBehaviour {
 
     public GameObject panel;
 
+    public Transform logIn;
+    public Transform register;
+
 
 	// Use this for initialization
 	
@@ -51,12 +54,17 @@ public class Register : PunBehaviour {
 
     public void OnClickRegister()
     {
+
+        register.gameObject.SetActive(false);
+        logIn.gameObject.SetActive(true);
+
         inputUserName = userTextField.text.ToString();
         inputPassword = passwordTextField.text.ToString();
         inputEmail = emailTextField.text.ToString();
         inputConfirm = passwordConfirmField.text.ToString();
 
         CheckPassword();
+
 
     }
 
