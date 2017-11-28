@@ -81,6 +81,7 @@ public class SBPlayer : Photon.MonoBehaviour, IPunObservable
             if(direction != Vector3.zero)
             {
                 collidedRigidBody.AddForce(direction.normalized * -pushBackValue, ForceMode.Impulse);
+                myController.myRigidBody.AddForce(-direction.normalized * (pushBackValue - 1), ForceMode.Impulse);
                 goNow = false;
                 Debug.Log("I win");
             }

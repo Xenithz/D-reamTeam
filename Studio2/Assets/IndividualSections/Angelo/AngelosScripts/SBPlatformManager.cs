@@ -126,6 +126,7 @@ public class SBPlatformManager : MonoBehaviour
         platform.transform.localScale = scaleToShrinkTo;
         if (platform.transform.localScale == scaleToShrinkTo)
         {
+            platform1.SetActive(false);
             isReadyToSwitch = true;
         }
     }

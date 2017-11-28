@@ -1,4 +1,8 @@
 sceneSetups:
+<<<<<<< HEAD
 - path: Assets/IndividualSections/Leon/Scenes/Bomb Tag Tutorial.unity
+=======
+- path: Assets/IndividualSections/Leon/Scenes/Sumo Ball Scene.unity
+>>>>>>> 873ca80691a91299ea5279826b18ec79fb80dd13
   isLoaded: 1
   isActive: 1
