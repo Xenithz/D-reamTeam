@@ -7,17 +7,22 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour {
 
-    
-    // Use this for initialization
-    void Start () {
-        
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 
+    public Transform logIn;
+    public Transform register;
+	
+    
+    public void OnClickSignUp()  //to play and pause the game and the audio clip.
+    {
+        
+        
+            logIn.gameObject.SetActive(false);
+            register.gameObject.SetActive(true);
+        
+        
+    }
+
+    
     public void OnClickPlay()
     {
         SceneManager.LoadScene("Login Scene");
