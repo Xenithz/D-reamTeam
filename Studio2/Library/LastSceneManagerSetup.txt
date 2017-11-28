@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/IndividualSections/Leon/Scenes/Win Scene.unity
+- path: Assets/IndividualSections/Leon/Scenes/Sumo Ball Scene.unity
   isLoaded: 1
   isActive: 1
