@@ -34,7 +34,9 @@ public class NetworkManager : Photon.MonoBehaviour, IPunObservable{
     void Awake()
     {
         Instance = this;
+        AudioManager.instance.PlayBackground(1);
     }
+
     void Start () {
 
         resultPanel.SetActive(false);
@@ -47,7 +49,6 @@ public class NetworkManager : Photon.MonoBehaviour, IPunObservable{
 
         this.photonView.RPC("AddToList", PhotonTargets.AllBufferedViaServer, localPlayer.name);
         this.photonView.RPC("CheckPlayerList", PhotonTargets.AllBuffered);
-
 
     }
 	
@@ -91,6 +92,7 @@ public class NetworkManager : Photon.MonoBehaviour, IPunObservable{
     {
         if (PhotonNetwork.playerList.Length > 2)
         {
+            //starting audio
             currentGameState = GameStates.Starting;
         }
 
@@ -132,6 +134,9 @@ public class NetworkManager : Photon.MonoBehaviour, IPunObservable{
         {
             //display results here.
             this.photonView.RPC("DisplayResults", PhotonTargets.AllViaServer);
+            //stop timer
+            //next game starting in...
+            //load next scene
 
            // DisplayResults();
             

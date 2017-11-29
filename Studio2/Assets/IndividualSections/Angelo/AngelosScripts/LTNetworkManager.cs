@@ -25,6 +25,7 @@ public class LTNetworkManager : Photon.MonoBehaviour, IPunObservable
     void Awake()
     {
         Instance = this;
+        AudioManager.instance.PlayBackground(3);
     }
     void Start()
     {

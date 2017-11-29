@@ -111,6 +111,7 @@ public class BombTagCharacterController : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.Space) && CheckJump())
         {
+            AudioManager.instance.PlaySFX(GetComponent<AudioSource>(), 2, AudioManager.instance.bTSoundEffects);
             myRigidBody.AddForce(new Vector3(0f, desiredJumpForce, 0f), ForceMode.Impulse);
             //Debug.Log("Jump");
         }

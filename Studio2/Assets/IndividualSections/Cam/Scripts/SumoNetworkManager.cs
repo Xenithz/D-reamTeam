@@ -31,6 +31,7 @@ public class SumoNetworkManager : Photon.MonoBehaviour, IPunObservable
     void Awake()
     {
         Instance = this;
+        AudioManager.instance.PlayBackground(2);
     }
     void Start()
     {
