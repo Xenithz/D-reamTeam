@@ -63,4 +63,12 @@ public class AudioManager : MonoBehaviour
     {
         sourceToPlayIn.PlayOneShot(soundEffects[index]);
     }
+
+    public void PlaySFX(AudioSource sourceToPlayIn, int index, float timeToStart, float timeToEnd)
+    {
+        sourceToPlayIn.clip = soundEffects[index];
+        sourceToPlayIn.SetScheduledStartTime((double)timeToStart);
+        sourceToPlayIn.SetScheduledEndTime((double)timeToEnd);
+        sourceToPlayIn.Play();
+    }
 }
