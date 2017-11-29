@@ -10,6 +10,8 @@ public class UIManager : MonoBehaviour {
 
     public Transform logIn;
     public Transform register;
+
+    
 	
     
     public void OnClickSignUp()  //to play and pause the game and the audio clip.
@@ -54,4 +56,6 @@ public class UIManager : MonoBehaviour {
     {
         Application.Quit();
     }
+
+    
 }
