@@ -132,6 +132,9 @@ public class NetworkManager : Photon.MonoBehaviour, IPunObservable{
         {
             //display results here.
             this.photonView.RPC("DisplayResults", PhotonTargets.AllViaServer);
+            //stop timer
+            //next game starting in...
+            //load next scene
 
            // DisplayResults();
             
