@@ -10,6 +10,7 @@ public class UIManager : MonoBehaviour {
 
     public Transform logIn;
     public Transform register;
+    
 
     
 	
@@ -23,7 +24,7 @@ public class UIManager : MonoBehaviour {
         
         
     }
-
+    
     
     public void OnClickPlay()
     {
