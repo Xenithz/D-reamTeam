@@ -6,7 +6,7 @@ using Photon;
 public class LTPlayer : Photon.MonoBehaviour, IPunObservable
 {
     public int position;
-    public List<GameObject> positionVectors;
+    public List<Vector3> positionVectors;
     public bool goNow;
     public float currentCDTime;
     public float setCDTime;
@@ -17,6 +17,9 @@ public class LTPlayer : Photon.MonoBehaviour, IPunObservable
         position = 0;
         goNow = false;
         currentCDTime = setCDTime;
+        positionVectors.Add(new Vector3(this.transform.position.x, this.transform.position.y, -12f));
+        positionVectors.Add(new Vector3(this.transform.position.x, this.transform.position.y, -13f));
+        positionVectors.Add(new Vector3(this.transform.position.x, this.transform.position.y, -14f));
     }
 
     private void Update()
@@ -43,7 +46,8 @@ public class LTPlayer : Photon.MonoBehaviour, IPunObservable
     {
         if(position == 0 || position == 1)
         {
-            gameObject.transform.position = positionVectors[position].transform.position;
+            position++;
+            gameObject.transform.position = positionVectors[position];
             goNow = true;
         }
 
