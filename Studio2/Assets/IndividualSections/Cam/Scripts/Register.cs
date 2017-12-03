@@ -8,7 +8,7 @@ using UnityEngine;
 public class Register : PunBehaviour {
 
 
-    public string userUrl = "https://cosmicchaos.000webhostapp.com/network/register.php";
+    public string userUrl;
     public string inputUserName;
     public string inputPassword;
     public string inputEmail;
@@ -22,10 +22,9 @@ public class Register : PunBehaviour {
     public Text emailTextField;
     public Text passwordConfirmField;
 
-    public GameObject panel;
 
-    public Transform logIn;
-    public Transform register;
+    public GameObject logIn;
+    public GameObject register;
 
 
 	// Use this for initialization
@@ -36,7 +35,10 @@ public class Register : PunBehaviour {
 	}
 
     
-
+    void Start()
+    {
+        userUrl = "https://cosmicchaos.000webhostapp.com/network/register.php";
+    }
 
     public IEnumerator CreateUser(string username, string password, string email)
     {
@@ -49,14 +51,15 @@ public class Register : PunBehaviour {
 
         yield return registerURL;
         Debug.Log(registerURL.text);
+        register.SetActive(false);
+        logIn.SetActive(true);
+
     }
-   
+
 
     public void OnClickRegister()
     {
 
-        register.gameObject.SetActive(false);
-        logIn.gameObject.SetActive(true);
 
         inputUserName = userTextField.text.ToString();
         inputPassword = passwordTextField.text.ToString();
@@ -73,13 +76,12 @@ public class Register : PunBehaviour {
 
         if (inputPassword == inputConfirm)
         {
-            panel.GetComponent <Image>().color = Color.green;
             StartCoroutine(CreateUser(inputUserName, inputPassword, inputEmail));
+            Debug.Log("starting register");
         }
 
         else
         {
-            panel.GetComponent<Image>().color = Color.red;
             Debug.Log("Passwords do not match");
 
         }

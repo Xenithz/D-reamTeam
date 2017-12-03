@@ -46,6 +46,7 @@ public class BTBomb : Photon.MonoBehaviour, IPunObservable
             bombOwnerPlayer.myBomb = this;
             bomb.transform.SetParent(bombOwner.transform);
             bomb.transform.position = new Vector3(bombOwner.transform.position.x, bombOwner.transform.position.y + offSet, bombOwner.transform.position.z);
+            AudioManager.instance.PlaySFX(bomb.GetComponent<AudioSource>(), 1, AudioManager.instance.bTSoundEffects);
             currentTimeTillCanSwitch = 1;
             goNow = true;
             Debug.Log("ACCESSED");
@@ -58,6 +59,7 @@ public class BTBomb : Photon.MonoBehaviour, IPunObservable
     {
         if (goNow == true)
         {
+            AudioManager.instance.PlaySFX(bomb.GetComponent<AudioSource>(), 0, 0, 1.2f, AudioManager.instance.bTSoundEffects);
             GameObject owner = GameObject.Find(ownerName);
             NetworkManager.Instance.photonView.RPC("RemovePlayer", PhotonTargets.All, ownerName);
             //gameObject.transform.parent = null;

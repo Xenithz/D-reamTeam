@@ -13,9 +13,9 @@ public class AMTest : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            AudioManager.instance.PlaySFX(myAudioSource, 0);
-        }
+        //if (Input.GetKeyDown(KeyCode.Space))
+        //{
+        //    AudioManager.instance.PlaySFX(myAudioSource, 0);
+        //}
     }
 }

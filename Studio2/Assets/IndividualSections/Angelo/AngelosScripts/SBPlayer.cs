@@ -80,6 +80,7 @@ public class SBPlayer : Photon.MonoBehaviour, IPunObservable
 
             if(direction != Vector3.zero)
             {
+                AudioManager.instance.PlaySFX(GetComponent<AudioSource>(), 0, 0, 0.23f, AudioManager.instance.sBSoundEffects);
                 collidedRigidBody.AddForce(direction.normalized * -pushBackValue, ForceMode.Impulse);
                 myController.myRigidBody.AddForce(-direction.normalized * (pushBackValue - 1), ForceMode.Impulse);
                 goNow = false;
@@ -88,6 +89,7 @@ public class SBPlayer : Photon.MonoBehaviour, IPunObservable
 
             else if(direction == Vector3.zero)
             {
+                AudioManager.instance.PlaySFX(GetComponent<AudioSource>(), 0, 0, 0.23f, AudioManager.instance.sBSoundEffects);
                 collidedRigidBody.AddForce((collidedRigidBody.transform.position + myDirection).normalized * pushBackValue, ForceMode.Impulse);
                 goNow = false;
                 Debug.Log("I win");
