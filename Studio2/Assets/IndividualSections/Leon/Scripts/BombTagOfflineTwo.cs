@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BombTagOffline : MonoBehaviour {
+public class BombTagOfflineTwo : MonoBehaviour {
 
     /* TODO:
      * -Compress the addforce section of rotation into a single function to avoid repeated code.
@@ -33,8 +33,8 @@ public class BombTagOffline : MonoBehaviour {
     private Vector3 MovementInput()
     {
         Vector3 inputToReturn;
-        float horizontalTrack = Input.GetAxis("Horizontal");
-        float verticalTrack = Input.GetAxis("Vertical");
+        float horizontalTrack = Input.GetAxis("Horizontal1");
+        float verticalTrack = Input.GetAxis("Vertical1");
         inputToReturn = new Vector3(horizontalTrack, 0f, verticalTrack);
         return inputToReturn;
     }
@@ -105,7 +105,7 @@ public class BombTagOffline : MonoBehaviour {
     }
 
     //Adds force to the player in the upwards direction after checking if they are grounded or not
-    
+
 
     #endregion
 
@@ -140,10 +140,13 @@ public class BombTagOffline : MonoBehaviour {
         //Debug.DrawRay(gameObject.transform.position, movementVector * 2, Color.green);
         Debug.DrawRay(gameObject.transform.position, gameObject.transform.forward, Color.white);
         //Debug.Log(myRigidBody.angularVelocity);
-        if (input != Vector3.zero)
+        
+
+        if(input != Vector3.zero)
         {
             Debug.Log("lul");
         }
+
     }
 
     //private Vector3 CalculateMovementVector(Vector3 input)
@@ -166,18 +169,14 @@ public class BombTagOffline : MonoBehaviour {
     }
     private void JumpExecution()
     {
-        if (CheckJump() && Input.GetAxis("Jump0") != 0)
+        if (CheckJump() && Input.GetAxis("Jump1") != 0)
         {
 
 
             myRigidBody.AddForce(new Vector3(0f, desiredJumpForce, 0f), ForceMode.Impulse);
-            Debug.Log("Jump0");
+            Debug.Log("Jump1");
         }
 
     }
 }
 #endregion
-
-
-
-
