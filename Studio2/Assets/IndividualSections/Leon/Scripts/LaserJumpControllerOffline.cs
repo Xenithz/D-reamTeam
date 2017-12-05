@@ -7,14 +7,15 @@ public class LaserJumpControllerOffline : MonoBehaviour {
     public Rigidbody myRigidBody;
     public CapsuleCollider myCollider;
     public float desiredJumpForce;
+    public string[] myStuff;
 
     private void JumpExecution()
     {
-        if ( CheckJump())
+        if ( CheckJump() && Input.GetAxis("Jump0")!=0)
         {
         
-            float desiredJumpForced = Input.GetAxis("Jump");
-            myRigidBody.AddForce(new Vector3(0f, desiredJumpForced * desiredJumpForce, 0f), ForceMode.Impulse);
+            
+            myRigidBody.AddForce(new Vector3(0f,  desiredJumpForce, 0f), ForceMode.Impulse);
             Debug.Log("Jump");
         }
     }
@@ -28,14 +29,21 @@ public class LaserJumpControllerOffline : MonoBehaviour {
 
     private void CrouchExecution()
     {
-         float crouchHeight=Input.GetAxis("Crouch");
+        
+
+        if (Input.GetAxis("Crouch") != 0)
+        {
+            myCollider.height = 1.5f;
+        }
+        else if(Input.GetAxis("Crouch") == 0)
+        {
+            myCollider.height = 2f;
+        }
 
 
 
-
-
-        myCollider.height = crouchHeight;
-        Debug.Log("Crouch");
+        
+        //Debug.Log("Crouch");
        
     }
 
@@ -43,12 +51,15 @@ public class LaserJumpControllerOffline : MonoBehaviour {
     {
         CrouchExecution();
         JumpExecution();
+        myRigidBody.velocity = Vector3.ClampMagnitude(myRigidBody.velocity, 12);
+        //Debug.Log(myRigidBody.velocity.magnitude);
     }
 
     private void Start()
     {
         myRigidBody = GetComponent<Rigidbody>();
         myCollider = GetComponent<CapsuleCollider>();
+        myStuff = Input.GetJoystickNames();
     }
 
 }

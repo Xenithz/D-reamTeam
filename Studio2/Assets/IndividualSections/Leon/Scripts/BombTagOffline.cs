@@ -140,6 +140,10 @@ public class BombTagOffline : MonoBehaviour {
         //Debug.DrawRay(gameObject.transform.position, movementVector * 2, Color.green);
         Debug.DrawRay(gameObject.transform.position, gameObject.transform.forward, Color.white);
         //Debug.Log(myRigidBody.angularVelocity);
+        if (input != Vector3.zero)
+        {
+            Debug.Log("lul");
+        }
     }
 
     //private Vector3 CalculateMovementVector(Vector3 input)
@@ -162,13 +166,14 @@ public class BombTagOffline : MonoBehaviour {
     }
     private void JumpExecution()
     {
-        if (CheckJump())
+        if (CheckJump() && Input.GetAxis("Jump0") != 0)
         {
-            float desiredJumpForced = Input.GetAxis("Jump");
-            myRigidBody.AddForce(new Vector3(0f, desiredJumpForced * desiredJumpForce, 0f), ForceMode.Impulse);
-            Debug.Log("Jump");
+
+
+            myRigidBody.AddForce(new Vector3(0f, desiredJumpForce, 0f), ForceMode.Impulse);
+            Debug.Log("Jump0");
         }
-        
+
     }
 }
 #endregion
