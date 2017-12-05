@@ -59,6 +59,10 @@ public class BTBomb : Photon.MonoBehaviour, IPunObservable
     {
         if (goNow == true)
         {
+            if (NetworkManager.Instance.currentGameState == GameStates.GameOver)
+            {
+                return;
+            }
             AudioManager.instance.PlaySFX(bomb.GetComponent<AudioSource>(), 0, 0, 1.2f, AudioManager.instance.bTSoundEffects);
             GameObject owner = GameObject.Find(ownerName);
             NetworkManager.Instance.photonView.RPC("RemovePlayer", PhotonTargets.All, ownerName);
@@ -116,14 +120,17 @@ public class BTBomb : Photon.MonoBehaviour, IPunObservable
 
     private void Update()
     {
-        if (bombOwner != null)
+        if (NetworkManager.Instance.currentGameState != GameStates.GameOver)
         {
-            TimeTickDown();
-        }
+            if (bombOwner != null)
+            {
+                TimeTickDown();
+            }
 
-        if (bombIsAbleToSwitch == false)
-        {
-            SwitchCooldown();
+            if (bombIsAbleToSwitch == false)
+            {
+                SwitchCooldown();
+            }
         }
     }
 

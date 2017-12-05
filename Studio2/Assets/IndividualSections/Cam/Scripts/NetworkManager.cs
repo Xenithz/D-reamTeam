@@ -33,6 +33,7 @@ public class NetworkManager : Photon.MonoBehaviour, IPunObservable{
     // Use this for initialization
     void Awake()
     {
+        resultPanel.SetActive(false);
         Instance = this;
         AudioManager.instance.PlayBackground(1);
     }
@@ -130,7 +131,7 @@ public class NetworkManager : Photon.MonoBehaviour, IPunObservable{
         //playersAlive = BTBA.playerList;
         //connectionText.text = PhotonNetwork.connectionStateDetailed.ToString();
         //checks if there is one player left and displays the winner
-        if (BTBA.playerList.Count <= 1 && currentGameState == GameStates.InProgress)
+        if (BTBA.playerList.Count == 1 && currentGameState == GameStates.InProgress)
         {
             //display results here.
             this.photonView.RPC("DisplayResults", PhotonTargets.AllViaServer);

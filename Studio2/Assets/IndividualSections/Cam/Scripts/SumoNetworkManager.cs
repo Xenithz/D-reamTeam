@@ -32,14 +32,22 @@ public class SumoNetworkManager : Photon.MonoBehaviour, IPunObservable
     {
         Instance = this;
         AudioManager.instance.PlayBackground(2);
+        currentGameState = GameStates.SetUp;
     }
     void Start()
     {
+        
 
         resultPanel.SetActive(false);
         PhotonNetwork.ConnectUsingSettings("0.1");
         SBPH = GetComponent<SBPlayerHandler>();
         resultText = resultPanel.GetComponentInChildren<Text>();
+
+        GameObject localPlayer = PhotonNetwork.Instantiate(player.name, spawnpoints[PhotonNetwork.player.ID - 1].transform.position, Quaternion.identity, 0);
+        // myInstance = localPlayer; 
+
+        this.photonView.RPC("AddToList", PhotonTargets.AllBufferedViaServer, localPlayer.name);
+        this.photonView.RPC("CheckPlayerList", PhotonTargets.AllBuffered);
 
 
     }
@@ -47,8 +55,8 @@ public class SumoNetworkManager : Photon.MonoBehaviour, IPunObservable
 
     public virtual void OnJoinedLobby()
     {
-        Debug.Log("connected to master");
-        PhotonNetwork.JoinOrCreateRoom("New2", null, null);
+       // Debug.Log("connected to master");
+       // PhotonNetwork.JoinOrCreateRoom("New2", null, null);
     }
 
     public virtual void OnDisconnectedFromPhoton()
@@ -66,11 +74,11 @@ public class SumoNetworkManager : Photon.MonoBehaviour, IPunObservable
     public virtual void OnJoinedRoom()
     {
 
-        GameObject localPlayer = PhotonNetwork.Instantiate(player.name, spawnpoints[PhotonNetwork.player.ID - 1].transform.position, Quaternion.identity, 0);
+        //GameObject localPlayer = PhotonNetwork.Instantiate(player.name, spawnpoints[PhotonNetwork.player.ID - 1].transform.position, Quaternion.identity, 0);
         // myInstance = localPlayer; 
 
-        this.photonView.RPC("AddToList", PhotonTargets.AllBufferedViaServer, localPlayer.name);
-        this.photonView.RPC("CheckPlayerList", PhotonTargets.AllBuffered);
+        //this.photonView.RPC("AddToList", PhotonTargets.AllBufferedViaServer, localPlayer.name);
+        //this.photonView.RPC("CheckPlayerList", PhotonTargets.AllBuffered);
 
 
 
@@ -84,6 +92,7 @@ public class SumoNetworkManager : Photon.MonoBehaviour, IPunObservable
     {
         if (PhotonNetwork.playerList.Length > 2)
         {
+            Debug.Log("in progress");
             currentGameState = GameStates.InProgress;
             this.photonView.RPC("AddPlayers", PhotonTargets.All);
         }
