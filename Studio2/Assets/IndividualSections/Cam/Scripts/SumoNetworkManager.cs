@@ -90,7 +90,14 @@ public class SumoNetworkManager : Photon.MonoBehaviour, IPunObservable
     [PunRPC]
     public void CheckPlayerList()
     {
-        if (PhotonNetwork.playerList.Length > 2)
+        //if (PhotonNetwork.playerList.Length > 2)
+        //{
+        //    Debug.Log("in progress");
+        //    currentGameState = GameStates.InProgress;
+        //    this.photonView.RPC("AddPlayers", PhotonTargets.All);
+        //}
+
+        if (allPlayers.Count > 2)
         {
             Debug.Log("in progress");
             currentGameState = GameStates.InProgress;
@@ -141,7 +148,7 @@ public class SumoNetworkManager : Photon.MonoBehaviour, IPunObservable
             // DisplayResults();
 
         }
-        //Debug.Log(currentGameState);
+        Debug.Log("SUMO BALL IS" + currentGameState);
 
     }
 }

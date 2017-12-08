@@ -15,10 +15,10 @@ public class SBPlayerHandler : Photon.MonoBehaviour, IPunObservable {
 
     void FixedUpdate()
     {
-        if (SumoNetworkManager.Instance.currentGameState == GameStates.Starting)
-        {
-            SumoNetworkManager.Instance.photonView.RPC("AddPlayers", PhotonTargets.All);
-        }
+        //if (SumoNetworkManager.Instance.currentGameState == GameStates.Starting)
+        //{
+        //    SumoNetworkManager.Instance.photonView.RPC("AddPlayers", PhotonTargets.All);
+        //}
         
     }
 
