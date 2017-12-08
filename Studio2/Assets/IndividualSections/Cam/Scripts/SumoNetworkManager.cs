@@ -22,6 +22,7 @@ public class SumoNetworkManager : Photon.MonoBehaviour, IPunObservable
     public GameObject resultPanel;
     public Text resultText;
     public GameStates currentGameState = GameStates.SetUp;
+    public int playerCount;
     //public GameObject myInstance; 
 
 
@@ -47,7 +48,7 @@ public class SumoNetworkManager : Photon.MonoBehaviour, IPunObservable
         // myInstance = localPlayer; 
 
         this.photonView.RPC("AddToList", PhotonTargets.AllBufferedViaServer, localPlayer.name);
-        this.photonView.RPC("CheckPlayerList", PhotonTargets.AllBuffered);
+        this.photonView.RPC("CheckPlayerList", PhotonTargets.AllBufferedViaServer);
 
 
     }
@@ -148,6 +149,12 @@ public class SumoNetworkManager : Photon.MonoBehaviour, IPunObservable
             // DisplayResults();
 
         }
+
+       if(allPlayers.Count > 2  && currentGameState == GameStates.SetUp)
+        {
+            this.photonView.RPC("CheckPlayerList", PhotonTargets.AllBufferedViaServer);
+        }
+        playerCount = allPlayers.Count;
         Debug.Log("SUMO BALL IS" + currentGameState);
 
     }
