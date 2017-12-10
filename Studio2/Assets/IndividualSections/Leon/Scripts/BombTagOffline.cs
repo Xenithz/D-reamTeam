@@ -132,13 +132,13 @@ public class BombTagOffline : MonoBehaviour {
 
         if(storageVector != Vector3.zero)
         {
-            myAnim.SetBool("isRunning", true);
-            myAnim.SetBool("isIdle", false);
+            //myAnim.SetBool("isRunning", true);
+            //myAnim.SetBool("isIdle", false);
         }
         else if(storageVector == Vector3.zero)
         {
-            myAnim.SetBool("isRunning", false);
-            myAnim.SetBool("isIdle", true);
+            //myAnim.SetBool("isRunning", false);
+            //myAnim.SetBool("isIdle", true);
         }
     }
 

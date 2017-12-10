@@ -35,7 +35,6 @@ public class SBPlayer : Photon.MonoBehaviour, IPunObservable
             if(goNow == true)
             {
                 photonView.RPC("KnockBack", PhotonTargets.All, collision.gameObject.name);
-                KnockBack(collision.gameObject.name);
             }
             else if(goNow == false)
             {

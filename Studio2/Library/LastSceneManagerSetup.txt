@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/IndividualSections/Leon/Scenes/Bomb Tag Tutorial.unity
+- path: Assets/IndividualSections/Leon/Scenes/Laser Jump Tutorial.unity
   isLoaded: 1
   isActive: 1
