@@ -132,13 +132,13 @@ public class BombTagOffline : MonoBehaviour {
 
         if(storageVector != Vector3.zero)
         {
-            //myAnim.SetBool("isRunning", true);
-            //myAnim.SetBool("isIdle", false);
+            myAnim.SetBool("isRunning", true);
+            myAnim.SetBool("isIdle", false);
         }
         else if(storageVector == Vector3.zero)
         {
-            //myAnim.SetBool("isRunning", false);
-            //myAnim.SetBool("isIdle", true);
+            myAnim.SetBool("isRunning", false);
+            myAnim.SetBool("isIdle", true);
         }
     }
 
@@ -177,9 +177,14 @@ public class BombTagOffline : MonoBehaviour {
     {
         if (CheckJump() && Input.GetAxis("Jump0") != 0)
         {
-            myAnim.SetTrigger("jump");
+            //myAnim.SetTrigger("jump");
+            myAnim.SetBool("isJump", true);
             myRigidBody.AddForce(new Vector3(0f, desiredJumpForce, 0f), ForceMode.Impulse);
             Debug.Log("Jump0");
+        }
+        if(Input.GetAxis("Jump0") == 0)
+        {
+            myAnim.SetBool("isJump", false);
         }
 
     }

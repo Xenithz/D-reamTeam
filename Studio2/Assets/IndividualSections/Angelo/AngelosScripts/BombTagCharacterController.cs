@@ -26,6 +26,7 @@ public class BombTagCharacterController : MonoBehaviour
     public float desiredJumpForce;
     public float desiredClampValueForMovementMagnitude;
     public float desiredClampValueForRBVelocityMagnitude;
+    public Animator myAnim;
 
     #endregion
 
@@ -112,8 +113,14 @@ public class BombTagCharacterController : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Space) && CheckJump())
         {
             AudioManager.instance.PlaySFX(GetComponent<AudioSource>(), 2, AudioManager.instance.bTSoundEffects);
+            myAnim.SetBool("isJump", true);
             myRigidBody.AddForce(new Vector3(0f, desiredJumpForce, 0f), ForceMode.Impulse);
             //Debug.Log("Jump");
+        }
+
+        else
+        {
+            myAnim.SetBool("isJump", false);
         }
     }
 
@@ -125,6 +132,7 @@ public class BombTagCharacterController : MonoBehaviour
     {
         myRigidBody = GetComponent<Rigidbody>();
         myCollider = GetComponent<CapsuleCollider>();
+        myAnim = GetComponent<Animator>();
     }
 
     private void FixedUpdate()
@@ -137,6 +145,17 @@ public class BombTagCharacterController : MonoBehaviour
         JumpExecution();
         ClampVelocityMagnitude();
         DebugUtility(storageVector);
+
+        if (storageVector != Vector3.zero)
+        {
+            myAnim.SetBool("isRunning", true);
+            myAnim.SetBool("isIdle", false);
+        }
+        else if (storageVector == Vector3.zero)
+        {
+            myAnim.SetBool("isRunning", false);
+            myAnim.SetBool("isIdle", true);
+        }
     }
 
     #endregion

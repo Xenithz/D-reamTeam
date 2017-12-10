@@ -91,7 +91,7 @@ public class NetworkManager : Photon.MonoBehaviour, IPunObservable{
     [PunRPC]
     public void CheckPlayerList()
     {
-        if (PhotonNetwork.playerList.Length > 2)
+        if (allPlayers.Count > 2)
         {
             //starting audio
             currentGameState = GameStates.Starting;
