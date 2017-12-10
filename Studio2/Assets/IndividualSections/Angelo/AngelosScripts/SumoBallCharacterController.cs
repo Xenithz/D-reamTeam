@@ -64,7 +64,7 @@ public class SumoBallCharacterController : Photon.MonoBehaviour, IPunObservable
         {
             vectorForRotation.x = vectorForRotation.x * desiredTurningSpeed;
             vectorForRotation.z = vectorForRotation.z * desiredTurningSpeed;
-            myRigidBody.AddTorque(vectorForRotation, ForceMode.Acceleration);
+            myRigidBody.AddTorque(vectorForRotation, ForceMode.Impulse);
             //Debug.Log("gotta turn!");
         }
 
@@ -79,7 +79,7 @@ public class SumoBallCharacterController : Photon.MonoBehaviour, IPunObservable
         {
             vectorForRotation.x = vectorForRotation.x * desiredTurningSpeed;
             vectorForRotation.z = vectorForRotation.z * desiredTurningSpeed;
-            myRigidBody.AddTorque(vectorForRotation, ForceMode.Acceleration);
+            myRigidBody.AddTorque(vectorForRotation, ForceMode.Impulse);
         }
 
         else if (Vector3.Dot(transform.forward, vectorForStorage) >= 1 && vectorForStorage == new Vector3(-1, 0, 1) ||
@@ -87,7 +87,7 @@ public class SumoBallCharacterController : Photon.MonoBehaviour, IPunObservable
         {
             vectorForRotation.x = vectorForRotation.x * desiredTurningSpeed;
             vectorForRotation.z = vectorForRotation.z * desiredTurningSpeed;
-            myRigidBody.AddTorque(vectorForRotation, ForceMode.Acceleration);
+            myRigidBody.AddTorque(vectorForRotation, ForceMode.Impulse);
         }
 
         else if (vectorForStorage == Vector3.zero)
