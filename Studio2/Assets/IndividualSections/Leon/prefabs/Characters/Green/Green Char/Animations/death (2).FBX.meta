@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 99c58ef111be60d49b5963401f51ece4
-timeCreated: 1512896341
+guid: 6fef9257e0529524f8044a69e0cc41ef
+timeCreated: 1512979248
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
@@ -19,21 +19,21 @@ ModelImporter:
     100022: Clavicles_R
     100024: COG
     100026: COG_cntrl
-    100028: Elbow_L
-    100030: Elbow_R
-    100032: Foot_L_ctnrl
-    100034: Foot_R_cntrl
-    100036: Forearm_L
-    100038: Forearm_R
-    100040: Hand__cntrl_L
-    100042: Hand_cntrl_R
-    100044: Head
-    100046: Head_cntrl
-    100048: IK Chain001
-    100050: IK Chain002
-    100052: IK Chain003
-    100054: IK Chain004
-    100056: //RootNode
+    100028: //RootNode
+    100030: Elbow_L
+    100032: Elbow_R
+    100034: Foot_L_ctnrl
+    100036: Foot_R_cntrl
+    100038: Forearm_L
+    100040: Forearm_R
+    100042: Hand__cntrl_L
+    100044: Hand_cntrl_R
+    100046: Head
+    100048: Head_cntrl
+    100050: IK Chain001
+    100052: IK Chain002
+    100054: IK Chain003
+    100056: IK Chain004
     100058: Knee_L
     100060: Knee_R
     100062: Leg_end_L
@@ -59,21 +59,21 @@ ModelImporter:
     400022: Clavicles_R
     400024: COG
     400026: COG_cntrl
-    400028: Elbow_L
-    400030: Elbow_R
-    400032: Foot_L_ctnrl
-    400034: Foot_R_cntrl
-    400036: Forearm_L
-    400038: Forearm_R
-    400040: Hand__cntrl_L
-    400042: Hand_cntrl_R
-    400044: Head
-    400046: Head_cntrl
-    400048: IK Chain001
-    400050: IK Chain002
-    400052: IK Chain003
-    400054: IK Chain004
-    400056: //RootNode
+    400028: //RootNode
+    400030: Elbow_L
+    400032: Elbow_R
+    400034: Foot_L_ctnrl
+    400036: Foot_R_cntrl
+    400038: Forearm_L
+    400040: Forearm_R
+    400042: Hand__cntrl_L
+    400044: Hand_cntrl_R
+    400046: Head
+    400048: Head_cntrl
+    400050: IK Chain001
+    400052: IK Chain002
+    400054: IK Chain003
+    400056: IK Chain004
     400058: Knee_L
     400060: Knee_R
     400062: Leg_end_L
