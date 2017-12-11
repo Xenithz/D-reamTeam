@@ -20,7 +20,7 @@ MonoBehaviour:
   m_ShowMode: 4
   m_Title: 
   m_RootView: {fileID: 2}
-  m_MinSize: {x: 950, y: 542}
+  m_MinSize: {x: 950, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
 --- !u!114 &2
 MonoBehaviour:
@@ -43,7 +43,7 @@ MonoBehaviour:
     y: 0
     width: 1858
     height: 1037
-  m_MinSize: {x: 950, y: 542}
+  m_MinSize: {x: 950, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
 --- !u!114 &3
 MonoBehaviour:
@@ -108,7 +108,7 @@ MonoBehaviour:
   m_MinSize: {x: 683, y: 492}
   m_MaxSize: {x: 14004, y: 14042}
   vertical: 1
-  controlID: 113
+  controlID: 72
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -132,7 +132,7 @@ MonoBehaviour:
   m_MinSize: {x: 683, y: 492}
   m_MaxSize: {x: 14004, y: 14042}
   vertical: 0
-  controlID: 114
+  controlID: 73
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -156,7 +156,7 @@ MonoBehaviour:
   m_MinSize: {x: 406, y: 492}
   m_MaxSize: {x: 10002, y: 14042}
   vertical: 1
-  controlID: 115
+  controlID: 74
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -180,7 +180,7 @@ MonoBehaviour:
   m_MinSize: {x: 406, y: 221}
   m_MaxSize: {x: 8006, y: 4021}
   vertical: 0
-  controlID: 116
+  controlID: 75
 --- !u!114 &9
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -445,7 +445,7 @@ MonoBehaviour:
     height: 678
   m_TreeViewState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 60500000
+    m_SelectedIDs: f42e0000
     m_LastClickedID: 0
     m_ExpandedIDs: dafbffff00000000
     m_RenameOverlay:
@@ -642,7 +642,7 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 0
     m_Folders:
-    - Assets/IndividualSections/Leon/prefabs/Characters/Green/Green Char/Animations
+    - Assets/IndividualSections/Leon/prefabs/Characters/Blue 2 Head/Animations
   m_ViewMode: 0
   m_StartGridSize: 64
   m_LastFolders: []
@@ -653,7 +653,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 3c250000
     m_LastClickedID: 9532
-    m_ExpandedIDs: 000000007626000078260000a8260000de2600009c270000f627000002280000062800005028000070280000b4280000b8280000b8290000be2900005a2a0000a62c0000a82c0000862d0000962d0000c22d0000ba2e0000c22e0000ec2e0000a62f0000bc2f00001a30000058300000d2300000783200001e330000243300006e33000076330000da330000fa33000042340000fe3400008c3500003245000034450000
+    m_ExpandedIDs: 000000007626000078260000a8260000ee260000ac270000f627000002280000062800005028000070280000a4280000a8280000aa2900004c2a0000d62b0000982c00009a2c0000682d0000782d0000a42d0000ac2e0000b42e0000e02e00008a2f0000fe2f00003c300000b63000005c32000002330000623300006a330000be330000de330000363400000a350000983500004445000046450000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -678,10 +678,10 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_AssetTreeState:
-    scrollPos: {x: 0, y: 255}
+    scrollPos: {x: 0, y: 135}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000007626000078260000a8260000de2600009c270000f627000002280000062800005028000070280000b4280000b8280000b82900005a2a0000e42b0000a62c0000a82c0000862d0000962d0000c22d0000ba2e0000c22e0000ec2e0000a62f00001a30000058300000d2300000783200001e3300006e33000076330000da330000fa33000042340000fe3400008c3500003245000034450000
+    m_ExpandedIDs: 000000007626000078260000a8260000ee260000ac270000f6270000022800005028000070280000a4280000a8280000aa2900004c2a0000982c00009a2c0000682d0000782d0000a42d0000ac2e0000b42e0000e02e00008a2f0000a02f0000fe2f00003c300000b63000005c3200000233000008330000623300006a330000be330000de330000363400000a350000983500004445000046450000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
