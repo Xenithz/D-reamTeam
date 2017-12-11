@@ -14,7 +14,7 @@ public class BTPlayerOffline : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.GetComponent<BTPlayer>() != null)
+        if (collision.gameObject.GetComponent<BTPlayerOffline>() != null)
         {
             BTPlayerOffline collidedBT = collision.gameObject.GetComponent<BTPlayerOffline>();
             Debug.Log("check 1");
