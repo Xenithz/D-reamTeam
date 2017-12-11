@@ -26,6 +26,7 @@ public class LTNetworkManager : Photon.MonoBehaviour, IPunObservable
     {
         Instance = this;
         AudioManager.instance.PlayBackground(3);
+        currentGameState = GameStates.SetUp;
     }
     void Start()
     {
@@ -126,6 +127,11 @@ public class LTNetworkManager : Photon.MonoBehaviour, IPunObservable
         if(LTPlayerHandler.instance.playerList.Count <= 1 && currentGameState == GameStates.InProgress)
         {
             this.photonView.RPC("DisplayResults", PhotonTargets.AllViaServer);
+        }
+
+        if (allPlayers.Count > 2 && currentGameState == GameStates.SetUp)
+        {
+            this.photonView.RPC("CheckPlayerList", PhotonTargets.AllBufferedViaServer);
         }
         //Debug.Log(currentGameState);
 
