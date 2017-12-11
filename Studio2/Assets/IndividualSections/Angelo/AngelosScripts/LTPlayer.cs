@@ -53,6 +53,7 @@ public class LTPlayer : Photon.MonoBehaviour, IPunObservable
 
         else if(position == 2)
         {
+            LTPlayerHandler.instance.RemovePlayer(this.gameObject.name);
             gameObject.SetActive(false);
             goNow = true;
         }

@@ -81,7 +81,7 @@ public class LTNetworkManager : Photon.MonoBehaviour, IPunObservable
         if (allPlayers.Count > 2)
         {
             currentGameState = GameStates.InProgress;
-            //this.photonView.RPC("AddPlayers", PhotonTargets.All);
+            this.photonView.RPC("AddPlayers", PhotonTargets.All);
         }
 
     }
@@ -122,6 +122,11 @@ public class LTNetworkManager : Photon.MonoBehaviour, IPunObservable
         //    // DisplayResults();
 
         //}
+
+        if(LTPlayerHandler.instance.playerList.Count <= 1 && currentGameState == GameStates.InProgress)
+        {
+            this.photonView.RPC("DisplayResults", PhotonTargets.AllViaServer);
+        }
         //Debug.Log(currentGameState);
 
     }
