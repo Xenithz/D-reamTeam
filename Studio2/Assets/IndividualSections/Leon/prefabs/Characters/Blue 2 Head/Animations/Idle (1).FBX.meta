@@ -225,7 +225,229 @@ ModelImporter:
     animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Take 001
+      takeName: Take 001
+      firstFrame: 1
+      lastFrame: 50
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: IK Chain001
+        weight: 1
+      - path: IK Chain002
+        weight: 1
+      - path: Master
+        weight: 1
+      - path: Master/COG
+        weight: 1
+      - path: Master/COG/Pelvis
+        weight: 1
+      - path: Master/COG/Pelvis/L_thigh
+        weight: 1
+      - path: Master/COG/Pelvis/L_thigh/L_Shin
+        weight: 1
+      - path: Master/COG/Pelvis/L_thigh/L_Shin/L_foot
+        weight: 1
+      - path: Master/COG/Pelvis/L_thigh/L_Shin/L_foot/L_toe
+        weight: 1
+      - path: Master/COG/Pelvis/L_thigh/L_Shin/L_foot/L_toe/L_foot_end
+        weight: 1
+      - path: Master/COG/Pelvis/R_thigh
+        weight: 1
+      - path: Master/COG/Pelvis/R_thigh/R_Shin
+        weight: 1
+      - path: Master/COG/Pelvis/R_thigh/R_Shin/R_foot
+        weight: 1
+      - path: Master/COG/Pelvis/R_thigh/R_Shin/R_foot/R_toe
+        weight: 1
+      - path: Master/COG/Pelvis/R_thigh/R_Shin/R_foot/R_toe/R_foot_end
+        weight: 1
+      - path: Master/COG/Pelvis/Stomch
+        weight: 1
+      - path: Master/COG/Pelvis/Stomch/Chest
+        weight: 1
+      - path: Master/COG/Pelvis/Stomch/Chest/L_clavicle
+        weight: 1
+      - path: Master/COG/Pelvis/Stomch/Chest/L_clavicle/L_Forearm
+        weight: 1
+      - path: Master/COG/Pelvis/Stomch/Chest/L_clavicle/L_Forearm/L_arm
+        weight: 1
+      - path: Master/COG/Pelvis/Stomch/Chest/L_clavicle/L_Forearm/L_arm/L_palm
+        weight: 1
+      - path: Master/COG/Pelvis/Stomch/Chest/L_clavicle/L_Forearm/L_arm/L_palm/L_F1_1
+        weight: 1
+      - path: Master/COG/Pelvis/Stomch/Chest/L_clavicle/L_Forearm/L_arm/L_palm/L_F1_1/L_F1_2
+        weight: 1
+      - path: Master/COG/Pelvis/Stomch/Chest/L_clavicle/L_Forearm/L_arm/L_palm/L_F1_1/L_F1_2/L_F1_3
+        weight: 1
+      - path: Master/COG/Pelvis/Stomch/Chest/L_clavicle/L_Forearm/L_arm/L_palm/L_F1_1/L_F1_2/L_F1_3/L_F1_end
+        weight: 1
+      - path: Master/COG/Pelvis/Stomch/Chest/L_clavicle/L_Forearm/L_arm/L_palm/L_F2_1
+        weight: 1
+      - path: Master/COG/Pelvis/Stomch/Chest/L_clavicle/L_Forearm/L_arm/L_palm/L_F2_1/L_F2_2
+        weight: 1
+      - path: Master/COG/Pelvis/Stomch/Chest/L_clavicle/L_Forearm/L_arm/L_palm/L_F2_1/L_F2_2/L_F2_3
+        weight: 1
+      - path: Master/COG/Pelvis/Stomch/Chest/L_clavicle/L_Forearm/L_arm/L_palm/L_F2_1/L_F2_2/L_F2_3/L_F2_end
+        weight: 1
+      - path: Master/COG/Pelvis/Stomch/Chest/L_clavicle/L_Forearm/L_arm/L_palm/L_F3_1
+        weight: 1
+      - path: Master/COG/Pelvis/Stomch/Chest/L_clavicle/L_Forearm/L_arm/L_palm/L_F3_1/L_F3_2
+        weight: 1
+      - path: Master/COG/Pelvis/Stomch/Chest/L_clavicle/L_Forearm/L_arm/L_palm/L_F3_1/L_F3_2/L_F3_3
+        weight: 1
+      - path: Master/COG/Pelvis/Stomch/Chest/L_clavicle/L_Forearm/L_arm/L_palm/L_F3_1/L_F3_2/L_F3_3/L_F3_end
+        weight: 1
+      - path: Master/COG/Pelvis/Stomch/Chest/Neck1
+        weight: 1
+      - path: Master/COG/Pelvis/Stomch/Chest/Neck1/Head1
+        weight: 1
+      - path: Master/COG/Pelvis/Stomch/Chest/Neck1/Head1/Head1_end
+        weight: 1
+      - path: Master/COG/Pelvis/Stomch/Chest/Neck2
+        weight: 1
+      - path: Master/COG/Pelvis/Stomch/Chest/Neck2/Head2
+        weight: 1
+      - path: Master/COG/Pelvis/Stomch/Chest/Neck2/Head2/Head2_end
+        weight: 1
+      - path: Master/COG/Pelvis/Stomch/Chest/R_clavicle
+        weight: 1
+      - path: Master/COG/Pelvis/Stomch/Chest/R_clavicle/R_Forearm
+        weight: 1
+      - path: Master/COG/Pelvis/Stomch/Chest/R_clavicle/R_Forearm/R_arm
+        weight: 1
+      - path: Master/COG/Pelvis/Stomch/Chest/R_clavicle/R_Forearm/R_arm/R_palm
+        weight: 1
+      - path: Master/COG/Pelvis/Stomch/Chest/R_clavicle/R_Forearm/R_arm/R_palm/R_F1_1
+        weight: 1
+      - path: Master/COG/Pelvis/Stomch/Chest/R_clavicle/R_Forearm/R_arm/R_palm/R_F1_1/R_F1_2
+        weight: 1
+      - path: Master/COG/Pelvis/Stomch/Chest/R_clavicle/R_Forearm/R_arm/R_palm/R_F1_1/R_F1_2/R_F1_3
+        weight: 1
+      - path: Master/COG/Pelvis/Stomch/Chest/R_clavicle/R_Forearm/R_arm/R_palm/R_F1_1/R_F1_2/R_F1_3/R_F1_end
+        weight: 1
+      - path: Master/COG/Pelvis/Stomch/Chest/R_clavicle/R_Forearm/R_arm/R_palm/R_F2_1
+        weight: 1
+      - path: Master/COG/Pelvis/Stomch/Chest/R_clavicle/R_Forearm/R_arm/R_palm/R_F2_1/R_F2_2
+        weight: 1
+      - path: Master/COG/Pelvis/Stomch/Chest/R_clavicle/R_Forearm/R_arm/R_palm/R_F2_1/R_F2_2/R_F2_3
+        weight: 1
+      - path: Master/COG/Pelvis/Stomch/Chest/R_clavicle/R_Forearm/R_arm/R_palm/R_F2_1/R_F2_2/R_F2_3/R_F2_end
+        weight: 1
+      - path: Master/COG/Pelvis/Stomch/Chest/R_clavicle/R_Forearm/R_arm/R_palm/R_F3_1
+        weight: 1
+      - path: Master/COG/Pelvis/Stomch/Chest/R_clavicle/R_Forearm/R_arm/R_palm/R_F3_1/R_F3_2
+        weight: 1
+      - path: Master/COG/Pelvis/Stomch/Chest/R_clavicle/R_Forearm/R_arm/R_palm/R_F3_1/R_F3_2/R_F3_3
+        weight: 1
+      - path: Master/COG/Pelvis/Stomch/Chest/R_clavicle/R_Forearm/R_arm/R_palm/R_F3_1/R_F3_2/R_F3_3/R_F3_end
+        weight: 1
+      - path: Master/COG/Stomch_ctrl
+        weight: 1
+      - path: Master/COG/Stomch_ctrl/Chest_ctrl
+        weight: 1
+      - path: Master/COG/Stomch_ctrl/Chest_ctrl/L_shoulder_ctrl
+        weight: 1
+      - path: Master/COG/Stomch_ctrl/Chest_ctrl/Neck1_ctrl
+        weight: 1
+      - path: Master/COG/Stomch_ctrl/Chest_ctrl/Neck1_ctrl/Head1_ctrl
+        weight: 1
+      - path: Master/COG/Stomch_ctrl/Chest_ctrl/Neck2_ctrl
+        weight: 1
+      - path: Master/COG/Stomch_ctrl/Chest_ctrl/Neck2_ctrl/Head2_ctrl
+        weight: 1
+      - path: Master/COG/Stomch_ctrl/Chest_ctrl/R_shoulder_ctrl
+        weight: 1
+      - path: Master/L_elbow_ctrl
+        weight: 1
+      - path: Master/L_foot_Ctrl
+        weight: 1
+      - path: Master/L_foot_Ctrl/IK Chain003
+        weight: 1
+      - path: Master/L_foot_Ctrl/IK Chain004
+        weight: 1
+      - path: Master/L_foot_Ctrl/IK Chain005
+        weight: 1
+      - path: Master/L_Knee_ctrl
+        weight: 1
+      - path: Master/L_Wrist_ctrl
+        weight: 1
+      - path: Master/L_Wrist_ctrl/L_F1_1_ctrl
+        weight: 1
+      - path: Master/L_Wrist_ctrl/L_F1_1_ctrl/L_F1_3_ctrl
+        weight: 1
+      - path: Master/L_Wrist_ctrl/L_F1_1_ctrl/L_F1_3_ctrl/L_F1_3_ctrl 1
+        weight: 1
+      - path: Master/L_Wrist_ctrl/L_F2_1_ctrl
+        weight: 1
+      - path: Master/L_Wrist_ctrl/L_F2_1_ctrl/L_F2_2_ctrl
+        weight: 1
+      - path: Master/L_Wrist_ctrl/L_F2_1_ctrl/L_F2_2_ctrl/L_F2_3_ctrl
+        weight: 1
+      - path: Master/L_Wrist_ctrl/L_F3_1_ctrl
+        weight: 1
+      - path: Master/L_Wrist_ctrl/L_F3_1_ctrl/L_F3_2_ctrl
+        weight: 1
+      - path: Master/L_Wrist_ctrl/L_F3_1_ctrl/L_F3_2_ctrl/L_F3_3_ctrl
+        weight: 1
+      - path: Master/R_Elbow_ctrl
+        weight: 1
+      - path: Master/R_foot_Ctrl
+        weight: 1
+      - path: Master/R_foot_Ctrl/IK Chain006
+        weight: 1
+      - path: Master/R_foot_Ctrl/IK Chain007
+        weight: 1
+      - path: Master/R_foot_Ctrl/IK Chain008
+        weight: 1
+      - path: Master/R_Knee_ctrl
+        weight: 1
+      - path: Master/R_Wrist_ctrl
+        weight: 1
+      - path: Master/R_Wrist_ctrl/R_F1_1_ctrl
+        weight: 1
+      - path: Master/R_Wrist_ctrl/R_F1_1_ctrl/R_F1_2_ctrl
+        weight: 1
+      - path: Master/R_Wrist_ctrl/R_F1_1_ctrl/R_F1_2_ctrl/R_F1_3_ctrl
+        weight: 1
+      - path: Master/R_Wrist_ctrl/R_F2_1_ctrl
+        weight: 1
+      - path: Master/R_Wrist_ctrl/R_F2_1_ctrl/R_F2_2_ctrl
+        weight: 1
+      - path: Master/R_Wrist_ctrl/R_F2_1_ctrl/R_F2_2_ctrl/R_F2_3_ctrl
+        weight: 1
+      - path: Master/R_Wrist_ctrl/R_F3_1_ctrl
+        weight: 1
+      - path: Master/R_Wrist_ctrl/R_F3_1_ctrl/R_F3_2_ctrl
+        weight: 1
+      - path: Master/R_Wrist_ctrl/R_F3_1_ctrl/R_F3_2_ctrl/R_F3_3_ctrl
+        weight: 1
+      - path: Player_1
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     isReadable: 1
   meshes:
     lODScreenPercentages: []

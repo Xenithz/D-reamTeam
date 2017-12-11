@@ -24,6 +24,7 @@ public class BombTagOffline : MonoBehaviour {
     public float desiredJumpForce;
     public float desiredClampValueForMovementMagnitude;
     public float desiredClampValueForRBVelocityMagnitude;
+    public Animator myAnim;
 
     #endregion
 
@@ -58,7 +59,7 @@ public class BombTagOffline : MonoBehaviour {
         {
             vectorForRotation.x = vectorForRotation.x * desiredTurningSpeed;
             vectorForRotation.z = vectorForRotation.z * desiredTurningSpeed;
-            myRigidBody.AddTorque(vectorForRotation, ForceMode.Acceleration);
+            myRigidBody.AddTorque(vectorForRotation, ForceMode.Impulse);
             //Debug.Log("gotta turn!");
         }
 
@@ -73,7 +74,7 @@ public class BombTagOffline : MonoBehaviour {
         {
             vectorForRotation.x = vectorForRotation.x * desiredTurningSpeed;
             vectorForRotation.z = vectorForRotation.z * desiredTurningSpeed;
-            myRigidBody.AddTorque(vectorForRotation, ForceMode.Acceleration);
+            myRigidBody.AddTorque(vectorForRotation, ForceMode.Impulse);
         }
 
         else if (Vector3.Dot(transform.forward, vectorForStorage) >= 1 && vectorForStorage == new Vector3(-1, 0, 1) ||
@@ -81,7 +82,7 @@ public class BombTagOffline : MonoBehaviour {
         {
             vectorForRotation.x = vectorForRotation.x * desiredTurningSpeed;
             vectorForRotation.z = vectorForRotation.z * desiredTurningSpeed;
-            myRigidBody.AddTorque(vectorForRotation, ForceMode.Acceleration);
+            myRigidBody.AddTorque(vectorForRotation, ForceMode.Impulse);
         }
 
         else if (vectorForStorage == Vector3.zero)
@@ -115,6 +116,7 @@ public class BombTagOffline : MonoBehaviour {
     {
         myRigidBody = GetComponent<Rigidbody>();
         myCollider = GetComponent<CapsuleCollider>();
+        myAnim = GetComponent<Animator>();
     }
 
     private void FixedUpdate()
@@ -127,6 +129,17 @@ public class BombTagOffline : MonoBehaviour {
         JumpExecution();
         ClampVelocityMagnitude();
         DebugUtility(storageVector);
+
+        if(storageVector != Vector3.zero)
+        {
+            //myAnim.SetBool("isRunning", true);
+            //myAnim.SetBool("isIdle", false);
+        }
+        else if(storageVector == Vector3.zero)
+        {
+            //myAnim.SetBool("isRunning", false);
+            //myAnim.SetBool("isIdle", true);
+        }
     }
 
     #endregion
@@ -140,10 +153,6 @@ public class BombTagOffline : MonoBehaviour {
         //Debug.DrawRay(gameObject.transform.position, movementVector * 2, Color.green);
         Debug.DrawRay(gameObject.transform.position, gameObject.transform.forward, Color.white);
         //Debug.Log(myRigidBody.angularVelocity);
-        if (input != Vector3.zero)
-        {
-            Debug.Log("lul");
-        }
     }
 
     //private Vector3 CalculateMovementVector(Vector3 input)
@@ -168,8 +177,7 @@ public class BombTagOffline : MonoBehaviour {
     {
         if (CheckJump() && Input.GetAxis("Jump0") != 0)
         {
-
-
+            myAnim.SetTrigger("jump");
             myRigidBody.AddForce(new Vector3(0f, desiredJumpForce, 0f), ForceMode.Impulse);
             Debug.Log("Jump0");
         }
