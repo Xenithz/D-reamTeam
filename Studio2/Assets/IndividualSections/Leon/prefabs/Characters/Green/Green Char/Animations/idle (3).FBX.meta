@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 93f94e18fc8504449a6d9aa1e9bc1bec
-timeCreated: 1512896344
+guid: 6c0dbc40b836d0044bd6df51e1df06d9
+timeCreated: 1512979245
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
@@ -111,115 +111,7 @@ ModelImporter:
     animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths: []
-    clipAnimations:
-    - serializedVersion: 16
-      name: Take 001
-      takeName: Take 001
-      firstFrame: 0
-      lastFrame: 100
-      wrapMode: 0
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      hasAdditiveReferencePose: 0
-      loopTime: 1
-      loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
-      transformMask:
-      - path: 
-        weight: 1
-      - path: Body
-        weight: 1
-      - path: IK Chain001
-        weight: 1
-      - path: IK Chain002
-        weight: 1
-      - path: Master
-        weight: 1
-      - path: Master/COG_cntrl
-        weight: 1
-      - path: Master/COG_cntrl/COG
-        weight: 1
-      - path: Master/COG_cntrl/COG/Stomach
-        weight: 1
-      - path: Master/COG_cntrl/COG/Stomach/Chest
-        weight: 1
-      - path: Master/COG_cntrl/COG/Stomach/Chest/Clavicles_L
-        weight: 1
-      - path: Master/COG_cntrl/COG/Stomach/Chest/Clavicles_L/Arm_L
-        weight: 1
-      - path: Master/COG_cntrl/COG/Stomach/Chest/Clavicles_L/Arm_L/Forearm_L
-        weight: 1
-      - path: Master/COG_cntrl/COG/Stomach/Chest/Clavicles_L/Arm_L/Forearm_L/Arm_end_L
-        weight: 1
-      - path: Master/COG_cntrl/COG/Stomach/Chest/Clavicles_R
-        weight: 1
-      - path: Master/COG_cntrl/COG/Stomach/Chest/Clavicles_R/Arm_R
-        weight: 1
-      - path: Master/COG_cntrl/COG/Stomach/Chest/Clavicles_R/Arm_R/Forearm_R
-        weight: 1
-      - path: Master/COG_cntrl/COG/Stomach/Chest/Clavicles_R/Arm_R/Forearm_R/Arm_end_R
-        weight: 1
-      - path: Master/COG_cntrl/COG/Stomach/Chest/Head
-        weight: 1
-      - path: Master/COG_cntrl/COG/Stomach/Chest/Head/Bone005
-        weight: 1
-      - path: Master/COG_cntrl/COG/Thigh_L
-        weight: 1
-      - path: Master/COG_cntrl/COG/Thigh_L/Shin_L
-        weight: 1
-      - path: Master/COG_cntrl/COG/Thigh_L/Shin_L/Leg_end_L
-        weight: 1
-      - path: Master/COG_cntrl/COG/Thigh_R
-        weight: 1
-      - path: Master/COG_cntrl/COG/Thigh_R/Shin_R
-        weight: 1
-      - path: Master/COG_cntrl/COG/Thigh_R/Shin_R/Leg_end_R
-        weight: 1
-      - path: Master/COG_cntrl/Stomach_cntrl
-        weight: 1
-      - path: Master/COG_cntrl/Stomach_cntrl/Chest_cntrl
-        weight: 1
-      - path: Master/COG_cntrl/Stomach_cntrl/Chest_cntrl/Clavicle_L_cntrl
-        weight: 1
-      - path: Master/COG_cntrl/Stomach_cntrl/Chest_cntrl/Clavicle_R_cntrl
-        weight: 1
-      - path: Master/COG_cntrl/Stomach_cntrl/Chest_cntrl/Head_cntrl
-        weight: 1
-      - path: Master/Elbow_L
-        weight: 1
-      - path: Master/Elbow_R
-        weight: 1
-      - path: Master/Foot_L_ctnrl
-        weight: 1
-      - path: Master/Foot_L_ctnrl/IK Chain003
-        weight: 1
-      - path: Master/Foot_R_cntrl
-        weight: 1
-      - path: Master/Foot_R_cntrl/IK Chain004
-        weight: 1
-      - path: Master/Hand__cntrl_L
-        weight: 1
-      - path: Master/Hand_cntrl_R
-        weight: 1
-      - path: Master/Knee_L
-        weight: 1
-      - path: Master/Knee_R
-        weight: 1
-      maskType: 3
-      maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
+    clipAnimations: []
     isReadable: 1
   meshes:
     lODScreenPercentages: []

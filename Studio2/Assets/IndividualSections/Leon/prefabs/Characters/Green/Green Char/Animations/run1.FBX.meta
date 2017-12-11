@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: b6b34ef0e18f9f8409fcc8c7870593dc
-timeCreated: 1512896339
+guid: 5d3df8fe3709d2943aad1214a47f0f78
+timeCreated: 1512979235
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
@@ -38,13 +38,15 @@ ModelImporter:
     100060: Leg_end_L
     100062: Leg_end_R
     100064: Master
-    100066: //RootNode
-    100068: Shin_L
-    100070: Shin_R
-    100072: Stomach
-    100074: Stomach_cntrl
-    100076: Thigh_L
-    100078: Thigh_R
+    100066: Plane001
+    100068: Plane002
+    100070: //RootNode
+    100072: Shin_L
+    100074: Shin_R
+    100076: Stomach
+    100078: Stomach_cntrl
+    100080: Thigh_L
+    100082: Thigh_R
     400000: Arm_end_L
     400002: Arm_end_R
     400004: Arm_L
@@ -78,14 +80,22 @@ ModelImporter:
     400060: Leg_end_L
     400062: Leg_end_R
     400064: Master
-    400066: //RootNode
-    400068: Shin_L
-    400070: Shin_R
-    400072: Stomach
-    400074: Stomach_cntrl
-    400076: Thigh_L
-    400078: Thigh_R
-    4300000: Body
+    400066: Plane001
+    400068: Plane002
+    400070: //RootNode
+    400072: Shin_L
+    400074: Shin_R
+    400076: Stomach
+    400078: Stomach_cntrl
+    400080: Thigh_L
+    400082: Thigh_R
+    2300000: Plane001
+    2300002: Plane002
+    3300000: Plane001
+    3300002: Plane002
+    4300000: Plane001
+    4300002: Plane002
+    4300004: Body
     7400000: Take 001
     9500000: //RootNode
     13700000: Body
