@@ -179,6 +179,7 @@ public class BombTagOffline : MonoBehaviour {
         {
             //myAnim.SetTrigger("jump");
             myAnim.SetBool("isJump", true);
+            AudioManager.instance.PlaySFX(GetComponent<AudioSource>(), 2, AudioManager.instance.bTSoundEffects);
             myRigidBody.AddForce(new Vector3(0f, desiredJumpForce, 0f), ForceMode.Impulse);
             Debug.Log("Jump0");
         }

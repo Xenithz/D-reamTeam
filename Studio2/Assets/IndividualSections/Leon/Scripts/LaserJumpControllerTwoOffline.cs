@@ -3,18 +3,28 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class LaserJumpControllerTwoOffline : MonoBehaviour {
+
     public Rigidbody myRigidBody;
     public CapsuleCollider myCollider;
     public float desiredJumpForce;
+    public Animator myAnim;
+    public float defaultY;
+    public float colliderLow;
+    public float colliderHigh;
 
     private void JumpExecution()
     {
         if (CheckJump() && Input.GetAxis("Jump1") != 0)
         {
 
-
+            myAnim.SetBool("isJump", true);
             myRigidBody.AddForce(new Vector3(0f, desiredJumpForce, 0f), ForceMode.Impulse);
             Debug.Log("Jump1");
+        }
+
+        if(Input.GetAxis("Jump1") == 0)
+        {
+            myAnim.SetBool("isJump", false);
         }
     }
 
@@ -29,19 +39,21 @@ public class LaserJumpControllerTwoOffline : MonoBehaviour {
     {
 
 
-        if (Input.GetAxis("Crouch1") != 0)
+        if (Input.GetAxis("Crouch") != 0)
         {
-            myCollider.height = 1.5f;
+            myAnim.SetBool("isCrouch", true);
+            myCollider.height = colliderLow;
         }
-        else if (Input.GetAxis("Crouch1") == 0)
+        else if (Input.GetAxis("Crouch") == 0)
         {
-            myCollider.height = 2f;
+            myAnim.SetBool("isCrouch", false);
+            myCollider.height = colliderHigh;
         }
 
 
 
 
-       // Debug.Log("Crouch1");
+        // Debug.Log("Crouch1");
 
     }
 
@@ -57,6 +69,10 @@ public class LaserJumpControllerTwoOffline : MonoBehaviour {
     {
         myRigidBody = GetComponent<Rigidbody>();
         myCollider = GetComponent<CapsuleCollider>();
+        myAnim = GetComponent<Animator>();
+        defaultY = transform.position.y;
+        colliderLow = 1;
+        colliderHigh = 1.1f;
     }
 
 }

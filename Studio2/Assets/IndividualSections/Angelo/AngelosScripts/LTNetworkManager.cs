@@ -34,13 +34,17 @@ public class LTNetworkManager : Photon.MonoBehaviour, IPunObservable
         PhotonNetwork.ConnectUsingSettings("0.1");
         resultText = resultPanel.GetComponentInChildren<Text>();
 
+        GameObject localPlayer = PhotonNetwork.Instantiate(player.name, spawnpoints[PhotonNetwork.player.ID - 1].transform.position, Quaternion.identity, 0);
+        // myInstance = localPlayer; 
 
+        this.photonView.RPC("AddToList", PhotonTargets.AllBufferedViaServer, localPlayer.name);
+        this.photonView.RPC("CheckPlayerList", PhotonTargets.AllBuffered);
     }
 
     public virtual void OnJoinedLobby()
     {
-        Debug.Log("connected to master");
-        PhotonNetwork.JoinOrCreateRoom("New3", null, null);
+        //Debug.Log("connected to master");
+        //PhotonNetwork.JoinOrCreateRoom("New3", null, null);
     }
 
     public virtual void OnDisconnectedFromPhoton()
@@ -58,11 +62,11 @@ public class LTNetworkManager : Photon.MonoBehaviour, IPunObservable
     public virtual void OnJoinedRoom()
     {
 
-        GameObject localPlayer = PhotonNetwork.Instantiate(player.name, spawnpoints[PhotonNetwork.player.ID - 1].transform.position, Quaternion.identity, 0);
-        // myInstance = localPlayer; 
+        //GameObject localPlayer = PhotonNetwork.Instantiate(player.name, spawnpoints[PhotonNetwork.player.ID - 1].transform.position, Quaternion.identity, 0);
+        //// myInstance = localPlayer; 
 
-        this.photonView.RPC("AddToList", PhotonTargets.AllBufferedViaServer, localPlayer.name);
-        this.photonView.RPC("CheckPlayerList", PhotonTargets.AllBuffered);
+        //this.photonView.RPC("AddToList", PhotonTargets.AllBufferedViaServer, localPlayer.name);
+        //this.photonView.RPC("CheckPlayerList", PhotonTargets.AllBuffered);
 
 
 
@@ -74,10 +78,10 @@ public class LTNetworkManager : Photon.MonoBehaviour, IPunObservable
     [PunRPC]
     public void CheckPlayerList()
     {
-        if (PhotonNetwork.playerList.Length > 2)
+        if (allPlayers.Count > 2)
         {
             currentGameState = GameStates.InProgress;
-            //this.photonView.RPC("AddPlayers", PhotonTargets.All);
+            this.photonView.RPC("AddPlayers", PhotonTargets.All);
         }
 
     }
@@ -118,6 +122,11 @@ public class LTNetworkManager : Photon.MonoBehaviour, IPunObservable
         //    // DisplayResults();
 
         //}
+
+        if(LTPlayerHandler.instance.playerList.Count <= 1 && currentGameState == GameStates.InProgress)
+        {
+            this.photonView.RPC("DisplayResults", PhotonTargets.AllViaServer);
+        }
         //Debug.Log(currentGameState);
 
     }
