@@ -17,9 +17,9 @@ public class LTPlayer : Photon.MonoBehaviour, IPunObservable
         position = 0;
         goNow = false;
         currentCDTime = setCDTime;
-        positionVectors.Add(new Vector3(this.transform.position.x, this.transform.position.y, -12f));
-        positionVectors.Add(new Vector3(this.transform.position.x, this.transform.position.y, -13f));
-        positionVectors.Add(new Vector3(this.transform.position.x, this.transform.position.y, -14f));
+        positionVectors.Add(new Vector3(this.transform.position.x, this.transform.position.y, -11.5f));
+        positionVectors.Add(new Vector3(this.transform.position.x, this.transform.position.y, -11.7f));
+        positionVectors.Add(new Vector3(this.transform.position.x, this.transform.position.y, -11.9f));
     }
 
     private void Update()

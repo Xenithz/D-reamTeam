@@ -34,8 +34,8 @@ public class BombTagOfflineTwo : MonoBehaviour {
     private Vector3 MovementInput()
     {
         Vector3 inputToReturn;
-        float horizontalTrack = Input.GetAxis("Horizontal1");
-        float verticalTrack = Input.GetAxis("Vertical1");
+        float horizontalTrack = Input.GetAxis("Joystick Horizontal1");
+        float verticalTrack = Input.GetAxis("Joystick Vertical1");
         inputToReturn = new Vector3(horizontalTrack, 0f, verticalTrack);
         return inputToReturn;
     }
