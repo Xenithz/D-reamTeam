@@ -58,5 +58,25 @@ public class UIManager : MonoBehaviour {
         Application.Quit();
     }
 
-    
+    public void OnClickBombTutorial()
+    {
+        SceneManager.LoadScene("Bomb Tag Tutorial");
+    }
+
+    public void OnClickLaserTutorial()
+    {
+        SceneManager.LoadScene("Laser Jump Tutorial");
+    }
+
+    public void OnClickSumoTutorial()
+    {
+        SceneManager.LoadScene("Sumo Ball Tutorial");
+    }
+
+    public void OnClickOfflinePick()
+    {
+        SceneManager.LoadScene("Offline Pick");
+    }
+
+
 }

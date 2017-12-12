@@ -70,8 +70,7 @@ public class LaserJumpControllerOffline : MonoBehaviour {
         myCollider = GetComponent<CapsuleCollider>();
         myAnim = GetComponent<Animator>();
         defaultY = transform.position.y;
-        colliderLow = 1;
-        colliderHigh = 1.1f;
+        
     }
 
 }
