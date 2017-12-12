@@ -50,6 +50,7 @@ public class BombTagOffline : MonoBehaviour {
         vectorForMovement = Vector3.ClampMagnitude(vectorForMovement, desiredClampValueForMovementMagnitude);
         //Debug.Log(vectorForMovement.magnitude);
         myRigidBody.AddForce(vectorForMovement, ForceMode.Impulse);
+        
     }
 
     //Takes in the direction that the character is moving towards, and adds torque to rotate the character towards the direction of the vector
