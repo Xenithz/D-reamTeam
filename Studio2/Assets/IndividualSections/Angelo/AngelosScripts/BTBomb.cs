@@ -84,6 +84,7 @@ public class BTBomb : Photon.MonoBehaviour, IPunObservable
     public void TimeTickDown()
     {
         currentTimeTillExplosion -= Time.deltaTime;
+        int timeTillExplode = (int)currentTimeTillExplosion;
         if (currentTimeTillExplosion <= 0)
         {
             Debug.Log("destroy");

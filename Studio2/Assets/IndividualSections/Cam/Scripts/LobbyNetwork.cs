@@ -44,7 +44,7 @@ public class LobbyNetwork : MonoBehaviour{
     {
        print("joined lobby");
        PhotonNetwork.playerName = localPlayer.GetComponent<LocalPlayerInfo>().localPlayerName;
-       playerName.text = localPlayer.GetComponent<LocalPlayerInfo>().localPlayerName;
+       //playerName.text = localPlayer.GetComponent<LocalPlayerInfo>().localPlayerName;
         PhotonNetwork.GetRoomList();
     }
 
