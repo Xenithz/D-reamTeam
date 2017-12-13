@@ -1,0 +1,161 @@
+fileFormatVersion: 2
+guid: 8b648499c12beec4fb8e42451da488aa
+timeCreated: 1513065570
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Arm_end_L
+    100002: Arm_end_R
+    100004: Arm_L
+    100006: Arm_R
+    100008: Body
+    100010: Bone005
+    100012: Chest
+    100014: Chest_cntrl
+    100016: Clavicle_L_cntrl
+    100018: Clavicle_R_cntrl
+    100020: Clavicles_L
+    100022: Clavicles_R
+    100024: COG
+    100026: COG_cntrl
+    100028: //RootNode
+    100030: Elbow_L
+    100032: Elbow_R
+    100034: Foot_L_ctnrl
+    100036: Foot_R_cntrl
+    100038: Forearm_L
+    100040: Forearm_R
+    100042: Hand__cntrl_L
+    100044: Hand_cntrl_R
+    100046: Head
+    100048: Head_cntrl
+    100050: IK Chain001
+    100052: IK Chain002
+    100054: IK Chain003
+    100056: IK Chain004
+    100058: Knee_L
+    100060: Knee_R
+    100062: Leg_end_L
+    100064: Leg_end_R
+    100066: Master
+    100068: Shin_L
+    100070: Shin_R
+    100072: Stomach
+    100074: Stomach_cntrl
+    100076: Thigh_L
+    100078: Thigh_R
+    400000: Arm_end_L
+    400002: Arm_end_R
+    400004: Arm_L
+    400006: Arm_R
+    400008: Body
+    400010: Bone005
+    400012: Chest
+    400014: Chest_cntrl
+    400016: Clavicle_L_cntrl
+    400018: Clavicle_R_cntrl
+    400020: Clavicles_L
+    400022: Clavicles_R
+    400024: COG
+    400026: COG_cntrl
+    400028: //RootNode
+    400030: Elbow_L
+    400032: Elbow_R
+    400034: Foot_L_ctnrl
+    400036: Foot_R_cntrl
+    400038: Forearm_L
+    400040: Forearm_R
+    400042: Hand__cntrl_L
+    400044: Hand_cntrl_R
+    400046: Head
+    400048: Head_cntrl
+    400050: IK Chain001
+    400052: IK Chain002
+    400054: IK Chain003
+    400056: IK Chain004
+    400058: Knee_L
+    400060: Knee_R
+    400062: Leg_end_L
+    400064: Leg_end_R
+    400066: Master
+    400068: Shin_L
+    400070: Shin_R
+    400072: Stomach
+    400074: Stomach_cntrl
+    400076: Thigh_L
+    400078: Thigh_R
+    4300000: Body
+    7400000: Take 001
+    9500000: //RootNode
+    13700000: Body
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

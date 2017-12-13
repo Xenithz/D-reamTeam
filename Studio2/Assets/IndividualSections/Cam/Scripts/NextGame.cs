@@ -31,14 +31,14 @@ public class NextGame : Photon.MonoBehaviour, IPunObservable {
     public void OnClickSumoNext()
     {
 
-        PhotonNetwork.LoadLevel(4);
+        PhotonNetwork.LoadLevel(7);
     }
 
     [PunRPC]
     public void OnClickLaserNext()
     {
 
-        PhotonNetwork.LoadLevel(5);
+        PhotonNetwork.LoadLevel(8);
 
     }
 }

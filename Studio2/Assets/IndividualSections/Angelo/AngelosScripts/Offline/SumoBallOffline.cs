@@ -19,8 +19,8 @@ public class SumoBallOffline : SBControl
     private Vector3 MovementInput()
     {
         Vector3 inputToReturn;
-        float horizontalTrack = Input.GetAxis("Horizontal");
-        float verticalTrack = Input.GetAxis("Vertical");
+        float horizontalTrack = Input.GetAxis("Joystick Horizontal");
+        float verticalTrack = Input.GetAxis("Joystick Vertical");
         inputToReturn = new Vector3(horizontalTrack, 0f, verticalTrack);
         return inputToReturn;
     }

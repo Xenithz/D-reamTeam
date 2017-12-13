@@ -16,7 +16,9 @@ public enum GameStates
 public class NetworkManager : Photon.MonoBehaviour, IPunObservable{ 
     static public NetworkManager Instance; 
     [SerializeField]private Text connectionText;
-    [SerializeField]public GameObject player;
+    [SerializeField]public GameObject[] players;
+    public GameObject[] playerIcons;
+    public Transform iconPos;
     [SerializeField]private GameObject[] spawnpoints;
     public List<GameObject> playersAlive;
     BTBombAssigner BTBA; 
@@ -44,8 +46,16 @@ public class NetworkManager : Photon.MonoBehaviour, IPunObservable{
         PhotonNetwork.ConnectUsingSettings("0.1");
         BTBA = GetComponent<BTBombAssigner>();
         resultText = resultPanel.GetComponentInChildren<Text>();
+        //Instantiates player in their appropriate spawn points, now make them instantiate the appropriate prefab..how?
+        //if photon network ID = x then spawn x prefab at this location
 
-        GameObject localPlayer = PhotonNetwork.Instantiate(player.name, spawnpoints[PhotonNetwork.player.ID - 1].transform.position, Quaternion.identity, 0);
+        
+        
+        GameObject localPlayer = PhotonNetwork.Instantiate(players[PhotonNetwork.player.ID-1].name, spawnpoints[PhotonNetwork.player.ID-1].transform.position, Quaternion.identity, 0);
+        GameObject localIcon = Instantiate(playerIcons[PhotonNetwork.player.ID - 1], iconPos.transform.position, Quaternion.identity);
+        localIcon.transform.SetParent(iconPos);
+
+        Debug.Log(PhotonNetwork.player.ID);
         // myInstance = localPlayer; 
 
         this.photonView.RPC("AddToList", PhotonTargets.AllBufferedViaServer, localPlayer.name);

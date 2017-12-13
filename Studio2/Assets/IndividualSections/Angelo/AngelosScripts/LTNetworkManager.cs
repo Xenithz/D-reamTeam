@@ -11,7 +11,9 @@ public class LTNetworkManager : Photon.MonoBehaviour, IPunObservable
     [SerializeField]
     private Text connectionText;
     [SerializeField]
-    public GameObject player;
+    public GameObject [] players;
+    public GameObject[] playerIcons;
+    public Transform iconPos;
     [SerializeField]
     private GameObject[] spawnpoints;
     public List<GameObject> playersAlive;
@@ -35,7 +37,9 @@ public class LTNetworkManager : Photon.MonoBehaviour, IPunObservable
         PhotonNetwork.ConnectUsingSettings("0.1");
         resultText = resultPanel.GetComponentInChildren<Text>();
 
-        GameObject localPlayer = PhotonNetwork.Instantiate(player.name, spawnpoints[PhotonNetwork.player.ID - 1].transform.position, Quaternion.identity, 0);
+        GameObject localPlayer = PhotonNetwork.Instantiate(players[PhotonNetwork.player.ID -1].name, spawnpoints[PhotonNetwork.player.ID - 1].transform.position, Quaternion.identity, 0);
+        GameObject localIcon = Instantiate(playerIcons[PhotonNetwork.player.ID - 1], iconPos.transform.position, Quaternion.identity);
+        localIcon.transform.SetParent(iconPos);
         // myInstance = localPlayer; 
 
         this.photonView.RPC("AddToList", PhotonTargets.AllBufferedViaServer, localPlayer.name);

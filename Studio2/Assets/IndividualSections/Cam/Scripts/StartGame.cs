@@ -32,7 +32,7 @@ public class StartGame : Photon.MonoBehaviour, IPunObservable
     {
 
 
-        PhotonNetwork.LoadLevel(3);
+        PhotonNetwork.LoadLevel(6);
 
 
     }

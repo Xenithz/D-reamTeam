@@ -39,12 +39,12 @@ public class LaserJumpControllerTwoOffline : MonoBehaviour {
     {
 
 
-        if (Input.GetAxis("Crouch") != 0)
+        if (Input.GetAxis("Crouch1") != 0)
         {
             myAnim.SetBool("isCrouch", true);
             myCollider.height = colliderLow;
         }
-        else if (Input.GetAxis("Crouch") == 0)
+        else if (Input.GetAxis("Crouch1") == 0)
         {
             myAnim.SetBool("isCrouch", false);
             myCollider.height = colliderHigh;
