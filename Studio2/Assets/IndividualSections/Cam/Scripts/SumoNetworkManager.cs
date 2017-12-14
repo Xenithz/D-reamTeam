@@ -102,7 +102,7 @@ public class SumoNetworkManager : Photon.MonoBehaviour, IPunObservable
         //    this.photonView.RPC("AddPlayers", PhotonTargets.All);
         //}
 
-        if (allPlayers.Count > 2)
+        if (allPlayers.Count > 3)
         {
             Debug.Log("in progress");
             currentGameState = GameStates.InProgress;
