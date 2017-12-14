@@ -83,7 +83,7 @@ public class LTNetworkManager : Photon.MonoBehaviour, IPunObservable
     [PunRPC]
     public void CheckPlayerList()
     {
-        if (allPlayers.Count > 2)
+        if (allPlayers.Count > 1)
         {
             currentGameState = GameStates.InProgress;
             this.photonView.RPC("AddPlayers", PhotonTargets.All);
